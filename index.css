@@ -1,0 +1,730 @@
+/** -----------------------------------------------------------------
+  * SECTION CONFIG
+------------------------------------------------------------------ */
+
+:root {
+  --font-body: "Open Sans", "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-head: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "Fira Code", monospace;
+
+  --color-primary: #4299E1;
+  --color-accent: var(--color-primary);
+  --element-bg-color: #EDF2F7;
+  --text-color: #1A202C;
+  --heading-color: var(--text-color);
+  --light-text-color: #A0AEC0;
+  --link-color: var(--color-primary);
+  --button-color: var(--link-color);
+
+  --space-unit: 1.5rem;
+  --section-space: calc(var(--space-unit) * 4);
+  --content-width: 900px;
+  --sidebar-width: 300px;
+  --side-pad: var(--space-unit);
+}
+
+/* END !SECTION CONFIG */
+/** -----------------------------------------------------------------
+  * SECTION RESET
+  * http://meyerweb.com/eric/tools/css/reset/
+  * v2.0 | 20110126
+  * License: none (public domain)
+------------------------------------------------------------------ */
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* END !SECTION RESET */
+/** -----------------------------------------------------------------
+  * SECTION CORE
+  * [1] Links that point to a location on the same page will scroll
+  * smoothly down to that location.
+  * [2] Hide content visually, but allow screen readers to read the
+  * content. Note that for Accessibility guidelines, this content
+  * must become visible if toggled over by using a keyboard.
+  * [3] Give the hidden attribute most priority - fixes issue where
+  * an html element can be marked as hidden but is still visible.
+  * Use aria-hidden="true" to hide visual elements from screen readers.
+------------------------------------------------------------------ */
+
+/* [1] SMOOTH SCROLL */
+
+body { scroll-behavior: smooth; }
+
+/* [2] VISIBILITY */
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* [3] HIDDEN */
+
+[hidden] {
+  display: none !important;
+}
+
+/* END !SECTION CORE */
+/** -----------------------------------------------------------------
+  * SECTION TYPOGRAPHY
+------------------------------------------------------------------ */
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+p {
+  margin: 0;
+  margin-bottom: var(--space-unit);
+}
+
+h1, h2, h3, h4, h5,
+.txt-h1, .txt-h2, .txt-h3, .txt-h4, .txt-h5, .txt-h6,
+label, th, legend {
+  font-family: var(--font-head);
+  margin-bottom: var(--space-unit);
+
+}
+
+h1, h2, h3, h4, h5, h6,
+.txt-h1, .txt-h2, .txt-h3, .txt-h4, .txt-h5, .txt-h6 {
+  margin-top: calc(var(--space-unit) * 2);
+  color: var(--heading-color);
+}
+
+h1, .txt-h1 { font-size: 3.052rem; line-height: 1.2; margin-top: 0;}
+h2, .txt-h2 { font-size: 2.441rem; line-height: 1.25; }
+h3, .txt-h3 { font-size: 1.953rem; line-height: 1.3; }
+h4, .txt-h4 { font-size: 1.563rem; line-height: 1.35; }
+h5, .txt-h5 { font-size: 1.25rem;  line-height: 1.5; }
+h6, .txt-h6, label, th, legend { font-size: 1rem; font-weight: bold; }
+
+p, .txt-p, code, pre, kbd, samp { font-size: 1rem; }
+
+small, .txt-small { font-size: 0.8rem; line-height: 1.3; }
+
+h1 + h2,
+h2 + h3,
+h3 + h4,
+h4 + h5,
+h5 + h6,
+.txt-h1 + .txt-h2,
+.txt-h2 + .txt-h3,
+.txt-h3 + .txt-h4,
+.txt-h4 + .txt-h5,
+.txt-h5 + .txt-h6 {
+  margin-top: calc(var(--space-unit) * -0.5);
+}
+
+strong { font-weight: bold; }
+
+em { font-style: italic; }
+
+em.underline, u { text-decoration: underline; font-style: normal;}
+
+.uppercase { text-transform: uppercase; }
+
+h1.bold, h2.bold, h3.bold, h4.bold, h5.bold, h6.bold { font-weight: bold; }
+
+/* END !SECTION TYPOGRAPHY */
+/** -----------------------------------------------------------------
+  * SECTION LINKS
+  * :not([class]) is so that the styles won't need to be overridden
+  * in special use cases like navigation / buttons
+------------------------------------------------------------------ */
+
+a:not([class]) {
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* VISITED STYLES GO HERE */
+
+a:not([class]):hover,
+a:not([class]):focus {
+  text-decoration: underline;
+}
+
+/*
+OPTIONAL STYLES
+Add an icon for links that go to a PDF and/or links that open in a new tab
+*/
+
+/* a:not([class])[target="_blank"]::after,
+a:not([class])[data-link-type="external"] {
+  content: ' \e91f';
+  font-size: 90%;
+}
+
+a:not([class])[href$='.pdf']::after,
+a:not([class])[data-link-type='document']::after {
+  content: '\e91d';
+  font-size: 90%;
+  padding-left: 0.1em;
+} */
+
+/* END !SECTION LINKS */
+/** -----------------------------------------------------------------
+  * SECTION BLOCKQUOTE
+------------------------------------------------------------------ */
+
+blockquote,
+.callout {
+  border-left: 5px solid var(--color-accent);
+  padding: calc(var(--space-unit) / 2) var(--space-unit);
+  margin-bottom: var(--space-unit);
+  background-color: var(--element-bg-color);
+}
+
+blockquote p:last-child,
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+/* END !SECTION BLOCKQUOTE */
+/** -----------------------------------------------------------------
+  * SECTION LISTS
+------------------------------------------------------------------ */
+
+ul:not([class]) { list-style-type: disc; }
+ul:not([class]) ul:not([class]) { list-style-type: circle; }
+ul:not([class]) ul:not([class]) ul:not([class]) { list-style-type: square; }
+
+ol:not([class]) { list-style-type: decimal; }
+ol:not([class]) ol:not([class]) { list-style-type: upper-alpha; }
+ol:not([class]) ol:not([class]) ol:not([class]) { list-style-type: lower-roman; }
+
+ul:not([class]), ol:not([class]) {
+  margin-left: var(--space-unit);
+  margin-bottom: var(--space-unit);
+}
+
+ul:not([class]) li,
+ul:not([class]) ol,
+ul:not([class]) ul,
+ol:not([class]) li,
+ol:not([class]) ol,
+ol:not([class]) ul {
+  margin-bottom: calc(var(--space-unit) / 2);
+}
+
+ul:not([class]) ol,
+ul:not([class]) ul,
+ol:not([class]) ol,
+ol:not([class]) ul {
+  margin-top: calc(var(--space-unit) / 2);
+}
+
+dt { font-weight: bold; }
+dd { padding-left: var(--space-unit); }
+
+/* END !SECTION LISTS */
+/** -----------------------------------------------------------------
+  * SECTION MEDIA
+------------------------------------------------------------------ */
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.aspect-ratio,
+.video-wrapper,
+.embed-container {
+  width: 100%;
+  padding-top: calc(100%/(var(--aspect-ratio)));
+  position: relative;
+}
+
+.video-wrapper,
+.embed-container,
+.sixteen-by-nine { --aspect-ratio: 16/9; }
+.one-by-one { --aspect-ratio: 1/1; }
+.three-by-two { --aspect-ratio: 3/2; }
+.four-by-three { --aspect-ratio: 3/2; }
+.eight-by-five { --aspect-ratio: 8/5; }
+
+.embed-container > iframe,
+.embed-container > embed,
+.embed-container > object,
+.video-wrapper > iframe,
+.video-wrapper > embed,
+.video-wrapper > object
+.aspect-ratio > iframe,
+.aspect-ratio > embed,
+.aspect-ratio > object,
+.aspect-ratio > img {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+}
+
+.aspect-ratio > img {
+  object-fit: cover;
+}
+
+.cover {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  object-fit: cover;
+}
+
+.overflow-x {
+  overflow-x: auto;
+}
+
+/* END !SECTION MEDIA */
+/** -----------------------------------------------------------------
+  * SECTION RULES
+------------------------------------------------------------------ */
+
+hr {
+  border: none;
+  border-bottom: 0.5px solid var(--light-text-color);
+  margin: calc(var(--space-unit) * 2) 0;
+  width: 100%;
+}
+
+hr.spacer {
+  border: none;
+  margin: var(--space-unit) 0;
+}
+
+/* END !SECTION MISC */
+/** -----------------------------------------------------------------
+  * SECTION TABLES
+------------------------------------------------------------------ */
+
+table {
+  width: 100%;
+}
+
+th, td {
+  padding: calc(var(--space-unit) / 2);
+  text-align: left;
+}
+
+tr {
+  border-bottom: 0.5px solid var(--light-text-color);
+}
+
+/* END !SECTION TABLES */
+/** -----------------------------------------------------------------
+  * SECTION CODE
+------------------------------------------------------------------ */
+
+pre {
+  margin-bottom: var(--space-unit);
+}
+
+code, samp, kbd {
+  font-family: var(--font-mono);
+  padding: 0.1em 0.3em;
+}
+
+code, samp {
+  background-color: var(--element-bg-color);
+}
+
+kbd {
+  background-color: var(--text-color);
+  color: white;
+  border-radius: 5px;
+}
+
+pre code {
+  display: block;
+  padding: var(--space-unit);
+  overflow: auto;
+}
+
+/* END !SECTION CODE */
+/** -----------------------------------------------------------------
+  * SECTION BUTTONS
+------------------------------------------------------------------ */
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  /* Normalization */
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  width: auto;
+  background-color: transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+  line-height: inherit;
+  font-size: inherit;
+  font-family: inherit;
+
+  /* Basic Styles */
+  padding: calc(var(--space-unit) / 2) var(--space-unit);
+  color: var(--button-color);
+  border: 1px solid var(--button-color);
+  margin-bottom: var(--space-unit);
+
+  /* Opinionated Styles */
+  font-size: 80%;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
+  color: var(--text-color);
+  border-color: var(--text-color);
+  outline: 0;
+}
+
+
+.button.button-primary,
+button.button-primary,
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary {
+  color: #FFF;
+  background-color: var(--button-color);
+  border-color: var(--button-color);
+}
+
+.button.button-primary:hover,
+button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover,
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+  filter: brightness(110%);
+}
+
+.button[disabled],
+button[disabled],
+input[type="submit"][disabled],
+input[type="reset"][disabled],
+input[type="button"][disabled] {
+  background-color: var(--element-bg-color);
+  color: var(--light-text-color);
+  border: none;
+  pointer-events: none;
+}
+
+/* END !SECTION BUTTONS */
+/** -----------------------------------------------------------------
+  * SECTION FORMS
+  * TODO: Add checkboxes
+  * TODO: Add radio buttons
+------------------------------------------------------------------ */
+
+label, legend {
+  display: block;
+  font-weight: bold;
+  margin-bottom: calc(var(--space-unit) / 2);
+  background-color: transparent;
+}
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  box-shadow: none;
+  background-color: transparent;
+  margin-bottom: var(--space-unit);
+  display: block;
+  width: 100%;
+  padding: calc(var(--space-unit) / 2);
+  border: 0.5px solid var(--text-color);
+  color: var(--text-color);
+}
+
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-accent);
+  outline: 0;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 10rem;
+}
+
+/* Removes awkward default styles on some inputs for iOS */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+fieldset {
+  padding: 0;
+  border-width: 0;
+}
+
+/*
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline; }
+*/
+
+/* END !SECTION FORMS */
+/** -----------------------------------------------------------------
+  * SECTION LAYOUT
+------------------------------------------------------------------ */
+
+/* CLEARFIX */
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* CENTER */
+
+div.center, section.center {
+  display: grid;
+  place-items: center;
+}
+
+p.center,
+h1.center,
+h2.center,
+h3.center,
+h4.center,
+h5.center,
+h6.center {
+  text-align: center;
+}
+
+/* Level */
+
+.level {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: calc(var(--space-unit) / -2);
+}
+.level_item {
+  align-self: center;
+  display: block;
+  padding: calc(var(--space-unit) / 2);
+}
+
+/* Grid */
+
+.grid {
+  --grid-gap: var(--space-unit);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: var(--grid-gap);
+}
+
+@media ( orientation: portrait ) {
+  .grid-portrait {
+    --grid-gap: var(--space-unit);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: var(--grid-gap);
+  }
+}
+
+@media ( orientation: landscape ) {
+  .grid-landscape {
+    --grid-gap: var(--space-unit);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: var(--grid-gap);
+  }
+}
+
+/* END !SECTION LAYOUT */
+/** -----------------------------------------------------------------
+  * SECTION PAGE SCAFFOLDING
+  <template>
+    <div id="app">
+
+      <header id="top-header">
+      </header>
+
+      <div id="content" class="has-sidebar container">
+        <div class="sidebar"></div>
+        <main></main>
+      </div>
+
+      <footer id="footer">
+        <div class="container">
+        </div>
+      </footer>
+
+    </div>
+  </template>
+------------------------------------------------------------------ */
+
+/* Style for a nav bar area */
+
+#top-header {
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+}
+
+.container {
+  max-width: var(--content-width);
+  padding: 0 var(--side-pad);
+  margin: 0 auto;
+}
+
+.container.has-sidebar {
+  max-width: calc(var(--content-width) + var(--section-space) + var(--sidebar-width));
+  padding: 0 var(--side-pad);
+  margin: 0 auto;
+}
+
+.section { margin: var(--section-space) 0; }
+
+/* Conditional class to enable sidebar logic */
+
+.has-sidebar {
+  display: grid;
+  grid-template-areas: "content" "sidebar";
+  grid-gap: var(--section-space);
+}
+section, article, footer {
+  grid-area: sidebar;
+}
+@media (orientation: landscape) {
+  .has-sidebar {
+    grid-template-columns: var(--sidebar-width) 1fr;
+    grid-template-areas: "sidebar content"
+  }
+  .has-sidebar main {
+    min-width: 0;
+  }
+}
+
+/* Setup container for sticky footer */
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 100vw;
+}
+
+/* The item is sized according to its width and height properties.
+It shrinks to its minimum size to fit the container, but does not
+grow to absorb any extra free space in the flex container. */
+
+#content {
+  width: 100%;
+  flex: 1 0 auto;
+  align-self: center;
+  padding-top: calc(var(--space-unit) * 5);
+  padding-bottom: calc(var(--space-unit) * 5);
+}
+
+/* Ensure footer does not shrink */
+
+#footer { flex-shrink: 0; }
+
+/* END !SECTION PAGE SCAFFOLDING */

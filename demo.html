@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Name TBA</title>
+    <meta name="description" content="A simple, modern CSS boilerplate">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+<div id="app">
+
+  <!-- <header id="top-header">
+  </header> -->
+
+  <div id="content" class="container">
+    <!-- <div class="sidebar"></div> -->
+    <main>
+      <section class="section">
+        <h1 class="txt-h2 center">Simple, Modern, Responsive</h1>
+        <p class="txt-h1 center">CSS Boilerplate</p>
+      </section>
+      <section class="section">
+        <p>Heavily inspired by Skeleton, this CSS boilerplate contains a simple CSS reset, base html styles using modern techniques, and a few features to help things along. It enables smooth scrolling, enforces the <code>hidden</code> attribute, and adds a <code>visually-hidden</code> class to keep hidden content available for screen readers.</p>
+        <p>This is not a framework, but a starting point. There is no build, no package, no hastle. Just download the file and start adjusting it to fit your needs. What is here has been designed to be as little opinionated style as possible while giving a nice baseline aesthetic.</p>
+      </section>
+      <section class="section">
+      <h2 class="uppercase txt-h5 bold">Typography</h2>
+      <div class="grid">
+        <div>
+          <p>The typographical base is built on a 16px base (1rem) on a 1.25 modular scale. All font sizes are set with rems and have custom line heights.</p>
+          <p>The fonts are Open Sans, with Raleway for headings, and Fira Code for monospace. Fonts can be changed using CSS custom properties.</p>
+          <p>Other semantic type tags like <a>anchors</a>, <strong>strong</strong>, <em>emphasis</em>, <u>underline</u>, and <small>small</small> are all included.</p>
+        </div>
+        <div>
+          <p class="txt-h1">Heading 1</p>
+          <p class="txt-h2">Heading 2</p>
+          <p class="txt-h3">Heading 3</p>
+          <p class="txt-h4">Heading 4</p>
+          <p class="txt-h5">Heading 5</p>
+          <p class="txt-h6">Heading 6</p>
+        </div>
+      </div>
+      </section>
+      <section class="section">
+        <h2 class="uppercase txt-h5 bold">Lists</h2>
+        <p>Lists of the same type can be nested up to three times with different styles, and styles have been included for unordered lists, ordered lists, and definition lists.</p>
+        <div class="grid">
+          <div>
+            <ul>
+              <li>Item 1
+                <ul>
+                  <li>Item 2.1
+                    <ul>
+                      <li>Item 2.1.1</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <ol>
+              <li>Item 1
+                <ol>
+                  <li>Item 2.1
+                    <ol>
+                      <li>Item 2.1.1</li>
+                    </ol>
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </div>
+          <div>
+            <dl>
+              <dt>Term</dt>
+              <dd>Description</dd>
+              <dt>Term</dt>
+              <dd>Description</dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <h2 class="uppercase txt-h5 bold">Blockquote</h2>
+        <p>A blockquote can be created using the <code>&lt;blockquote&gt;</code> element, or by using the <code>.callout</code> class. Paragraph elements should be placed inside the blockquote element.</p>
+        <blockquote>
+          <p>Awesome quote</p>
+        </blockquote>
+      </section>
+      <section class="section">
+        <h2 class="uppercase txt-h5 bold">Code</h2>
+        <p>Styles have been included for <code>&lt;code&gt;</code>, <code>&lt;samp&gt;</code>, and <kbd>&lt;kbd&gt;</kbd> elements. Code blocks can be made by wrapping a <code>&lt;code&gt;</code> element inside a <code>&lt;pre&gt;</code> element. Code blocks overflow automatically on the x axis in case there is not enough room for a line of code.</p>
+<pre><code>.some-class {
+  background-color: blue;
+}
+
+&lt;!-- Remember every whitespace and break will be preserved in a &lt;pre&gt;, including indentation in your code. --&gt;</code></pre>
+      </section>
+      <section class="section">
+        <h2 class="txt-h5 uppercase bold">Buttons</h2>
+        <p>Standard Buttons</p>
+        <a class="button" href="#">Anchor button</a>
+        <button>Button element</button>
+        <input type="submit" value="Submit input">
+        <input type="button" value="Button input">
+        <p>Primary buttons</p>
+        <a class="button button-primary" href="#">Anchor button</a>
+        <button class="button-primary">Button element</button>
+        <input class="button-primary" type="submit" value="submit input">
+        <input class="button-primary" type="button" value="button input">
+        <p>Disabled</p>
+        <a class="button" href="#" disabled>Anchor button</a>
+        <button class="button-primary" disabled>Button element</button>
+        <input type="submit" value="submit input" disabled>
+        <input class="button-primary" type="button" value="button input" disabled>
+      </section>
+      <section class="section">
+        <h2 class="txt-h5 uppercase bold">Forms</h2>
+        <form>
+          <div class="grid">
+            <div>
+              <label for="exampleEmailInput">Your email</label>
+              <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="exampleEmailInput">
+            </div>
+            <div class="">
+              <label for="exampleRecipientInput">Reason for contacting</label>
+              <select class="u-full-width" id="exampleRecipientInput">
+                <option value="Option 1">Questions</option>
+                <option value="Option 2">Admiration</option>
+                <option value="Option 3">Can I get your number?</option>
+              </select>
+            </div>
+          </div>
+          <label for="exampleMessage">Message</label>
+          <textarea class="u-full-width" placeholder="Hi Dave …" id="exampleMessage"></textarea>
+
+          <label class="example-send-yourself-copy">
+            <input type="checkbox">
+            <span class="label-body">Send a copy to yourself</span>
+          </label>
+          <input class="button-primary" type="submit" value="Submit">
+
+        </form>
+      </section>
+      <section class="section">
+        <h2 class="uppercase txt-h5 bold">Tables</h2>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%">Variable</th>
+              <th style="width: 40%">Description</th>
+              <th style="width: 35%">Default</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>--font-body</code></td>
+              <td>Sets the default font</td>
+              <td>Open Sans</td>
+            </tr>
+            <tr>
+              <td><code>--font-head</code></td>
+              <td>Sets the font for headings</td>
+              <td>Raleway</td>
+            </tr>
+            <tr>
+              <td><code>--font-mono</code></td>
+              <td>Sets the font for code</td>
+              <td>Fira Code</td>
+            </tr>
+            <tr>
+              <td><code>--color-primary</code></td>
+              <td>Sets the primary color</td>
+              <td><code>#4299E1</code></td>
+            </tr>
+            <tr>
+              <td><code>--color-accent</code></td>
+              <td>Sets the secondary color</td>
+              <td><code>var(--color-primary)</code></td>
+            </tr>
+            <tr>
+              <td><code>--element-bg-color</code></td>
+              <td>Color used for element backgrounds</td>
+              <td><code>#EDF2F7</code></td>
+            </tr>
+            <tr>
+              <td><code>--text-color</code></td>
+              <td>Color used for all text</td>
+              <td><code>#1A202C</code></td>
+            </tr>
+            <tr>
+              <td><code>--heading-color</code></td>
+              <td>Color used for headings</td>
+              <td><code>var(--text-color)</code></td>
+            </tr>
+            <tr>
+              <td><code>--light-text-color</code></td>
+              <td>Color used for rules and tables</td>
+              <td><code>#A0AEC0</code></td>
+            </tr>
+            <tr>
+              <td><code>--link-color</code></td>
+              <td>Color used for navigational elements</td>
+              <td><code>var(--color-primary)</code></td>
+            </tr>
+            <tr>
+              <td><code>--button-color</code></td>
+              <td>Color used for buttons</td>
+              <td><code>var(--link-color)</code></td>
+            </tr>
+            <tr>
+              <td><code>--space-unit</code></td>
+              <td>The standard unit of space</td>
+              <td><code>1.6rem</code></td>
+            </tr>
+            <tr>
+              <td><code>--section-space</code></td>
+              <td>The amount of space between sections</td>
+              <td><code>calc(var(--space-unit) * 2)</code></td>
+            </tr>
+            <tr>
+              <td><code>--content-width</code></td>
+              <td>The max width of the main content area</td>
+              <td><code>900px</code></td>
+            </tr>
+            <tr>
+              <td><code>--sidebar-width</code></td>
+              <td>The max width of the sidebar</td>
+              <td><code>300px</code></td>
+            </tr>
+            <tr>
+              <td><code>--side-pad</code></td>
+              <td>The width of the side padding</td>
+              <td><code>var(--space-unit)</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <!-- <footer id="footer">
+    <div class="container">
+    </div>
+  </footer> -->
+
+</div>
+
+</body>
+
+</html>
