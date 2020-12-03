@@ -3,9 +3,9 @@
 ------------------------------------------------------------------ */
 
 :root {
-  --font-body: "Open Sans", "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-head: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-mono: "Fira Code", monospace;
+  --font-body: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-head: var(--font-body);
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 
   --color-primary: #4299E1;
   --color-accent: var(--color-primary);
@@ -360,6 +360,7 @@ hr.spacer {
 
 table {
   width: 100%;
+  margin-bottom: var(--space-unit);
 }
 
 th, td {
