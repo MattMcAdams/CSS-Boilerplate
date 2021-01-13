@@ -1,26 +1,66 @@
+/* ==================================================================
+  Smart CSS Boilerplate
+  Author: Matthew McAdams
+  @MattMakesArt | mattmcadams.com
+  The Unlicense <https://unlicense.org>
+  https://github.com/MattMcAdams/CSS-Boilerplate
+================================================================== */
+
 /** -----------------------------------------------------------------
   * SECTION CONFIG
 ------------------------------------------------------------------ */
 
 :root {
+  /* Fonts */
   --font-body: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-head: var(--font-body);
   --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 
-  --color-primary: #4299E1;
-  --color-accent: var(--color-primary);
-  --element-bg-color: #EDF2F7;
-  --text-color: #1A202C;
+  /* Colors */
+  --color-gray-100: #F3F4F6;
+  --color-gray-500: #6B7280;
+  --color-gray-900: #111827;
+  --color-red-100: #FEE2E2;
+  --color-red-500: #EF4444;
+  --color-red-900: #7F1D1D;
+  --color-yellow-100: #FEF3C7;
+  --color-yellow-500: #F59E0B;
+  --color-yellow-900: #78350F;
+  --color-green-100: #D1FAE5;
+  --color-green-500: #10B981;
+  --color-green-900: #064E3B;
+  --color-primary-100: #E0F2FE;
+  --color-primary-500: #0EA5E9;
+  --color-primary-900: #0C4A6E;
+
+  /* Semantic Colors */
+  --page-bg-color: white;
+  --element-bg-color: var(--color-gray-100);
+  --text-color: var(--color-gray-900);
+  --light-text-color: var(--color-gray-500);
   --heading-color: var(--text-color);
-  --light-text-color: #A0AEC0;
-  --link-color: var(--color-primary);
+  --link-color: var(--color-primary-500);
+
+  --link-color: var(--color-primary-500);
   --button-color: var(--link-color);
 
-  --space-unit: 1.5rem;
+  /* Spacing */
+  --space-unit: 1.5rem; /* Should equal base line-height */
   --section-space: calc(var(--space-unit) * 4);
   --content-width: 900px;
   --sidebar-width: 300px;
   --side-pad: var(--space-unit);
+
+  /* Modular Scale */
+  --ratio: 1.25;
+  --ms-0: 1rem;
+  --ms-1: calc(var(--ms-0) * var(--ratio));
+  --ms-2: calc(var(--ms-1) * var(--ratio));
+  --ms-3: calc(var(--ms-2) * var(--ratio));
+  --ms-4: calc(var(--ms-3) * var(--ratio));
+  --ms-5: calc(var(--ms-4) * var(--ratio));
+  --ms--1: calc(var(--ms-0) / var(--ratio));
+  --ms--2: calc(var(--ms--1) / var(--ratio));
 }
 
 /* END !SECTION CONFIG */
@@ -104,8 +144,9 @@ table {
 ------------------------------------------------------------------ */
 
 /* [1] SMOOTH SCROLL */
-
-body { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
 
 /* [2] VISIBILITY */
 
@@ -183,11 +224,21 @@ strong { font-weight: bold; }
 
 em { font-style: italic; }
 
-em.underline, u { text-decoration: underline; font-style: normal;}
+.underline, u { text-decoration: underline; font-style: normal;}
 
 .uppercase { text-transform: uppercase; }
 
-h1.bold, h2.bold, h3.bold, h4.bold, h5.bold, h6.bold { font-weight: bold; }
+.bold { font-weight: bold; }
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+}
+
+sup { top: -0.5em; }
+
+sub { bottom: -0.25em; }
 
 /* END !SECTION TYPOGRAPHY */
 /** -----------------------------------------------------------------
@@ -234,7 +285,7 @@ a:not([class])[data-link-type='document']::after {
 
 blockquote,
 .callout {
-  border-left: 5px solid var(--color-accent);
+  border-left: 5px solid var(--color-primary-500);
   padding: calc(var(--space-unit) / 2) var(--space-unit);
   margin-bottom: var(--space-unit);
   background-color: var(--element-bg-color);
@@ -285,6 +336,8 @@ dd { padding-left: var(--space-unit); }
 /* END !SECTION LISTS */
 /** -----------------------------------------------------------------
   * SECTION MEDIA
+  * TODO Add figure
+  * TODO Add figcaption
 ------------------------------------------------------------------ */
 
 img {
@@ -493,6 +546,8 @@ input[type="button"][disabled] {
   * SECTION FORMS
   * TODO: Add checkboxes
   * TODO: Add radio buttons
+  * TODO: Add meter
+  * TODO: Add progress
 ------------------------------------------------------------------ */
 
 label, legend {
@@ -533,7 +588,7 @@ input[type="url"]:focus,
 input[type="password"]:focus,
 textarea:focus,
 select:focus {
-  border-color: var(--color-accent);
+  border-color: var(--color-primary-500);
   outline: 0;
 }
 
@@ -570,6 +625,10 @@ input[type="radio"] {
 /* END !SECTION FORMS */
 /** -----------------------------------------------------------------
   * SECTION LAYOUT
+  * Containers
+  * Grid
+  * Sections
+  * Scafolding
 ------------------------------------------------------------------ */
 
 /* CLEARFIX */
@@ -616,7 +675,7 @@ h6.center {
 .grid {
   --grid-gap: var(--space-unit);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: var(--grid-gap);
 }
 
@@ -624,7 +683,7 @@ h6.center {
   .grid-portrait {
     --grid-gap: var(--space-unit);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: var(--grid-gap);
   }
 }
@@ -633,7 +692,7 @@ h6.center {
   .grid-landscape {
     --grid-gap: var(--space-unit);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: var(--grid-gap);
   }
 }
