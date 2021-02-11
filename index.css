@@ -231,12 +231,7 @@ small, .txt-small { font-size: 0.8rem; line-height: 1.3; }
 
 strong { font-weight: bold; }
 em, cite { font-style: italic; }
-
-/* Add utility classes for underlined, uppercased, and bold text */
-
-.underline, u { text-decoration: underline; font-style: normal;}
-.uppercase { text-transform: uppercase; }
-.bold { font-weight: bold; }
+u { text-decoration: underline; font-style: normal;}
 
 /* Basic style for subscript and superscript text */
 
@@ -664,7 +659,6 @@ fieldset {
   border: 0.5px solid var(--color-gray-500);
   padding: var(--space);
   margin-bottom: var(--space);
-  border-radius: 3px;
   background-color: var(--color-gray-100);
 }
 
@@ -688,8 +682,6 @@ legend {
   border: 1px solid var(--light-text-color);
   margin: 0;
   margin-bottom: var(--flow-space);
-
-  border-radius: 3px;
 }
 
 /* Normalize input width */
@@ -933,7 +925,14 @@ input[type="button"][disabled] {
   margin: 0 auto;
 }
 
+/** -----------------------------------------------------------------
+  * SECTION FLOW SPACING
+  * Use flow spacing in flow areas, provide a fallback for browsers
+  * that don't support css variables
+------------------------------------------------------------------ */
+
 .flow > * + * {
+  margin-top: 1.5rem;
   margin-top: var(--flow-space);
 }
 
@@ -949,22 +948,25 @@ input[type="button"][disabled] {
 .flow > * + .txt-h4,
 .flow > * + .txt-h5,
 .flow > * + .txt-h6 {
+  margin-top: 1.5rem;
   margin-top: calc(var(--flow-space) * 2);
 }
 
-h1 + h2,
-h2 + h3,
-h3 + h4,
-h4 + h5,
-h5 + h6,
-.txt-h1 + .txt-h2,
-.txt-h2 + .txt-h3,
-.txt-h3 + .txt-h4,
-.txt-h4 + .txt-h5,
-.txt-h5 + .txt-h6 {
+.flow > h1 + h2,
+.flow > h2 + h3,
+.flow > h3 + h4,
+.flow > h4 + h5,
+.flow > h5 + h6,
+.flow > .txt-h1 + .txt-h2,
+.flow > .txt-h2 + .txt-h3,
+.flow > .txt-h3 + .txt-h4,
+.flow > .txt-h4 + .txt-h5,
+.flow > .txt-h5 + .txt-h6 {
+  margin-top: 1.5rem;
   margin-top: calc(var(--flow-space) * 0.5);
 }
 
+/* END !SECTION FLOW SPACING */
 /** -----------------------------------------------------------------
   * SECTION LEVEL
 ------------------------------------------------------------------ */
@@ -1149,24 +1151,24 @@ details.accordion summary {
   padding: calc(var(--space)/2);
   padding-left: calc(var(--space) + 1em);
   background: var(--color-gray-100);
-  border-radius: 5px;
+  /*border-radius: 5px;*/
 }
 
 details.accordion summary::before {
   left: calc(var(--space)/2);
 }
 
-details.accordion[open] > summary {
+/*details.accordion[open] > summary {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-}
+}*/
 
 details.accordion .details-content {
   padding: calc(var(--space) / 2);
   padding-left: calc(var(--space) + 1rem);
   border: 2px solid var(--color-gray-100);
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
+  /*border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;*/
 }
 
 /* END !SECTION ACCORDION */
@@ -1187,10 +1189,16 @@ details.accordion .details-content {
   object-fit: cover;
 }
 
+/* Add utility classes for underlined, uppercased, and bold text */
+
+.underline { text-decoration: underline; font-style: normal;}
+.uppercase { text-transform: uppercase; }
+.bold { font-weight: bold; }
+
 /* Center utility
  * REVIEW: Possibly remove these? */
 
-div.center, section.center {
+.center {
   display: grid;
   place-items: center;
 }

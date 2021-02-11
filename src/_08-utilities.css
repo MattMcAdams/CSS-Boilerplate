@@ -15,10 +15,16 @@
   object-fit: cover;
 }
 
+/* Add utility classes for underlined, uppercased, and bold text */
+
+.underline { text-decoration: underline; font-style: normal;}
+.uppercase { text-transform: uppercase; }
+.bold { font-weight: bold; }
+
 /* Center utility
  * REVIEW: Possibly remove these? */
 
-div.center, section.center {
+.center {
   display: grid;
   place-items: center;
 }

@@ -91,12 +91,7 @@ small, .txt-small { font-size: 0.8rem; line-height: 1.3; }
 
 strong { font-weight: bold; }
 em, cite { font-style: italic; }
-
-/* Add utility classes for underlined, uppercased, and bold text */
-
-.underline, u { text-decoration: underline; font-style: normal;}
-.uppercase { text-transform: uppercase; }
-.bold { font-weight: bold; }
+u { text-decoration: underline; font-style: normal;}
 
 /* Basic style for subscript and superscript text */
 

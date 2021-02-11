@@ -8,24 +8,24 @@ details.accordion summary {
   padding: calc(var(--space)/2);
   padding-left: calc(var(--space) + 1em);
   background: var(--color-gray-100);
-  border-radius: 5px;
+  /*border-radius: 5px;*/
 }
 
 details.accordion summary::before {
   left: calc(var(--space)/2);
 }
 
-details.accordion[open] > summary {
+/*details.accordion[open] > summary {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-}
+}*/
 
 details.accordion .details-content {
   padding: calc(var(--space) / 2);
   padding-left: calc(var(--space) + 1rem);
   border: 2px solid var(--color-gray-100);
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
+  /*border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;*/
 }
 
 /* END !SECTION ACCORDION */

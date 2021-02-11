@@ -22,7 +22,6 @@ fieldset {
   border: 0.5px solid var(--color-gray-500);
   padding: var(--space);
   margin-bottom: var(--space);
-  border-radius: 3px;
   background-color: var(--color-gray-100);
 }
 
@@ -46,8 +45,6 @@ legend {
   border: 1px solid var(--light-text-color);
   margin: 0;
   margin-bottom: var(--flow-space);
-
-  border-radius: 3px;
 }
 
 /* Normalize input width */
