@@ -15,6 +15,48 @@
 }
 
 /** -----------------------------------------------------------------
+  * SECTION FLOW SPACING
+  * Use flow spacing in flow areas, provide a fallback for browsers
+  * that don't support css variables
+------------------------------------------------------------------ */
+
+.flow > * + * {
+  margin-top: 1.5rem;
+  margin-top: var(--flow-space);
+}
+
+.flow > * + h1,
+.flow > * + h2,
+.flow > * + h3,
+.flow > * + h4,
+.flow > * + h5,
+.flow > * + h6,
+.flow > * + .txt-h1,
+.flow > * + .txt-h2,
+.flow > * + .txt-h3,
+.flow > * + .txt-h4,
+.flow > * + .txt-h5,
+.flow > * + .txt-h6 {
+  margin-top: 1.5rem;
+  margin-top: calc(var(--flow-space) * 2);
+}
+
+.flow > h1 + h2,
+.flow > h2 + h3,
+.flow > h3 + h4,
+.flow > h4 + h5,
+.flow > h5 + h6,
+.flow > .txt-h1 + .txt-h2,
+.flow > .txt-h2 + .txt-h3,
+.flow > .txt-h3 + .txt-h4,
+.flow > .txt-h4 + .txt-h5,
+.flow > .txt-h5 + .txt-h6 {
+  margin-top: 1.5rem;
+  margin-top: calc(var(--flow-space) * 0.5);
+}
+
+/* END !SECTION FLOW SPACING */
+/** -----------------------------------------------------------------
   * SECTION LEVEL
 ------------------------------------------------------------------ */
 
