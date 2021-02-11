@@ -118,15 +118,12 @@ These elements have been given simple input styles
 [x] datalist
 [X] progress
 
-These elements have not been styled. Form is a sectioning element, option is a logic element used with select, and optgroup has acceptable default styles.
+These elements have not been styled. Form is a sectioning element, option is a logic element used with select, optgroup has acceptable default styles, and output is a logical element that does not require custom style
 
 * option
 * form
 * optgroup
-
-These elements require more research
-
-NOTE [ ] output
+* output
 
 These elements are being skipped because they are incredibly difficult to style and out of the scope of this project. You would be better off with some custom JS solution for many of these.
 
