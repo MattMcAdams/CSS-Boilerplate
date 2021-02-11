@@ -35,7 +35,7 @@ legend {
 }
 
 /* Normalize fonts, sizes, and borders */
-.button, button, input, select, textarea {
+.button, button, input, select, textarea, datalist {
   font-family: inherit;
   font-size: 100%;
   line-height: inherit;
@@ -48,7 +48,7 @@ legend {
 }
 
 /* Normalize input width */
-.button, input, select, textarea {
+.button, input, select, textarea, datalist {
   width: 100%;
 }
 
@@ -62,7 +62,9 @@ input:focus,
 textarea:active,
 textarea:focus,
 select:active,
-select:focus {
+select:focus,
+datalist:focus,
+datalist:active {
   outline-offset: 1px;
 }
 

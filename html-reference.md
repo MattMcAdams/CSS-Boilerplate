@@ -115,17 +115,17 @@ These elements have been given simple input styles
 [x] checkbox
 [x] textarea
 [x] select
-NOTE [ ] optgroup
+[x] datalist
 [X] progress
 
-These elements have not been styled. Form is a sectioning element, and option is a logic element used with select.
+These elements have not been styled. Form is a sectioning element, option is a logic element used with select, and optgroup has acceptable default styles.
 
 * option
 * form
+* optgroup
 
 These elements require more research
 
-NOTE [ ] datalist
 NOTE [ ] output
 
 These elements are being skipped because they are incredibly difficult to style and out of the scope of this project. You would be better off with some custom JS solution for many of these.
@@ -139,11 +139,13 @@ These elements are being skipped because they are incredibly difficult to style 
 
 These elements have not been styled YET. I'm looking into the merits of styling them.
 
-NOTE [ ] dialog
+* dialog
+
 Not supported by Safari. Will not provide default styles, any required js, or suggested markup, but will be watching this space.
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
 
-NOTE [ ] menu
+* menu
+
 Experimental. Not supported by most browsers.
 
 [x] details / summary
