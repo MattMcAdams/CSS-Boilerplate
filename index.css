@@ -672,7 +672,7 @@ legend {
 }
 
 /* Normalize fonts, sizes, and borders */
-.button, button, input, select, textarea {
+.button, button, input, select, textarea, datalist {
   font-family: inherit;
   font-size: 100%;
   line-height: inherit;
@@ -685,7 +685,7 @@ legend {
 }
 
 /* Normalize input width */
-.button, input, select, textarea {
+.button, input, select, textarea, datalist {
   width: 100%;
 }
 
@@ -699,7 +699,9 @@ input:focus,
 textarea:active,
 textarea:focus,
 select:active,
-select:focus {
+select:focus,
+datalist:focus,
+datalist:active {
   outline-offset: 1px;
 }
 
@@ -1189,26 +1191,9 @@ details.accordion .details-content {
   object-fit: cover;
 }
 
-/* Add utility classes for underlined, uppercased, and bold text */
-
-.underline { text-decoration: underline; font-style: normal;}
-.uppercase { text-transform: uppercase; }
-.bold { font-weight: bold; }
-
-/* Center utility
- * REVIEW: Possibly remove these? */
+/* Center utility */
 
 .center {
   display: grid;
   place-items: center;
-}
-
-p.center,
-h1.center,
-h2.center,
-h3.center,
-h4.center,
-h5.center,
-h6.center {
-  text-align: center;
 }
