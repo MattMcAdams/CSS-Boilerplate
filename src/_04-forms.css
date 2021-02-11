@@ -1,0 +1,277 @@
+/** -----------------------------------------------------------------
+  * SECTION FORMS
+  * Form elements not styled:
+  * Meter. Next to impossible to size consistently
+  * File. You're better off implementing something with JS
+  * Date & Color. Styling these is far too complicated for the
+  * scope of this project.
+------------------------------------------------------------------ */
+
+label, legend {
+  font-weight: bold;
+  background-color: transparent;
+  display: block;
+  margin-bottom: 0;
+}
+
+label + label {
+  margin-top: calc(var(--space) / 2);
+}
+
+fieldset {
+  border: 0.5px solid var(--color-gray-500);
+  padding: var(--space);
+  margin-bottom: var(--space);
+  border-radius: 3px;
+  background-color: var(--color-gray-100);
+}
+
+fieldset > :last-child {
+  margin-bottom: 1rem;
+}
+
+legend {
+  padding: 0 0.5em;
+  margin-left: -0.5em;
+}
+
+/* Normalize fonts, sizes, and borders */
+.button, button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: inherit;
+  box-sizing: border-box;
+
+  padding: calc(var(--space) / 4) calc(var(--space) / 2);
+  border: 1px solid var(--light-text-color);
+  margin: 0;
+  margin-bottom: var(--flow-space);
+
+  border-radius: 3px;
+}
+
+/* Normalize input width */
+.button, input, select, textarea {
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 10rem;
+}
+
+input:active,
+input:focus,
+textarea:active,
+textarea:focus,
+select:active,
+select:focus {
+  outline-offset: 1px;
+}
+
+/** -----------------------------------------------------------------
+  * SECTION RADIO & CHECKBOX
+------------------------------------------------------------------ */
+
+@supports (appearance: none) or (-moz-appearance: none) or (-webkit-appearance: none)  {
+  input[type="checkbox"],
+  input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    display: inline-block;
+    top: -0.1em;
+    width: 1em;
+    height: 1em;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+    transition: box-shadow 0.1s ease;
+  }
+
+  input[type="checkbox"]:checked,
+  input[type="radio"]:checked {
+    box-shadow: inset 0 0 0 .25em var(--color-primary-500);
+    border-color: var(--color-primary-500);
+  }
+
+  input[type="radio"] {
+    border-radius: 50%;
+  }
+}
+
+/* END !SECTION RADIO & CHECKBOX */
+/** -----------------------------------------------------------------
+  * SECTION NUMBER, SELECT, SEARCH
+------------------------------------------------------------------ */
+
+/* Remove increment/decrement buttons from number fields */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  appearance: none;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Hide the default arrow icon and implement a custom one */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; /* hides the native UI */
+
+  padding-right: calc(var(--space) * 2); /* prevents input text from running into background image */
+
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8" fill="none" stroke="black"><path d="M7.5 3L4 6 .5 3"/></svg>');
+  background-size: 0.7em;
+  background-repeat: no-repeat;
+  background-position: right calc(var(--space) / 2) center;
+}
+
+/* Remove the chrome cancel button */
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+/* END !SECTION NUMBER, SELECT, SEARCH */
+/** -----------------------------------------------------------------
+  * SECTION PROGRESS
+------------------------------------------------------------------ */
+
+/* Normalize progress bar */
+progress[value] {
+  border: 0;
+  background-color: var(--element-bg-color);
+  -webkit-appearance: none;
+  display: block;
+  width: 100%;
+  margin-bottom: var(--flow-space);
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: var(--element-bg-color);
+}
+
+progress[value]::-webkit-progress-value {
+  background: var(--color-primary-500);
+}
+progress[value]::-moz-progress-bar {
+  background: var(--color-primary-500);
+}
+
+/* indeterminate styles
+ * progress:not([value]) {} */
+
+/* END !SECTION PROGRESS */
+/** -----------------------------------------------------------------
+  * SECTION RANGE
+------------------------------------------------------------------ */
+
+input[type="range"],
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  font-size: 1rem;
+  padding: 0;
+  border: none;
+}
+
+input[type="range"]:focus,
+input[type="range"]:active {
+  outline: none;
+  --color-gray-500: var(--color-primary-500);
+}
+
+/* Track Styles */
+input[type="range"]::-webkit-slider-runnable-track {
+  border: none;
+  height: 5px;
+  border-radius: 0;
+  background-color: var(--element-bg-color);
+}
+input[type="range"]::-moz-range-track {
+  height: 5px;
+  border: none;
+  border-radius: 0;
+  background-color: var(--element-bg-color);
+}
+
+/* Thumb Styles */
+input[type="range"]::-webkit-slider-thumb {
+  margin-top: -0.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid var(--page-bg-color);
+  border-radius: 1000rem;
+  background: var(--color-gray-500);
+}
+input[type="range"]::-moz-range-thumb {
+  border: 2px solid var(--page-bg-color);
+  border-radius: 1000rem;
+  font-size: 1.2rem;
+  background: var(--color-gray-500);
+}
+
+/* END !SECTION RANGE */
+/* END !SECTION FORMS */
+/** -----------------------------------------------------------------
+  * SECTION BUTTONS
+------------------------------------------------------------------ */
+
+label + button,
+label + .button,
+label + input[type="submit"],
+label + input[type="reset"],
+label + input[type="button"] {
+  margin-top: var(--space);
+}
+
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  width: auto;
+  background-color: transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  color: white;
+  background-color: var(--color-primary-500);
+  border: 1px solid var(--color-primary-500);
+  margin-bottom: var(--space);
+}
+
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover {
+  border-color: var(--color-primary-900);
+  background-color: var(--color-primary-900);
+}
+
+input[type="submit"]:active,
+input[type="submit"]:focus,
+input[type="reset"]:active,
+input[type="reset"]:focus,
+input[type="button"]:active,
+input[type="button"]:focus {
+  outline-offset: 3px;
+}
+
+.button[tabindex="-1"],
+button[disabled],
+input[type="submit"][disabled],
+input[type="reset"][disabled],
+input[type="button"][disabled] {
+  background-color: var(--element-bg-color);
+  color: var(--color-gray-500);
+  border-color: var(--color-gray-500);
+}
+
+/* END !SECTION BUTTONS */

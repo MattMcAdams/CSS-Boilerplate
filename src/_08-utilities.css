@@ -1,0 +1,34 @@
+/* Clearfix if you still need that sort of thing */
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Utility to make any element cover the area of it's parent.
+ * You will have to give the parent { position: relative; } though */
+
+.cover {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  object-fit: cover;
+}
+
+/* Center utility
+ * REVIEW: Possibly remove these? */
+
+div.center, section.center {
+  display: grid;
+  place-items: center;
+}
+
+p.center,
+h1.center,
+h2.center,
+h3.center,
+h4.center,
+h5.center,
+h6.center {
+  text-align: center;
+}

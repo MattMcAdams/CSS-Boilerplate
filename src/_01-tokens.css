@@ -1,0 +1,73 @@
+/* ==================================================================
+  Smart CSS Boilerplate
+  Author: Matthew McAdams
+  @MattMakesArt | mattmcadams.com
+  The Unlicense <https://unlicense.org>
+  https://github.com/MattMcAdams/CSS-Boilerplate
+================================================================== */
+/** -----------------------------------------------------------------
+  * SECTION TOKENS
+------------------------------------------------------------------ */
+
+:root {
+  /* Fonts */
+  --font-body: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-head: var(--font-body);
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  /* --font-icon: null; */
+
+  /* Colors */
+  --color-gray-100: #F0F1F3;
+  --color-gray-500: #707682;
+  --color-gray-900: #2D2F34;
+  /* https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/707682/112/118/130/white */
+  --color-red-100: #FFE6E6;
+  --color-red-500: #DC2F2F;
+  --color-red-900: #551616;
+  /* https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/DC2F2F/220/47/47/white */
+  --color-yellow-100: #FFF9E6;
+  --color-yellow-500: #D08200;
+  --color-yellow-900: #4F3304;
+  /* https://hihayk.github.io/scale/#4/4/60/90/0/-10/50/-10/D08200/208/130/0/white */
+  --color-green-100: #E6F7EB;
+  --color-green-500: #00883E;
+  --color-green-900: #033419;
+  /* https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/00883E/0/136/62/white */
+  --color-primary-100: #E6F1FF;
+  --color-primary-500: #0074E0;
+  --color-primary-900: #052E55;
+  /* https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/0074E0/0/116/224/white */
+
+  /* Semantic Colors */
+  --page-bg-color: white;
+  --element-bg-color: var(--color-gray-100);
+  --text-color: var(--color-gray-900);
+  --light-text-color: var(--color-gray-500);
+  --heading-color: var(--text-color);
+
+  --nav-color: var(--color-primary-500);
+  --button-color: var(--nav-color);
+
+  --accent-color: var(--color-primary-500);
+
+  /* Spacing */
+  --space: 1.6rem; /* Should equal body line-height */
+  --section-space: calc(var(--space) * 4);
+  --flow-space: var(--space);
+  --gutter: var(--space);
+  --content-width: 900px;
+  --sidebar-width: 300px;
+
+  /* Modular Scale */
+  --ratio: 1.25;
+  --ms-0: 1.25rem; /* 16px * 1.25 = 20px (1.125 for 18px) */
+  --ms-1: calc(var(--ms-0) * var(--ratio));
+  --ms-2: calc(var(--ms-1) * var(--ratio));
+  --ms-3: calc(var(--ms-2) * var(--ratio));
+  --ms-4: calc(var(--ms-3) * var(--ratio));
+  --ms-5: calc(var(--ms-4) * var(--ratio));
+  --ms--1: calc(var(--ms-0) / var(--ratio));
+  --ms--2: calc(var(--ms--1) / var(--ratio));
+}
+
+/* END !SECTION TOKENS */

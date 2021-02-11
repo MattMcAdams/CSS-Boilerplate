@@ -14,7 +14,7 @@
   <!-- <header id="top-header">
   </header> -->
 
-  <div id="content" class="container">
+  <div id="main" class="container">
     <!-- <div class="sidebar"></div> -->
     <main>
       <section class="section">
@@ -22,8 +22,35 @@
         <p class="txt-h1 center">CSS Boilerplate</p>
       </section>
       <section class="section">
+        <nav>
+          <ul class="nav">
+            <li><a href="#type">Typography</a></li>
+            <li><a href="#lists">Lists</a></li>
+            <li><a href="#bq">Blockquote</a></li>
+          </ul>
+        </nav>
+        <hr>
         <p>Heavily inspired by Skeleton, this CSS boilerplate contains a simple CSS reset, base html styles using modern techniques, and a few features to help things along. It enables smooth scrolling, enforces the <code>hidden</code> attribute, and adds a <code>visually-hidden</code> class to keep hidden content available for screen readers.</p>
         <p>This is not a framework, but a starting point. There is no build, no package, no hastle. Just download the file and start adjusting it to fit your needs. What is here has been designed to be as little opinionated style as possible while giving a nice baseline aesthetic.</p>
+        <address>
+          Name<br>
+          Street Address<br>
+          Phone Number<br>
+          Email Address<br>
+          Website<br>
+        </address>
+        <audio controls src="/media/cc0-audio/t-rex-roar.mp3">
+          Your browser does not support the
+          <code>audio</code> element.
+        </audio>
+        <details class="accordion">
+          <summary>I'm a summary</summary>
+          <div class="details-content">Here is some details content.</div>
+        </details>
+        <details>
+          <summary>I'm a summary</summary>
+          <div class="details-content">Here is some details content.</div>
+        </details>
       </section>
       <section class="section">
       <h2 class="uppercase txt-h5 bold">Typography</h2>
@@ -31,7 +58,7 @@
         <div>
           <p>The typographical base is built on a 16px base (1rem) on a 1.25 modular scale. All font sizes are set with rems and have custom line heights.</p>
           <p>The fonts are Open Sans, with Raleway for headings, and Fira Code for monospace. Fonts can be changed using CSS custom properties.</p>
-          <p>Other semantic type tags like <a>anchors</a>, <strong>strong</strong>, <em>emphasis</em>, <u>underline</u>, and <small>small</small> are all included.</p>
+          <p>Other semantic type tags like <a href="#">anchors</a>, <strong>strong</strong>, <em>emphasis</em>, <u>underline</u>, <small>small</small>, <del>del</del>, <ins>ins</ins>, <mark>mark</mark>, <abbr title="abbreviation">abbr with a title</abbr>, <q cite="example.com">q with cite</q> are all included.</p>
         </div>
         <div>
           <p class="txt-h1">Heading 1</p>
@@ -106,13 +133,8 @@
         <button>Button element</button>
         <input type="submit" value="Submit input">
         <input type="button" value="Button input">
-        <p>Primary buttons</p>
-        <a class="button button-primary" href="#">Anchor button</a>
-        <button class="button-primary">Button element</button>
-        <input class="button-primary" type="submit" value="submit input">
-        <input class="button-primary" type="button" value="button input">
         <p>Disabled</p>
-        <a class="button" href="#" disabled>Anchor button</a>
+        <a class="button" href="#" disabled tabindex="-1">Anchor button</a>
         <button class="button-primary" disabled>Button element</button>
         <input type="submit" value="submit input" disabled>
         <input class="button-primary" type="button" value="button input" disabled>
@@ -120,34 +142,57 @@
       <section class="section">
         <h2 class="txt-h5 uppercase bold">Forms</h2>
         <form>
-          <div class="grid">
-            <div>
-              <label for="exampleEmailInput">Your email</label>
-              <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="exampleEmailInput">
+          <fieldset>
+            <legend>Fieldset</legend>
+            <div class="grid">
+              <div>
+                <label for="exampleEmailInput">Your email</label>
+                <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="exampleEmailInput">
+              </div>
+              <div>
+                <label for="exampleRecipientInput">Reason for contacting</label>
+                <select class="u-full-width" id="exampleRecipientInput">
+                  <optgroup label="First group">
+                  <option value="Option 1">Questions</option>
+                  <option value="Option 2">Admiration</option>
+                  </optgroup>
+                  <optgroup label="Second group">
+                  <option value="Option 3">Can I get your number?</option>
+                  </optgroup>
+                </select>
+              </div>
             </div>
-            <div class="">
-              <label for="exampleRecipientInput">Reason for contacting</label>
-              <select class="u-full-width" id="exampleRecipientInput">
-                <option value="Option 1">Questions</option>
-                <option value="Option 2">Admiration</option>
-                <option value="Option 3">Can I get your number?</option>
-              </select>
-            </div>
-          </div>
+            <label for="exampleSearch">Search</label>
+            <input type="search" id="exampleSearch">
+          </fieldset>
+
+          <label for="dogs">How much do you like dogs?</label>
+          <input type="range" id="dogs" name="dogs" min="9" max="10" step="0.1" value="10">
+
           <label for="exampleMessage">Message</label>
           <textarea class="u-full-width" placeholder="Hi Dave …" id="exampleMessage"></textarea>
 
-          <label class="example-send-yourself-copy">
-            <input type="checkbox">
-            <span class="label-body">Send a copy to yourself</span>
-          </label>
+          <label for="exampleProgress">Progress</label>
+          <progress id="exampleProgress" max="100" value="60"></progress>
+
+              <label class="example-send-yourself-copy">
+                <input type="checkbox">
+                Send a copy to yourself
+              </label>
+              <label class="example-send-yourself-copy">
+                <input type="checkbox">
+                Test checkbox 2
+              </label>
+
           <input class="button-primary" type="submit" value="Submit">
 
         </form>
       </section>
       <section class="section">
         <h2 class="uppercase txt-h5 bold">Tables</h2>
+        <div class="table-wrapper">
         <table>
+          <caption>CSS Variables</caption>
           <thead>
             <tr>
               <th style="width: 25%">Variable</th>
@@ -238,6 +283,7 @@
             </tr>
           </tbody>
         </table>
+        </div>
       </section>
     </main>
   </div>

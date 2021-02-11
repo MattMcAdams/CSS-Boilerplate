@@ -1,0 +1,20 @@
+{
+  "name": "css-boilerplate",
+  "description": "A dead simple boilerplate using modern authoring techniques to make smarter, more accessible UI.",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "cat src/*.css > index.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MattMcAdams/CSS-Boilerplate.git"
+  },
+  "keywords": ["css", "boilerplate"],
+  "author": "Matt McAdams",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/MattMcAdams/CSS-Boilerplate/issues"
+  },
+  "homepage": "https://github.com/MattMcAdams/CSS-Boilerplate"
+}

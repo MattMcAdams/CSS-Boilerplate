@@ -1,0 +1,190 @@
+/** -----------------------------------------------------------------
+  * SECTION LAYOUT
+------------------------------------------------------------------ */
+
+/* Section spacing */
+
+.section { margin: var(--section-space) 0; }
+
+/* Standard content container */
+
+.container {
+  max-width: var(--content-width);
+  padding: 0 var(--gutter);
+  margin: 0 auto;
+}
+
+/** -----------------------------------------------------------------
+  * SECTION LEVEL
+------------------------------------------------------------------ */
+
+/* Level
+ * Creates a bar with content vertically aligned on both sides
+ * Good for split navigation bars etc. */
+
+.level {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: calc(var(--space) / -2);
+}
+
+/* The first level item will be aligned to the left of the level
+ * the second will be aligned to the right.
+ * You can add more items, they will be evenly spaced,
+ * though 2 is recommended */
+
+.level_item {
+  align-self: center;
+  display: block;
+  padding: calc(var(--space) / 2);
+}
+
+/* END !SECTION LEVEL */
+/** -----------------------------------------------------------------
+  * SECTION GRID
+------------------------------------------------------------------ */
+
+/* Super simple grid
+ * min-width should be just under the pixel value in minmax * 2
+ * This helps avoid grid blowout on screens smaller than the
+ * preferred min-width of a grid item. */
+
+@media ( min-width: 400px ) {
+  .grid {
+    --grid-gap: var(--space);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: var(--grid-gap);
+  }
+}
+
+@media ( orientation: portrait ) and ( min-width: 400px ) {
+  .grid-portrait {
+    --grid-gap: var(--space);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: var(--grid-gap);
+  }
+}
+
+@media ( orientation: landscape ) and (min-width: 400px ) {
+  .grid-landscape {
+    --grid-gap: var(--space);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: var(--grid-gap);
+  }
+}
+
+/* END !SECTION GRID */
+/** -----------------------------------------------------------------
+  * SECTION PAGE SCAFFOLDING
+  <template>
+    <div id="app">
+
+      <header id="top-header">
+        <div class="container"></div>
+      </header>
+
+      IF SIDEBAR
+      <div id="main" class="has-sidebar">
+        <div class="sidebar"></div>
+        <main class="content"></main>
+      </div>
+
+      IF NO SIDEBAR
+      <main id="main" class="container">
+      </main>
+
+      <footer id="footer">
+        <div class="container"></div>
+      </footer>
+
+    </div>
+  </template>
+------------------------------------------------------------------ */
+
+/* Setup page container
+ * This, and the next three style declarations help fix an
+ * issue so that the page will never be shorter than the
+ * screen is tall. This ensures the footer will always
+ * be at the bottom of the page. */
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 100vw;
+}
+
+/* Stick the top header to the top of the screen
+ * Good place to put a level with some navigation */
+
+#top-header {
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* The main content will absorb any free vertical space,
+ * pushing the footer neatly to the bottom.
+ *
+ * Extra space is given above and below the main area between the
+ * header and footer (or the top and bottom of the page when such
+ * elements don't exist) */
+
+#main {
+  width: 100%;
+  flex: 1 0 auto;
+  align-self: center;
+  padding-top: calc(var(--space) * 5);
+  padding-bottom: calc(var(--space) * 5);
+}
+
+/* Ensure footer does not shrink */
+
+#footer { flex-shrink: 0; }
+
+
+
+/* SIDEBAR LAYOUT */
+
+/* Container of content & sidebar
+ * Max width equals the combined width of the sidebar, content,
+ * and the space between them.
+ *
+ * Setup grid layout. Display sidebar under the content by default
+ * This mostly matters for mobile.
+ * Add space between content and sidebar */
+
+.has-sidebar {
+  max-width: calc(var(--content-width) + var(--section-space) + var(--sidebar-width));
+  padding: 0 var(--gutter);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-areas: "content" "sidebar";
+  grid-gap: var(--section-space);
+}
+
+
+/* Assign sidebar to the sidebar area,
+ * Assign content to the content area */
+
+.has-sidebar > .sidebar { grid-area: "sidebar"; }
+.has-sidebar > .content { grid-area: "content"; }
+
+/* On landscape, adjust layout for two columns,
+ * Arange areas so that the sidebar is on the left side of content.
+ * minmax prevents content from being larger than screen width */
+
+@media ( orientation: landscape ) {
+  .has-sidebar {
+    grid-template-columns: var(--sidebar-width) minmax(1px, 1fr);
+    grid-template-areas: "sidebar content"
+  }
+}
+
+/* END !SECTION PAGE SCAFFOLDING */
+/* END !SECTION LAYOUT */
