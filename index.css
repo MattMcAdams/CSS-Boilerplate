@@ -907,7 +907,7 @@ input[type="reset"][disabled],
 input[type="button"][disabled] {
   background-color: var(--element-bg-color);
   color: var(--color-gray-500);
-  border-color: var(--color-gray-500);
+  border-color: var(--element-bg-color);
 }
 
 /* END !SECTION BUTTONS */
@@ -1152,7 +1152,7 @@ details.accordion summary {
   cursor: pointer;
   padding: calc(var(--space)/2);
   padding-left: calc(var(--space) + 1em);
-  background: var(--color-gray-100);
+  background: var(--element-bg-color);
   /*border-radius: 5px;*/
 }
 
@@ -1168,7 +1168,7 @@ details.accordion summary::before {
 details.accordion .details-content {
   padding: calc(var(--space) / 2);
   padding-left: calc(var(--space) + 1rem);
-  border: 2px solid var(--color-gray-100);
+  border: 2px solid var(--element-bg-color);
   /*border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;*/
 }
