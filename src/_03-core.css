@@ -13,7 +13,8 @@
  * content. Note that for Accessibility guidelines, this content
  * must become visible if toggled over using a keyboard. */
 
-.visually-hidden:not(:focus):not(:active) {
+.visually-hidden:not(:focus):not(:active),
+.sr-only:not(:focus):not(:active) {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;
