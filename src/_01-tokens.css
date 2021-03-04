@@ -52,6 +52,14 @@
 
   /* Spacing */
   --space: 1.6rem; /* Should equal body line-height */
+  --space-0: 0;
+  --space-05: calc(var(--space) / 2);
+  --space-1: var(--space);
+  --space-2: calc(var(--space) * 2);
+  --space-3: calc(var(--space) * 3);
+  --space-4: calc(var(--space) * 4);
+  --space-5: calc(var(--space) * 5);
+
   --section-space: calc(var(--space) * 4);
   --flow-space: var(--space);
   --gutter: var(--space);
