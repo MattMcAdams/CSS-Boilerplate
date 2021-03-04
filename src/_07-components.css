@@ -1,5 +1,7 @@
 /** -----------------------------------------------------------------
   * SECTION ACCORDION
+  * Border radius has been commented out to avoid being too
+  * opinionated, but left in so you can see how to implement it
 ------------------------------------------------------------------ */
 
 details.accordion summary {
