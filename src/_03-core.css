@@ -66,13 +66,36 @@ h1, h2, h3, h4, h5,
 .txt-h1, .txt-h2, .txt-h3, .txt-h4, .txt-h5, .txt-h6,
 label, th, legend {
   font-family: var(--font-head);
+  margin-bottom: var(--flow-space);
 }
 
 /* Double flow spacing before headings & set heading color. */
 
 h1, h2, h3, h4, h5, h6,
 .txt-h1, .txt-h2, .txt-h3, .txt-h4, .txt-h5, .txt-h6 {
+  margin-top: calc(var(--flow-space) * 2);
   color: var(--heading-color);
+}
+
+/* Decrease space between sequential headings */
+
+h1 + h2,
+h2 + h3,
+h3 + h4,
+h4 + h5,
+h5 + h6,
+.txt-h1 + .txt-h2,
+.txt-h2 + .txt-h3,
+.txt-h3 + .txt-h4,
+.txt-h4 + .txt-h5,
+.txt-h5 + .txt-h6 {
+  margin-top: calc(var(--flow-space) * -0.5);
+}
+
+/* Add flow spacing after paragraphs */
+
+p, .txt-p {
+  margin-bottom: var(--flow-space);
 }
 
 /* Heading typography */
@@ -168,6 +191,12 @@ abbr[title] {
 
 q[cite] { font-style: italic; }
 
+/* Add flow spacing after address */
+
+address {
+  margin-bottom: var(--flow-space);
+}
+
 /* END !SECTION TYPOGRAPHY */
 /** -----------------------------------------------------------------
   * SECTION LINKS
@@ -221,6 +250,14 @@ blockquote,
   border-left: 5px solid var(--color-primary-500);
   padding: calc(var(--space) / 2) var(--space);
   background-color: var(--element-bg-color);
+  margin-bottom: var(--flow-space);
+}
+
+/* Remove the bottom margin from the last child in the blockquote */
+
+blockquote :last-child,
+.callout :last-child {
+  margin-bottom: 0;
 }
 
 /* END !SECTION BLOCKQUOTE */
@@ -247,6 +284,12 @@ ol:not([class]) ol:not([class]) ol:not([class]) { list-style-type: lower-roman; 
 
 ul:not([class]), ol:not([class]) {
   margin-left: var(--space);
+}
+
+/* Add flow spacing to list elements */
+
+ul, ol, dl {
+  margin-bottom: var(--flow-space);
 }
 
 /* Add spacing between list items */
@@ -290,6 +333,7 @@ video,
   display: block;
   width: 100%;
   margin: auto;
+  margin-bottom: var(--flow-space);
 }
 
 img {
@@ -320,6 +364,7 @@ audio {
   display: block;
   max-width: 100%;
   border-radius: 900px;
+  margin-bottom: var(--flow-space);
 }
 
 /* Setup media wrappers */
@@ -381,6 +426,7 @@ hr {
   border: none;
   border-bottom: 0.5px solid var(--light-text-color);
   width: 100%;
+  margin-bottom: var(--flow-space);
 }
 
 hr.spacer {
@@ -395,6 +441,7 @@ hr.spacer {
 
 table {
   width: 100%;
+  margin-bottom: var(--flow-space);
 }
 
 caption {
@@ -437,6 +484,10 @@ kbd {
   border-radius: 5px;
 }
 
+pre {
+  margin-bottom: var(--flow-space);
+}
+
 pre code,
 pre samp {
   display: block;
@@ -456,6 +507,7 @@ details {
   display: block;
   white-space: nowrap;
   position: relative;
+  margin-bottom: var(--flow-space);
 }
 
 summary::-webkit-details-marker {
