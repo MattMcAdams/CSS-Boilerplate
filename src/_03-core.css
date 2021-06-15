@@ -1,6 +1,8 @@
 /** -----------------------------------------------------------------
   * SECTION CORE
 ------------------------------------------------------------------ */
+/* Keep an eye on this space:
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties */
 
 /* Links that point to a location on the same page will scroll
  * smoothly down to that location. */
@@ -40,15 +42,24 @@
   cursor: not-allowed !important;
 }
 
-:active,
+/* Use primary color for focus styles */
+
 :focus {
   outline-color: var(--color-primary-500);
   outline-offset: 3px;
+  outline-style: solid;
+  outline-width: 2px;
 }
+
+/* Adds a margin above an element when it is the target of an ID link */
+
+* { scroll-margin-top: var(--space); }
 
 /** -----------------------------------------------------------------
   * SECTION TYPOGRAPHY
 ------------------------------------------------------------------ */
+/* Keep an eye on this space:
+https://css-tricks.com/leading-trim-the-future-of-digital-typesetting/ */
 
 /* Set the document's default font, color, size, and line height */
 
@@ -56,7 +67,7 @@ body {
   font-family: var(--font-body);
   color: var(--text-color);
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: var(--ms-0);
 }
 
 /* Set font and flow margin to headings, and heading-like elements.
@@ -75,6 +86,7 @@ h1, h2, h3, h4, h5, h6,
 .txt-h1, .txt-h2, .txt-h3, .txt-h4, .txt-h5, .txt-h6 {
   margin-top: calc(var(--flow-space) * 2);
   color: var(--heading-color);
+  line-height: 1.2;
 }
 
 /* Decrease space between sequential headings */
@@ -89,7 +101,7 @@ h5 + h6,
 .txt-h3 + .txt-h4,
 .txt-h4 + .txt-h5,
 .txt-h5 + .txt-h6 {
-  margin-top: calc(var(--flow-space) * -0.5);
+  margin-top: 0;
 }
 
 /* Add flow spacing after paragraphs */
@@ -100,11 +112,11 @@ p, .txt-p {
 
 /* Heading typography */
 
-h1, .txt-h1 { font-size: 3.052rem; line-height: 1.2; margin-top: 0;}
-h2, .txt-h2 { font-size: 2.441rem; line-height: 1.25; }
-h3, .txt-h3 { font-size: 1.953rem; line-height: 1.3; }
-h4, .txt-h4 { font-size: 1.563rem; line-height: 1.35; }
-h5, .txt-h5 { font-size: 1.25rem;  line-height: 1.5; }
+h1, .txt-h1 { font-size: var(--ms-5); margin-top: 0;}
+h2, .txt-h2 { font-size: var(--ms-4); }
+h3, .txt-h3 { font-size: var(--ms-3); }
+h4, .txt-h4 { font-size: var(--ms-2); }
+h5, .txt-h5 { font-size: var(--ms-1); }
 h6, .txt-h6, label, th, legend { font-size: 1rem; font-weight: bold; }
 
 /* Set typography for small text */
@@ -173,7 +185,7 @@ s { text-decoration: line-through; }
 /* Mark styles - see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark */
 
 mark {
-  background: var(--color-primary-100);
+  background: var(--color-yellow-100);
   padding: 0.1em 0.3em;
 }
 
@@ -249,7 +261,7 @@ blockquote,
 .callout {
   border-left: 5px solid var(--color-primary-500);
   padding: calc(var(--space) / 2) var(--space);
-  background-color: var(--element-bg-color);
+  background-color: var(--color-primary-100);
   margin-bottom: var(--flow-space);
 }
 
@@ -300,7 +312,7 @@ ul:not([class]) ul,
 ol:not([class]) li,
 ol:not([class]) ol,
 ol:not([class]) ul {
-  margin-bottom: calc(var(--flow-space) / 2);
+  margin-bottom: calc(var(--flow-space) / 4);
 }
 
 /* Ensure nested lists have the correct spacing */
@@ -309,7 +321,7 @@ ul:not([class]) ol,
 ul:not([class]) ul,
 ol:not([class]) ol,
 ol:not([class]) ul {
-  margin-top: calc(var(--flow-space) / 2);
+  margin-top: calc(var(--flow-space) / 4);
 }
 
 /* Add basic styles for definition lists */
@@ -378,6 +390,8 @@ audio {
 }
 
 /* Define aspect ratios */
+/* Keep an eye on this space:
+https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio */
 
 .video-wrapper,
 .embed-container,
@@ -401,6 +415,8 @@ audio {
 .aspect-ratio > img {
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
+  height: 100%;
+  width: 100%;
 }
 
 /* Allow img to crop to avoid being stretched */
@@ -459,6 +475,10 @@ tr {
   border-bottom: 0.5px solid var(--light-text-color);
 }
 
+tr:hover {
+  background-color: var(--element-bg-color);
+}
+
 /* END !SECTION TABLES */
 /** -----------------------------------------------------------------
   * SECTION CODE
@@ -505,7 +525,7 @@ pre samp {
 
 details {
   display: block;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   position: relative;
   margin-bottom: var(--flow-space);
 }
@@ -519,7 +539,6 @@ summary {
   cursor: pointer;
   padding-left: 1.5em;
   font-weight: bold;
-  outline: 0;
 }
 
 summary::before {

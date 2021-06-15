@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Name TBA</title>
+    <title>Matt's CSS Boilerplate</title>
     <meta name="description" content="A simple, modern CSS boilerplate">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="index.css">
@@ -13,6 +13,61 @@
       text-transform: uppercase;
       font-weight: bold;
     }
+
+    .permalink {
+      color: inherit;
+      text-decoration: none;
+      position: relative;
+    }
+    .permalink::before {
+      content: "#";
+      position: absolute;
+      left: -1em;
+      padding-right: 0.5em;
+      display: none;
+    }
+    .permalink:focus::before,
+    .permalink:hover::before {
+      display: block;
+    }
+
+    .sidebar nav {
+      background: var(--element-bg-color);
+      position: sticky;
+      top: var(--space);
+      /* padding: 0.5rem 0; */
+    }
+    .sidebar nav ul {
+      margin: 0;
+    }
+    .sidebar nav a {
+      padding: 0.5rem 1rem;
+      display: block;
+      color: var(--text-color);
+    }
+    .sidebar nav a:hover {
+      color: white;
+      text-decoration-color: white;
+      background-color: var(--text-color);
+    }
+
+    #footer {
+      background: var(--element-bg-color);
+      padding: var(--space);
+    }
+
+    /* html {
+      scrollbar-color: var(--color-primary-500) var(--color-primary-100);
+    }
+
+    ::-webkit-scrollbar {
+      background-color: var(--color-primary-100);
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--color-primary-500);
+    } */
   </style>
   <body>
 <div id="app">
@@ -20,64 +75,66 @@
   <!-- <header id="top-header">
   </header> -->
 
-  <div id="main" class="container">
-    <!-- <div class="sidebar"></div> -->
-    <main>
-      <section class="section flow">
-        <h1 class="txt-h2 center">Simple, Modern, Responsive</h1>
-        <p class="txt-h1 center">CSS Boilerplate</p>
-      </section>
-      <section class="section flow">
-        <nav>
-          <ul class="nav">
-            <li><a href="#type">Typography</a></li>
-            <li><a href="#lists">Lists</a></li>
-            <li><a href="#bq">Blockquote</a></li>
-          </ul>
-        </nav>
-        <hr>
-        <p>Heavily inspired by Skeleton, this CSS boilerplate contains a simple CSS reset, base html styles using modern techniques, and a few features to help things along. It enables smooth scrolling, enforces the <code>hidden</code> attribute, and adds a <code>visually-hidden</code> class to keep hidden content available for screen readers.</p>
+  <div class="hero container container-wide" id="introduction">
+    <section class="section">
+      <h1 class="center">Simple, Modern, Responsive</h1>
+      <p class="txt-h3 center" style="margin-top: 0;">CSS Boilerplate</p>
+    </section>
+    <hr>
+  </div>
+
+  <div id="main" class="has-sidebar">
+    <div class="sidebar">
+      <nav>
+        <ul class="nav">
+          <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#typography">Typography</a></li>
+          <li><a href="#lists">Lists</a></li>
+          <li><a href="#blockquote">Blockquote</a></li>
+          <li><a href="#details-summary">Details & Summary</a></li>
+          <li><a href="#code">Code</a></li>
+          <li><a href="#buttons">Buttons</a></li>
+          <li><a href="#forms">Forms</a></li>
+          <li><a href="#media">Media</a></li>
+          <li><a href="#tables">Tables</a></li>
+        </ul>
+      </nav>
+    </div>
+    <main class="content">
+      <section>
+        <p>Heavily inspired by Skeleton, this CSS boilerplate contains a simple CSS reset, base html styles using modern techniques, and a few features to help things along. It enables smooth scrolling, adds a top scroll margin, enforces the <code>hidden</code> attribute, adds a <code>visually-hidden</code> class to keep hidden content available for screen readers, and a bunch of other small tweaks and goodies.</p>
         <p>This is not a framework, but a starting point. There is no build, no package, no hastle. Just download the file and start adjusting it to fit your needs. What is here has been designed to be as little opinionated style as possible while giving a nice baseline aesthetic.</p>
-        <address>
-          Name<br>
-          Street Address<br>
-          Phone Number<br>
-          Email Address<br>
-          Website<br>
-        </address>
-        <audio controls src="/media/cc0-audio/t-rex-roar.mp3">
-          Your browser does not support the
-          <code>audio</code> element.
-        </audio>
-        <details class="accordion">
-          <summary>I'm a summary</summary>
-          <div class="details-content">Here is some details content.</div>
-        </details>
-        <details>
-          <summary>I'm a summary</summary>
-          <div class="details-content">Here is some details content.</div>
-        </details>
       </section>
-      <section class="section flow">
-      <h2 class="uppercase txt-h5 bold">Typography</h2>
+      <section>
+      <h2 id="typography"><a class="permalink" href="#typography" title="Permalink to Typography">Typography</a></h2>
       <div class="grid">
         <div class="flow">
-          <p>The typographical base is built on a 16px base (1rem) on a 1.25 modular scale. All font sizes are set with rems and have custom line heights.</p>
-          <p>The fonts are Open Sans, with Raleway for headings, and Fira Code for monospace. Fonts can be changed using CSS custom properties.</p>
-          <p>Other semantic type tags like <a href="#">anchors</a>, <strong>strong</strong>, <em>emphasis</em>, <u>underline</u>, <small>small</small>, <del>del</del>, <ins>ins</ins>, <mark>mark</mark>, <abbr title="abbreviation">abbr with a title</abbr>, <q cite="example.com">q with cite</q> are all included.</p>
+          <p>The typographical base is built on a 16px base (1rem) on a 1.2 modular scale. All font sizes are set with rems and have custom line heights.</p>
+          <p>The fonts are Open Sans, with Fira Code for monospace. Fonts can be changed using CSS custom properties.</p>
+          <p>Other semantic type tags like <a href="#">anchors</a>, <strong>strong</strong>, <em>emphasis</em>, <u>underline</u>, <del>del</del>, <ins>ins</ins>, <mark>mark</mark>, <abbr title="abbreviation">abbr with a title</abbr>, <q cite="example.com">q with cite</q> are all included.</p>
+          <p><code>&lt;address&gt;</code> is also supported:</p>
+          <address>
+            Name<br>
+            Street Address<br>
+            Phone Number<br>
+            Email Address<br>
+            Website<br>
+          </address>
         </div>
         <div class="flow">
           <p class="txt-h1">Heading 1</p>
           <p class="txt-h2">Heading 2</p>
           <p class="txt-h3">Heading 3</p>
           <p class="txt-h4">Heading 4</p>
-          <p class="txt-h5">Heading 5</p>
+          <p class="txt-h5"">Heading 5</p>
           <p class="txt-h6">Heading 6</p>
+          <p>Paragraph</p>
+          <p><small>Small</small></p>
         </div>
       </div>
       </section>
-      <section class="section flow">
-        <h2 class="uppercase txt-h5 bold">Lists</h2>
+      <section>
+        <h2 id="lists"><a class="permalink" href="#lists" title="Permalink to Lists">Lists</a></h2>
         <p>Lists of the same type can be nested up to three times with different styles, and styles have been included for unordered lists, ordered lists, and definition lists.</p>
         <div class="grid">
           <div>
@@ -116,15 +173,26 @@
           </div>
         </div>
       </section>
-      <section class="section flow">
-        <h2 class="uppercase txt-h5 bold">Blockquote</h2>
+      <section>
+        <h2 id="blockquote"><a class="permalink" href="#blockquote" title="Permalink to Blockquote">Blockquote</a></h2>
         <p>A blockquote can be created using the <code>&lt;blockquote&gt;</code> element, or by using the <code>.callout</code> class. Paragraph elements should be placed inside the blockquote element.</p>
         <blockquote>
           <p>Awesome quote</p>
         </blockquote>
       </section>
-      <section class="section flow">
-        <h2 class="uppercase txt-h5 bold">Code</h2>
+      <section>
+        <h2 id="details-summary"><a class="permalink" href="#details-summary" title="Permalink to Details & Summary">Details & Summary</a></h2>
+        <details class="accordion">
+          <summary>I'm a summary</summary>
+          <div class="details-content">Here is some details content. This accordion style is in the optional _components.css file and is used by adding the <code>.accordion</code> class to the <code>&lt;details&gt;</code> element.</div>
+        </details>
+        <details>
+          <summary>I'm a summary</summary>
+          <div class="details-content">Here is some details content.</div>
+        </details>
+      </section>
+      <section>
+        <h2 id="code"><a class="permalink" href="#code" title="Permalink to Code">Code</a></h2>
         <p>Styles have been included for <code>&lt;code&gt;</code>, <code>&lt;samp&gt;</code>, and <kbd>&lt;kbd&gt;</kbd> elements. Code blocks can be made by wrapping a <code>&lt;code&gt;</code> element inside a <code>&lt;pre&gt;</code> element. Code blocks overflow automatically on the x axis in case there is not enough room for a line of code.</p>
 <pre><code>.some-class {
   background-color: blue;
@@ -132,8 +200,8 @@
 
 &lt;!-- Remember every whitespace and break will be preserved in a &lt;pre&gt;, including indentation in your code. --&gt;</code></pre>
       </section>
-      <section class="section flow">
-        <h2 class="txt-h5 uppercase bold">Buttons</h2>
+      <section>
+        <h2 id="buttons"><a class="permalink" href="#buttons" title="Permalink to Buttons">Buttons</a></h2>
         <p>Standard Buttons</p>
         <a class="button" href="#">Anchor button</a>
         <button>Button element</button>
@@ -145,8 +213,8 @@
         <input type="submit" value="submit input" disabled>
         <input class="button-primary" type="button" value="button input" disabled>
       </section>
-      <section class="section flow">
-        <h2 class="txt-h5 uppercase bold">Forms</h2>
+      <section>
+        <h2 id="forms"><a class="permalink" href="#forms" title="Permalink to Forms">Forms</a></h2>
         <form>
           <fieldset>
             <legend>Fieldset</legend>
@@ -175,27 +243,52 @@
           <label for="dogs">How much do you like dogs?</label>
           <input type="range" id="dogs" name="dogs" min="9" max="10" step="0.1" value="10">
 
-          <label for="exampleMessage">Message</label>
-          <textarea class="u-full-width" placeholder="Hi Dave …" id="exampleMessage"></textarea>
+          <label for="exampleMessage" class="required">Message</label>
+          <textarea class="u-full-width" placeholder="Hi Dave …" id="exampleMessage" required></textarea>
 
           <label for="exampleProgress">Progress</label>
           <progress id="exampleProgress" max="100" value="60"></progress>
 
-              <label class="example-send-yourself-copy">
-                <input type="checkbox">
+              <label for="send-copy">
+                <input type="checkbox" name="example-checkbox-set" id="send-copy" value="send-copy">
                 Send a copy to yourself
               </label>
-              <label class="example-send-yourself-copy">
-                <input type="checkbox">
-                Test checkbox 2
+
+              <label for="radio-1">
+                <input type="radio" name="example-radio-set" id="radio-1" value="cats">
+                Cats
+              </label>
+              <label for="radio-2">
+                <input type="radio" name="example-radio-set" id="radio-2" value="dogs">
+                Dogs
               </label>
 
           <input class="button-primary" type="submit" value="Submit">
 
         </form>
       </section>
-      <section class="section flow">
-        <h2 class="uppercase txt-h5 bold">Tables</h2>
+      <section>
+        <h2 id="media"><a class="permalink" href="#media" title="Permalink to Media">Media</a></h2>
+        <p>Images are given <code>display: block</code> and <code>max-width: 100%</code> by default. A video wrapper is provided for responsive embeds, and utilities are provided to control aspect ratio for images and video.</p>
+        <audio controls src="/media/cc0-audio/t-rex-roar.mp3">
+          Your browser does not support the
+          <code>audio</code> element.
+        </audio>
+        <figure>
+          <img src="https://i.picsum.photos/id/1020/4288/2848.jpg?hmac=Jo3ofatg0fee3HGOliAIIkcg4KGXC8UOTO1dm5qIIPc"
+            alt="Bear cubs in snowy mountains">
+          <figcaption>Default Figure & Caption styles</figcaption>
+        </figure>
+
+        <div class="video-wrapper">
+          <iframe width="1704" height="968" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+
+      </section>
+      <section>
+        <h2 id="tables"><a class="permalink" href="#tables" title="Permalink to Tables">Tables</a></h2>
         <div class="table-wrapper">
         <table>
           <caption>CSS Variables</caption>
@@ -213,64 +306,59 @@
               <td>Open Sans</td>
             </tr>
             <tr>
-              <td><code>--font-head</code></td>
-              <td>Sets the font for headings</td>
-              <td>Raleway</td>
-            </tr>
-            <tr>
               <td><code>--font-mono</code></td>
               <td>Sets the font for code</td>
               <td>Fira Code</td>
             </tr>
             <tr>
-              <td><code>--color-primary</code></td>
-              <td>Sets the primary color</td>
-              <td><code>#4299E1</code></td>
-            </tr>
-            <tr>
-              <td><code>--color-accent</code></td>
-              <td>Sets the secondary color</td>
-              <td><code>var(--color-primary)</code></td>
+              <td><code>--page-bg-color</code></td>
+              <td>Sets the background of the page</td>
+              <td><code>white</code></td>
             </tr>
             <tr>
               <td><code>--element-bg-color</code></td>
-              <td>Color used for element backgrounds</td>
-              <td><code>#EDF2F7</code></td>
+              <td>Sets the background of some elements</td>
+              <td><code>#F0F1F3</code></td>
             </tr>
             <tr>
               <td><code>--text-color</code></td>
               <td>Color used for all text</td>
-              <td><code>#1A202C</code></td>
-            </tr>
-            <tr>
-              <td><code>--heading-color</code></td>
-              <td>Color used for headings</td>
-              <td><code>var(--text-color)</code></td>
+              <td><code>#2D2F34</code></td>
             </tr>
             <tr>
               <td><code>--light-text-color</code></td>
-              <td>Color used for rules and tables</td>
-              <td><code>#A0AEC0</code></td>
+              <td>Color used for light text. Note that it should still be accessible against the page background</td>
+              <td><code>#707682</code></td>
             </tr>
             <tr>
-              <td><code>--link-color</code></td>
-              <td>Color used for navigational elements</td>
-              <td><code>var(--color-primary)</code></td>
+              <td><code>--highlight-color</code></td>
+              <td>Color used for highlights</td>
+              <td><code>#E6F1FF</code></td>
             </tr>
             <tr>
-              <td><code>--button-color</code></td>
-              <td>Color used for buttons</td>
-              <td><code>var(--link-color)</code></td>
+              <td><code>--primary-color</code></td>
+              <td>Color used for accents, navigation, buttons, etc.</td>
+              <td><code>#0074E0</code></td>
             </tr>
             <tr>
-              <td><code>--space-unit</code></td>
+              <td><code>--primary-alt-color</code></td>
+              <td>Color used for button hovers, etc.</td>
+              <td><code>#052E55</code></td>
+            </tr>
+            <tr>
+              <td><code>--space</code></td>
               <td>The standard unit of space</td>
               <td><code>1.6rem</code></td>
             </tr>
             <tr>
+              <td><code>--flow-space</code></td>
+              <td>The vertical space between elements in flow</td>
+              <td><code>var(--space)</code></td>
+            </tr>
+            <tr>
               <td><code>--section-space</code></td>
               <td>The amount of space between sections</td>
-              <td><code>calc(var(--space-unit) * 2)</code></td>
+              <td><code>calc(var(--space) * 4)</code></td>
             </tr>
             <tr>
               <td><code>--content-width</code></td>
@@ -283,21 +371,42 @@
               <td><code>300px</code></td>
             </tr>
             <tr>
-              <td><code>--side-pad</code></td>
+              <td><code>--gutter</code></td>
               <td>The width of the side padding</td>
-              <td><code>var(--space-unit)</code></td>
+              <td><code>var(--space)</code></td>
+            </tr>
+            <tr>
+              <td><code>--ratio</code></td>
+              <td>The ratio used for modular type scale</td>
+              <td><code>1.2</code></td>
+            </tr>
+            <tr>
+              <td><code>--ms-0</code></td>
+              <td>The base font size. 1rem = 16px, 1.125rem = 18px, 1.25 = 20px. </td>
+              <td><code>1rem</code></td>
             </tr>
           </tbody>
         </table>
+        <p><code>--ms-1</code> through <code>--ms-5</code>, and <code>--ms--1</code> are also available. They use a calc function to find the correct step in the <a href="https://www.mattmcadams.com/thoughts/typographical-scale/">modular scale</a> based on the <code>--ratio</code>.</p>
+        <p>Generally, I might also recommend setting up a color scale for your project. I've used semantic variables for the colors here because not all projects require a color scale. Please see below some pre-generated colors I had thought about including in this boilerplate:</p>
+        <ul>
+          <li><a href="https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/707682/112/118/130/white" target="_blank">Gray</a></li>
+          <li><a href="https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/DC2F2F/220/47/47/white" target="_blank">Red</a></li>
+          <li><a href="https://hihayk.github.io/scale/#4/4/60/90/0/-10/50/-10/D08200/208/130/0/white" target="_blank">Yellow</a></li>
+          <li><a href="https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/00883E/0/136/62/white" target="_blank">Green</a></li>
+          <li><a href="https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/0074E0/0/116/224/white" target="_blank">Primary / Blue</a></li>
+        </ul>
         </div>
       </section>
     </main>
   </div>
 
-  <!-- <footer id="footer">
-    <div class="container">
+  <footer id="footer">
+    <div class="container container-wide">
+      CSS Boilerplate by <a href="https://mattmcadams.com">Matthew McAdams</a>.<br>
+      <a href="https://github.com/MattMcAdams/CSS-Boilerplate">Open Source</a> & Free to use (<a href="https://github.com/MattMcAdams/CSS-Boilerplate/blob/master/LICENSE">Public Domain</a>)
     </div>
-  </footer> -->
+  </footer>
 
 </div>
 

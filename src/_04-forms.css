@@ -19,6 +19,11 @@ label + label {
   margin-top: calc(var(--space) / 2);
 }
 
+label.required::after {
+  content: " *";
+  color: var(--color-red-500);
+}
+
 fieldset {
   border: 0.5px solid var(--color-gray-500);
   padding: var(--space);

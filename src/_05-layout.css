@@ -12,6 +12,10 @@
   max-width: var(--content-width);
   padding: 0 var(--gutter);
   margin: 0 auto;
+  width: 100%;
+}
+.container-wide {
+  max-width: calc(var(--content-width) + var(--gutter) + var(--sidebar-width) + var(--section-space))
 }
 
 /** -----------------------------------------------------------------
@@ -214,8 +218,8 @@
 /* Assign sidebar to the sidebar area,
  * Assign content to the content area */
 
-.has-sidebar > .sidebar { grid-area: "sidebar"; }
-.has-sidebar > .content { grid-area: "content"; }
+.has-sidebar > .sidebar { grid-area: sidebar; }
+.has-sidebar > .content { grid-area: content; }
 
 /* On landscape, adjust layout for two columns,
  * Arange areas so that the sidebar is on the left side of content.

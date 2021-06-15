@@ -12,7 +12,7 @@
 :root {
   /* Fonts */
   --font-body: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-head: var(--font-body);
+  --font-head: var(--font-body); /* TEMP - Use font-body by default */
   --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
   /* --font-icon: null; */
 
@@ -21,14 +21,17 @@
   --color-gray-500: #707682;
   --color-gray-900: #2D2F34;
   /* https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/707682/112/118/130/white */
+  /* TEMP - Probably not needed for 99% of users */
   --color-red-100: #FFE6E6;
   --color-red-500: #DC2F2F;
   --color-red-900: #551616;
   /* https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/DC2F2F/220/47/47/white */
+  /* TEMP - Probably not needed for 99% of users */
   --color-yellow-100: #FFF9E6;
   --color-yellow-500: #D08200;
   --color-yellow-900: #4F3304;
   /* https://hihayk.github.io/scale/#4/4/60/90/0/-10/50/-10/D08200/208/130/0/white */
+  /* TEMP - Probably not needed for 99% of users */
   --color-green-100: #E6F7EB;
   --color-green-500: #00883E;
   --color-green-900: #033419;
@@ -43,12 +46,14 @@
   --element-bg-color: var(--color-gray-100);
   --text-color: var(--color-gray-900);
   --light-text-color: var(--color-gray-500);
-  --heading-color: var(--text-color);
+  --heading-color: var(--text-color); /* TEMP */
+  --highlight-color: var(--color-primary-100);
+  --primary-alt: var(--color-primary-900);
 
-  --nav-color: var(--color-primary-500);
-  --button-color: var(--nav-color);
+  --nav-color: var(--color-primary-500); /* TEMP - Use primary 500 by default */
+  --button-color: var(--nav-color); /* TEMP - Use primary 500 by default */
 
-  --accent-color: var(--color-primary-500);
+  --accent-color: var(--color-primary-500); /* TEMP - Use primary 500 by default */
 
   /* Spacing */
   --space: 1.6rem; /* Should equal body line-height */
@@ -59,15 +64,15 @@
   --sidebar-width: 300px;
 
   /* Modular Scale */
-  --ratio: 1.25;
-  --ms-0: 1.25rem; /* 16px * 1.25 = 20px (1.125 for 18px) */
+  --ratio: 1.2; /* 1.2 is very similar to default browser style */
+  --ms-0: 1rem; /* 1rem = 16px | 1.25rem = 20px | 1.125rem = 18px */
   --ms-1: calc(var(--ms-0) * var(--ratio));
   --ms-2: calc(var(--ms-1) * var(--ratio));
   --ms-3: calc(var(--ms-2) * var(--ratio));
   --ms-4: calc(var(--ms-3) * var(--ratio));
   --ms-5: calc(var(--ms-4) * var(--ratio));
   --ms--1: calc(var(--ms-0) / var(--ratio));
-  --ms--2: calc(var(--ms--1) / var(--ratio));
+  --ms--2: calc(var(--ms--1) / var(--ratio)); /* TEMP - Not used anywhere */
 }
 
 /* END !SECTION TOKENS */
@@ -141,6 +146,8 @@ table {
 /** -----------------------------------------------------------------
   * SECTION CORE
 ------------------------------------------------------------------ */
+/* Keep an eye on this space:
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties */
 
 /* Links that point to a location on the same page will scroll
  * smoothly down to that location. */
@@ -153,7 +160,8 @@ table {
  * content. Note that for Accessibility guidelines, this content
  * must become visible if toggled over using a keyboard. */
 
-.visually-hidden:not(:focus):not(:active) {
+.visually-hidden:not(:focus):not(:active),
+.sr-only:not(:focus):not(:active) {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;
@@ -179,15 +187,24 @@ table {
   cursor: not-allowed !important;
 }
 
-:active,
+/* Use primary color for focus styles */
+
 :focus {
   outline-color: var(--color-primary-500);
   outline-offset: 3px;
+  outline-style: solid;
+  outline-width: 2px;
 }
+
+/* Adds a margin above an element when it is the target of an ID link */
+
+* { scroll-margin-top: var(--space); }
 
 /** -----------------------------------------------------------------
   * SECTION TYPOGRAPHY
 ------------------------------------------------------------------ */
+/* Keep an eye on this space:
+https://css-tricks.com/leading-trim-the-future-of-digital-typesetting/ */
 
 /* Set the document's default font, color, size, and line height */
 
@@ -195,7 +212,7 @@ body {
   font-family: var(--font-body);
   color: var(--text-color);
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: var(--ms-0);
 }
 
 /* Set font and flow margin to headings, and heading-like elements.
@@ -205,22 +222,46 @@ h1, h2, h3, h4, h5,
 .txt-h1, .txt-h2, .txt-h3, .txt-h4, .txt-h5, .txt-h6,
 label, th, legend {
   font-family: var(--font-head);
+  margin-bottom: var(--flow-space);
 }
 
 /* Double flow spacing before headings & set heading color. */
 
 h1, h2, h3, h4, h5, h6,
 .txt-h1, .txt-h2, .txt-h3, .txt-h4, .txt-h5, .txt-h6 {
+  margin-top: calc(var(--flow-space) * 2);
   color: var(--heading-color);
+  line-height: 1.2;
+}
+
+/* Decrease space between sequential headings */
+
+h1 + h2,
+h2 + h3,
+h3 + h4,
+h4 + h5,
+h5 + h6,
+.txt-h1 + .txt-h2,
+.txt-h2 + .txt-h3,
+.txt-h3 + .txt-h4,
+.txt-h4 + .txt-h5,
+.txt-h5 + .txt-h6 {
+  margin-top: 0;
+}
+
+/* Add flow spacing after paragraphs */
+
+p, .txt-p {
+  margin-bottom: var(--flow-space);
 }
 
 /* Heading typography */
 
-h1, .txt-h1 { font-size: 3.052rem; line-height: 1.2; margin-top: 0;}
-h2, .txt-h2 { font-size: 2.441rem; line-height: 1.25; }
-h3, .txt-h3 { font-size: 1.953rem; line-height: 1.3; }
-h4, .txt-h4 { font-size: 1.563rem; line-height: 1.35; }
-h5, .txt-h5 { font-size: 1.25rem;  line-height: 1.5; }
+h1, .txt-h1 { font-size: var(--ms-5); margin-top: 0;}
+h2, .txt-h2 { font-size: var(--ms-4); }
+h3, .txt-h3 { font-size: var(--ms-3); }
+h4, .txt-h4 { font-size: var(--ms-2); }
+h5, .txt-h5 { font-size: var(--ms-1); }
 h6, .txt-h6, label, th, legend { font-size: 1rem; font-weight: bold; }
 
 /* Set typography for small text */
@@ -289,7 +330,7 @@ s { text-decoration: line-through; }
 /* Mark styles - see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark */
 
 mark {
-  background: var(--color-primary-100);
+  background: var(--color-yellow-100);
   padding: 0.1em 0.3em;
 }
 
@@ -306,6 +347,12 @@ abbr[title] {
 /* Italisize q when it includes a cite */
 
 q[cite] { font-style: italic; }
+
+/* Add flow spacing after address */
+
+address {
+  margin-bottom: var(--flow-space);
+}
 
 /* END !SECTION TYPOGRAPHY */
 /** -----------------------------------------------------------------
@@ -359,7 +406,15 @@ blockquote,
 .callout {
   border-left: 5px solid var(--color-primary-500);
   padding: calc(var(--space) / 2) var(--space);
-  background-color: var(--element-bg-color);
+  background-color: var(--color-primary-100);
+  margin-bottom: var(--flow-space);
+}
+
+/* Remove the bottom margin from the last child in the blockquote */
+
+blockquote :last-child,
+.callout :last-child {
+  margin-bottom: 0;
 }
 
 /* END !SECTION BLOCKQUOTE */
@@ -388,6 +443,12 @@ ul:not([class]), ol:not([class]) {
   margin-left: var(--space);
 }
 
+/* Add flow spacing to list elements */
+
+ul, ol, dl {
+  margin-bottom: var(--flow-space);
+}
+
 /* Add spacing between list items */
 
 ul:not([class]) li,
@@ -396,7 +457,7 @@ ul:not([class]) ul,
 ol:not([class]) li,
 ol:not([class]) ol,
 ol:not([class]) ul {
-  margin-bottom: calc(var(--flow-space) / 2);
+  margin-bottom: calc(var(--flow-space) / 4);
 }
 
 /* Ensure nested lists have the correct spacing */
@@ -405,7 +466,7 @@ ul:not([class]) ol,
 ul:not([class]) ul,
 ol:not([class]) ol,
 ol:not([class]) ul {
-  margin-top: calc(var(--flow-space) / 2);
+  margin-top: calc(var(--flow-space) / 4);
 }
 
 /* Add basic styles for definition lists */
@@ -429,6 +490,7 @@ video,
   display: block;
   width: 100%;
   margin: auto;
+  margin-bottom: var(--flow-space);
 }
 
 img {
@@ -459,6 +521,7 @@ audio {
   display: block;
   max-width: 100%;
   border-radius: 900px;
+  margin-bottom: var(--flow-space);
 }
 
 /* Setup media wrappers */
@@ -472,6 +535,8 @@ audio {
 }
 
 /* Define aspect ratios */
+/* Keep an eye on this space:
+https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio */
 
 .video-wrapper,
 .embed-container,
@@ -495,6 +560,8 @@ audio {
 .aspect-ratio > img {
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
+  height: 100%;
+  width: 100%;
 }
 
 /* Allow img to crop to avoid being stretched */
@@ -520,6 +587,7 @@ hr {
   border: none;
   border-bottom: 0.5px solid var(--light-text-color);
   width: 100%;
+  margin-bottom: var(--flow-space);
 }
 
 hr.spacer {
@@ -534,6 +602,7 @@ hr.spacer {
 
 table {
   width: 100%;
+  margin-bottom: var(--flow-space);
 }
 
 caption {
@@ -549,6 +618,10 @@ th, td {
 
 tr {
   border-bottom: 0.5px solid var(--light-text-color);
+}
+
+tr:hover {
+  background-color: var(--element-bg-color);
 }
 
 /* END !SECTION TABLES */
@@ -576,6 +649,10 @@ kbd {
   border-radius: 5px;
 }
 
+pre {
+  margin-bottom: var(--flow-space);
+}
+
 pre code,
 pre samp {
   display: block;
@@ -593,8 +670,9 @@ pre samp {
 
 details {
   display: block;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   position: relative;
+  margin-bottom: var(--flow-space);
 }
 
 summary::-webkit-details-marker {
@@ -606,7 +684,6 @@ summary {
   cursor: pointer;
   padding-left: 1.5em;
   font-weight: bold;
-  outline: 0;
 }
 
 summary::before {
@@ -642,6 +719,7 @@ details .details-content {
   * File. You're better off implementing something with JS
   * Date & Color. Styling these is far too complicated for the
   * scope of this project.
+  * TODO: Add disabled styles
 ------------------------------------------------------------------ */
 
 label, legend {
@@ -653,6 +731,11 @@ label, legend {
 
 label + label {
   margin-top: calc(var(--space) / 2);
+}
+
+label.required::after {
+  content: " *";
+  color: var(--color-red-500);
 }
 
 fieldset {
@@ -707,6 +790,7 @@ datalist:active {
 
 /** -----------------------------------------------------------------
   * SECTION RADIO & CHECKBOX
+  * TODO: Add disabled styles
 ------------------------------------------------------------------ */
 
 @supports (appearance: none) or (-moz-appearance: none) or (-webkit-appearance: none)  {
@@ -740,6 +824,7 @@ datalist:active {
 /* END !SECTION RADIO & CHECKBOX */
 /** -----------------------------------------------------------------
   * SECTION NUMBER, SELECT, SEARCH
+  * TODO: Add disabled styles
 ------------------------------------------------------------------ */
 
 /* Remove increment/decrement buttons from number fields */
@@ -802,6 +887,7 @@ progress[value]::-moz-progress-bar {
 /* END !SECTION PROGRESS */
 /** -----------------------------------------------------------------
   * SECTION RANGE
+  * TODO: Add disabled styles
 ------------------------------------------------------------------ */
 
 input[type="range"],
@@ -925,6 +1011,10 @@ input[type="button"][disabled] {
   max-width: var(--content-width);
   padding: 0 var(--gutter);
   margin: 0 auto;
+  width: 100%;
+}
+.container-wide {
+  max-width: calc(var(--content-width) + var(--gutter) + var(--sidebar-width) + var(--section-space))
 }
 
 /** -----------------------------------------------------------------
@@ -933,7 +1023,7 @@ input[type="button"][disabled] {
   * that don't support css variables
 ------------------------------------------------------------------ */
 
-.flow > * + * {
+/* .flow > * + * {
   margin-top: 1.5rem;
   margin-top: var(--flow-space);
 }
@@ -966,7 +1056,7 @@ input[type="button"][disabled] {
 .flow > .txt-h5 + .txt-h6 {
   margin-top: 1.5rem;
   margin-top: calc(var(--flow-space) * 0.5);
-}
+} */
 
 /* END !SECTION FLOW SPACING */
 /** -----------------------------------------------------------------
@@ -1127,8 +1217,8 @@ input[type="button"][disabled] {
 /* Assign sidebar to the sidebar area,
  * Assign content to the content area */
 
-.has-sidebar > .sidebar { grid-area: "sidebar"; }
-.has-sidebar > .content { grid-area: "content"; }
+.has-sidebar > .sidebar { grid-area: sidebar; }
+.has-sidebar > .content { grid-area: content; }
 
 /* On landscape, adjust layout for two columns,
  * Arange areas so that the sidebar is on the left side of content.
@@ -1145,6 +1235,8 @@ input[type="button"][disabled] {
 /* END !SECTION LAYOUT */
 /** -----------------------------------------------------------------
   * SECTION ACCORDION
+  * Border radius has been commented out to avoid being too
+  * opinionated, but left in so you can see how to implement it
 ------------------------------------------------------------------ */
 
 details.accordion summary {
