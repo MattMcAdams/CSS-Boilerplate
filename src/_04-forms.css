@@ -5,7 +5,6 @@
   * File. You're better off implementing something with JS
   * Date & Color. Styling these is far too complicated for the
   * scope of this project.
-  * TODO: Add disabled styles
 ------------------------------------------------------------------ */
 
 label, legend {
@@ -76,7 +75,6 @@ datalist:active {
 
 /** -----------------------------------------------------------------
   * SECTION RADIO & CHECKBOX
-  * TODO: Add disabled styles
 ------------------------------------------------------------------ */
 
 @supports (appearance: none) or (-moz-appearance: none) or (-webkit-appearance: none)  {
@@ -110,7 +108,6 @@ datalist:active {
 /* END !SECTION RADIO & CHECKBOX */
 /** -----------------------------------------------------------------
   * SECTION NUMBER, SELECT, SEARCH
-  * TODO: Add disabled styles
 ------------------------------------------------------------------ */
 
 /* Remove increment/decrement buttons from number fields */
@@ -173,7 +170,6 @@ progress[value]::-moz-progress-bar {
 /* END !SECTION PROGRESS */
 /** -----------------------------------------------------------------
   * SECTION RANGE
-  * TODO: Add disabled styles
 ------------------------------------------------------------------ */
 
 input[type="range"],

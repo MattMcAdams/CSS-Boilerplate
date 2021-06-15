@@ -19,32 +19,32 @@ These items require no custom CSS. They exist for semantic content sectioning on
 
 The following html elements have recieved at least basic styling to support content flow.
 
-[x] p
-[x] address
-[x] pre & pre code
-[x] blockquote
-[x] h1-h6
+- [x] p
+- [x] address
+- [x] pre & pre code
+- [x] blockquote
+- [x] h1-h6
 
 ## Lists
 
 List related elements have been styled up to 3 levels deep, and include a safety feature to eliminate specificity issues.
 
-[x] ul
-[x] ol
-[x] li
-[x] dl
-[x] dt
-[x] dd
+- [x] ul
+- [x] ol
+- [x] li
+- [x] dl
+- [x] dt
+- [x] dd
 
 ## Tables
 
 The following html table-related elements have recieved basic styling.
 
-[x] table
-[x] caption
-[x] tr
-[x] th
-[x] td
+- [x] table
+- [x] caption
+- [x] tr
+- [x] th
+- [x] td
 
 These table-related elements have been skipped because they exist for semantic sectioning of table areas.
 
@@ -56,15 +56,15 @@ These table-related elements have been skipped because they exist for semantic s
 
 The following media elements have recieved basic styles to allow for better content flow. I've also added several wrappers and utilities for dealing with aspect ratios.
 
-[x] img
-[x] video
-[x] figure
-[x] figcaption
-[x] audio
-[x] embed
-[x] iframe
-[x] object
-[x] canvas
+- [x] img
+- [x] video
+- [x] figure
+- [x] figcaption
+- [x] audio
+- [x] embed
+- [x] iframe
+- [x] object
+- [x] canvas
 
 These elements remain unstyled because they are logic elements that do not display, similar to `<script>`.
 
@@ -81,42 +81,42 @@ These elements seem really obscure and would likely require a very specific use 
 
 All of the following elements have recieved CSS tweaks. Some are small quality of life changes and others are more extensive.
 
-[x] a
-[x] abbr
-[x] cite
-[x] em
-[x] strong
-[x] mark
-[x] q
-[x] s
-[x] del
-[x] ins
-[x] small
-[x] sub
-[x] sup
-[x] var
-[x] code
-[x] samp
-[x] kbd
+- [x] a
+- [x] abbr
+- [x] cite
+- [x] em
+- [x] strong
+- [x] mark
+- [x] q
+- [x] s
+- [x] del
+- [x] ins
+- [x] small
+- [x] sub
+- [x] sup
+- [x] var
+- [x] code
+- [x] samp
+- [x] kbd
 
 ## Forms
 
 The following html form elements have been styled for content flow consistencies
 
-[x] legend
-[x] fieldset
-[x] label
+- [x] legend
+- [x] fieldset
+- [x] label
 
 These elements have been given simple input styles
 
-[x] button
-[x] input
-[x] radio
-[x] checkbox
-[x] textarea
-[x] select
-[x] datalist
-[X] progress
+- [x] button
+- [x] input
+- [x] radio
+- [x] checkbox
+- [x] textarea
+- [x] select
+- [x] datalist
+- [X] progress
 
 These elements have not been styled. Form is a sectioning element, option is a logic element used with select, optgroup has acceptable default styles, and output is a logical element that does not require custom style
 
@@ -145,7 +145,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
 
 Experimental. Not supported by most browsers.
 
-[x] details / summary
+- [x] details / summary
 
 https://codepen.io/johnbarnitz/pen/gOPbVer
 https://freefrontend.com/html-details-summary-css/

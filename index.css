@@ -1,10 +1,9 @@
 /* ==================================================================
-  Smart CSS Boilerplate
-  Author: Matthew McAdams
-  @MattMakesArt | mattmcadams.com
+  CSS Boilerplate
   The Unlicense <https://unlicense.org>
   https://github.com/MattMcAdams/CSS-Boilerplate
 ================================================================== */
+
 /** -----------------------------------------------------------------
   * SECTION TOKENS
 ------------------------------------------------------------------ */
@@ -12,7 +11,7 @@
 :root {
   /* Fonts */
   --font-body: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-head: var(--font-body); /* TEMP - Use font-body by default */
+  --font-head: var(--font-body);
   --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
   /* --font-icon: null; */
 
@@ -21,17 +20,14 @@
   --color-gray-500: #707682;
   --color-gray-900: #2D2F34;
   /* https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/707682/112/118/130/white */
-  /* TEMP - Probably not needed for 99% of users */
   --color-red-100: #FFE6E6;
   --color-red-500: #DC2F2F;
   --color-red-900: #551616;
   /* https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/DC2F2F/220/47/47/white */
-  /* TEMP - Probably not needed for 99% of users */
   --color-yellow-100: #FFF9E6;
   --color-yellow-500: #D08200;
   --color-yellow-900: #4F3304;
   /* https://hihayk.github.io/scale/#4/4/60/90/0/-10/50/-10/D08200/208/130/0/white */
-  /* TEMP - Probably not needed for 99% of users */
   --color-green-100: #E6F7EB;
   --color-green-500: #00883E;
   --color-green-900: #033419;
@@ -46,14 +42,14 @@
   --element-bg-color: var(--color-gray-100);
   --text-color: var(--color-gray-900);
   --light-text-color: var(--color-gray-500);
-  --heading-color: var(--text-color); /* TEMP */
+  --heading-color: var(--text-color);
   --highlight-color: var(--color-primary-100);
   --primary-alt: var(--color-primary-900);
 
-  --nav-color: var(--color-primary-500); /* TEMP - Use primary 500 by default */
-  --button-color: var(--nav-color); /* TEMP - Use primary 500 by default */
+  --nav-color: var(--color-primary-500);
+  --button-color: var(--nav-color);
 
-  --accent-color: var(--color-primary-500); /* TEMP - Use primary 500 by default */
+  --accent-color: var(--color-primary-500);
 
   /* Spacing */
   --space: 1.6rem; /* Should equal body line-height */
@@ -72,7 +68,7 @@
   --ms-4: calc(var(--ms-3) * var(--ratio));
   --ms-5: calc(var(--ms-4) * var(--ratio));
   --ms--1: calc(var(--ms-0) / var(--ratio));
-  --ms--2: calc(var(--ms--1) / var(--ratio)); /* TEMP - Not used anywhere */
+  --ms--2: calc(var(--ms--1) / var(--ratio));
 }
 
 /* END !SECTION TOKENS */
@@ -146,8 +142,6 @@ table {
 /** -----------------------------------------------------------------
   * SECTION CORE
 ------------------------------------------------------------------ */
-/* Keep an eye on this space:
-https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties */
 
 /* Links that point to a location on the same page will scroll
  * smoothly down to that location. */
@@ -203,8 +197,6 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties */
 /** -----------------------------------------------------------------
   * SECTION TYPOGRAPHY
 ------------------------------------------------------------------ */
-/* Keep an eye on this space:
-https://css-tricks.com/leading-trim-the-future-of-digital-typesetting/ */
 
 /* Set the document's default font, color, size, and line height */
 
@@ -221,7 +213,7 @@ body {
 h1, h2, h3, h4, h5,
 .txt-h1, .txt-h2, .txt-h3, .txt-h4, .txt-h5, .txt-h6,
 label, th, legend {
-  font-family: var(--font-head);
+  /* font-family: var(--font-head); */
   margin-bottom: var(--flow-space);
 }
 
@@ -230,7 +222,7 @@ label, th, legend {
 h1, h2, h3, h4, h5, h6,
 .txt-h1, .txt-h2, .txt-h3, .txt-h4, .txt-h5, .txt-h6 {
   margin-top: calc(var(--flow-space) * 2);
-  color: var(--heading-color);
+  /* color: var(--heading-color); */
   line-height: 1.2;
 }
 
@@ -262,11 +254,11 @@ h2, .txt-h2 { font-size: var(--ms-4); }
 h3, .txt-h3 { font-size: var(--ms-3); }
 h4, .txt-h4 { font-size: var(--ms-2); }
 h5, .txt-h5 { font-size: var(--ms-1); }
-h6, .txt-h6, label, th, legend { font-size: 1rem; font-weight: bold; }
+h6, .txt-h6, label, th, legend { font-size: var(--ms-0); font-weight: bold; }
 
 /* Set typography for small text */
 
-small, .txt-small { font-size: 0.8rem; line-height: 1.3; }
+small, .txt-small { font-size: var(--ms--1); line-height: 1.3; }
 
 /* Basic styles for inline semantics */
 
@@ -362,7 +354,7 @@ address {
 ------------------------------------------------------------------ */
 
 a:not([class]) {
-  color: var(--nav-color);
+  color: var(--color-primary-500);
   text-decoration: none;
   font-weight: bold;
 }
@@ -372,7 +364,7 @@ a:not([class]) {
 a:not([class]):hover,
 a:not([class]):focus {
   text-decoration: underline;
-  text-decoration-color: var(--nav-color);
+  text-decoration-color: var(--color-primary-500);
   text-decoration-thickness: 2px;
 }
 
@@ -535,8 +527,6 @@ audio {
 }
 
 /* Define aspect ratios */
-/* Keep an eye on this space:
-https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio */
 
 .video-wrapper,
 .embed-container,
@@ -670,7 +660,6 @@ pre samp {
 
 details {
   display: block;
-  /* white-space: nowrap; */
   position: relative;
   margin-bottom: var(--flow-space);
 }
@@ -719,7 +708,6 @@ details .details-content {
   * File. You're better off implementing something with JS
   * Date & Color. Styling these is far too complicated for the
   * scope of this project.
-  * TODO: Add disabled styles
 ------------------------------------------------------------------ */
 
 label, legend {
@@ -790,7 +778,6 @@ datalist:active {
 
 /** -----------------------------------------------------------------
   * SECTION RADIO & CHECKBOX
-  * TODO: Add disabled styles
 ------------------------------------------------------------------ */
 
 @supports (appearance: none) or (-moz-appearance: none) or (-webkit-appearance: none)  {
@@ -824,7 +811,6 @@ datalist:active {
 /* END !SECTION RADIO & CHECKBOX */
 /** -----------------------------------------------------------------
   * SECTION NUMBER, SELECT, SEARCH
-  * TODO: Add disabled styles
 ------------------------------------------------------------------ */
 
 /* Remove increment/decrement buttons from number fields */
@@ -887,7 +873,6 @@ progress[value]::-moz-progress-bar {
 /* END !SECTION PROGRESS */
 /** -----------------------------------------------------------------
   * SECTION RANGE
-  * TODO: Add disabled styles
 ------------------------------------------------------------------ */
 
 input[type="range"],
@@ -1266,6 +1251,7 @@ details.accordion .details-content {
 }
 
 /* END !SECTION ACCORDION */
+/* REVIEW the value of these utility classes. Are they really needed? */
 /* Clearfix if you still need that sort of thing */
 
 .clearfix:after {
