@@ -42,7 +42,7 @@
 
 /* Use primary color for focus styles */
 
-:focus {
+:focus-visible {
   outline-color: var(--color-primary-500);
   outline-offset: 3px;
   outline-style: solid;
@@ -51,7 +51,14 @@
 
 /* Adds a margin above an element when it is the target of an ID link */
 
-* { scroll-margin-top: var(--space); }
+* {
+  scroll-margin-top: var(--space);
+  scroll-margin-bottom: var(--space);
+}
+
+::selection {
+  background-color: var(--color-primary-100);
+}
 
 /** -----------------------------------------------------------------
   * SECTION TYPOGRAPHY

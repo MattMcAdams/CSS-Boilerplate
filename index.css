@@ -183,7 +183,7 @@ table {
 
 /* Use primary color for focus styles */
 
-:focus {
+:focus-visible {
   outline-color: var(--color-primary-500);
   outline-offset: 3px;
   outline-style: solid;
@@ -192,7 +192,14 @@ table {
 
 /* Adds a margin above an element when it is the target of an ID link */
 
-* { scroll-margin-top: var(--space); }
+* {
+  scroll-margin-top: var(--space);
+  scroll-margin-bottom: var(--space);
+}
+
+::selection {
+  background-color: var(--color-primary-100);
+}
 
 /** -----------------------------------------------------------------
   * SECTION TYPOGRAPHY
@@ -957,7 +964,12 @@ input[type="button"] {
 button:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover,
-input[type="button"]:hover {
+input[type="button"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
   border-color: var(--color-primary-900);
   background-color: var(--color-primary-900);
 }
@@ -1251,7 +1263,6 @@ details.accordion .details-content {
 }
 
 /* END !SECTION ACCORDION */
-/* REVIEW the value of these utility classes. Are they really needed? */
 /* Clearfix if you still need that sort of thing */
 
 .clearfix:after {
