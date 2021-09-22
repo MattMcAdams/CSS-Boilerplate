@@ -250,6 +250,14 @@ input[type="button"] {
   margin-bottom: var(--space);
 }
 
+.button img,
+button img,
+input[type="submit"] img,
+input[type="reset"] img,
+input[type="button"] img {
+  margin: 0;
+}
+
 .button:hover,
 button:hover,
 input[type="submit"]:hover,
