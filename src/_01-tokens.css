@@ -56,8 +56,8 @@
   --section-space: calc(var(--space) * 4);
   --flow-space: var(--space);
   --gutter: var(--space);
-  --content-width: 900px;
-  --sidebar-width: 300px;
+  --content-width: 55rem;
+  --sidebar-width: 15rem;
 
   /* Modular Scale */
   --ratio: 1.2; /* 1.2 is very similar to default browser style */

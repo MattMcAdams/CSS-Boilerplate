@@ -96,29 +96,29 @@
  * This helps avoid grid blowout on screens smaller than the
  * preferred min-width of a grid item. */
 
-@media ( min-width: 400px ) {
+@media ( min-width: 25em ) {
   .grid {
     --grid-gap: var(--space);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
     grid-gap: var(--grid-gap);
   }
 }
 
-@media ( orientation: portrait ) and ( min-width: 400px ) {
+@media ( orientation: portrait ) and ( min-width: 25em ) {
   .grid-portrait {
     --grid-gap: var(--space);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
     grid-gap: var(--grid-gap);
   }
 }
 
-@media ( orientation: landscape ) and (min-width: 400px ) {
+@media ( orientation: landscape ) and (min-width: 25em ) {
   .grid-landscape {
     --grid-gap: var(--space);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
     grid-gap: var(--grid-gap);
   }
 }
@@ -216,16 +216,23 @@
 
 
 /* Assign sidebar to the sidebar area,
- * Assign content to the content area */
+ * Assign content to the content area,
+ * Min-Width prevents grid blow out */
 
-.has-sidebar > .sidebar { grid-area: sidebar; }
-.has-sidebar > .content { grid-area: content; }
+.has-sidebar > .sidebar {
+  grid-area: sidebar;
+  min-width: 0;
+}
+.has-sidebar > .content {
+  grid-area: content;
+  min-width: 0;
+}
 
 /* On landscape, adjust layout for two columns,
  * Arange areas so that the sidebar is on the left side of content.
  * minmax prevents content from being larger than screen width */
 
-@media ( orientation: landscape ) {
+@media ( min-width: 65em ) {
   .has-sidebar {
     grid-template-columns: var(--sidebar-width) minmax(1px, 1fr);
     grid-template-areas: "sidebar content"
