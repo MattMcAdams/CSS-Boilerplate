@@ -72,7 +72,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: calc(var(--space) / -2);
+  margin: calc(var(--gutter) / -2);
 }
 
 /* The first level item will be aligned to the left of the level
@@ -83,7 +83,7 @@
 .level_item {
   align-self: center;
   display: block;
-  padding: calc(var(--space) / 2);
+  padding: calc(var(--gutter) / 2);
 }
 
 /* END !SECTION LEVEL */
@@ -98,7 +98,7 @@
 
 @media ( min-width: 25em ) {
   .grid {
-    --grid-gap: var(--space);
+    --grid-gap: var(--gutter);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
     grid-gap: var(--grid-gap);
@@ -107,7 +107,7 @@
 
 @media ( orientation: portrait ) and ( min-width: 25em ) {
   .grid-portrait {
-    --grid-gap: var(--space);
+    --grid-gap: var(--gutter);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
     grid-gap: var(--grid-gap);
@@ -116,7 +116,7 @@
 
 @media ( orientation: landscape ) and (min-width: 25em ) {
   .grid-landscape {
-    --grid-gap: var(--space);
+    --grid-gap: var(--gutter);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
     grid-gap: var(--grid-gap);
@@ -184,8 +184,8 @@
   width: 100%;
   flex: 1 0 auto;
   align-self: center;
-  padding-top: calc(var(--space) * 5);
-  padding-bottom: calc(var(--space) * 5);
+  padding-top: var(--section-space);
+  padding-bottom: var(--section-space);
 }
 
 /* Ensure footer does not shrink */

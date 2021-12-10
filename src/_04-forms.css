@@ -8,14 +8,15 @@
 ------------------------------------------------------------------ */
 
 label, legend {
-  font-weight: bold;
   background-color: transparent;
   display: block;
-  margin-bottom: 0;
+  font: var(--typeset_-1);
+  font-weight: bold;
+  margin-bottom: var(--sp_0);
 }
 
 label + label {
-  margin-top: calc(var(--space) / 2);
+  margin-top: var(--sp_1);
 }
 
 label.required::after {
@@ -25,8 +26,8 @@ label.required::after {
 
 fieldset {
   border: 0.5px solid var(--color-gray-500);
-  padding: var(--space);
-  margin-bottom: var(--space);
+  padding: var(--sp_2);
+  margin-bottom: var(--flow-space);
   background-color: var(--color-gray-100);
 }
 
@@ -46,7 +47,7 @@ legend {
   line-height: inherit;
   box-sizing: border-box;
 
-  padding: calc(var(--space) / 4) calc(var(--space) / 2);
+  padding: var(--sp_1) var(--sp_2);
   border: 1px solid var(--light-text-color);
   margin: 0;
   margin-bottom: var(--flow-space);
@@ -125,12 +126,12 @@ select {
   -moz-appearance: none;
   appearance: none; /* hides the native UI */
 
-  padding-right: calc(var(--space) * 2); /* prevents input text from running into background image */
+  padding-right: var(--sp_4); /* prevents input text from running into background image */
 
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8" fill="none" stroke="black"><path d="M7.5 3L4 6 .5 3"/></svg>');
   background-size: 0.7em;
   background-repeat: no-repeat;
-  background-position: right calc(var(--space) / 2) center;
+  background-position: right var(--sp_1) center;
 }
 
 /* Remove the chrome cancel button */
@@ -227,7 +228,7 @@ label + .button,
 label + input[type="submit"],
 label + input[type="reset"],
 label + input[type="button"] {
-  margin-top: var(--space);
+  margin-top: var(--flow-space);
 }
 
 .button,
@@ -235,11 +236,11 @@ button,
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-  display: inline-block;
+  display: block;
   text-align: center;
   white-space: nowrap;
   text-decoration: none;
-  width: auto;
+  width: min-content;
   background-color: transparent;
   cursor: pointer;
   box-sizing: border-box;
@@ -247,7 +248,11 @@ input[type="button"] {
   color: white;
   background-color: var(--color-primary-500);
   border: 1px solid var(--color-primary-500);
-  margin-bottom: var(--space);
+  margin-bottom: var(--flow-space);
+
+  font-weight: bold;
+  padding-left: var(--sp_4);
+  padding-right: var(--sp_4);
 }
 
 .button img,

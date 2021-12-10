@@ -6,6 +6,7 @@
 
 /** -----------------------------------------------------------------
   * SECTION TOKENS
+  * font: font-style font-variant font-weight font-size/line-height font-family; }
 ------------------------------------------------------------------ */
 
 :root {
@@ -42,6 +43,7 @@
   --element-bg-color: var(--color-gray-100);
   --text-color: var(--color-gray-900);
   --light-text-color: var(--color-gray-500);
+
   --heading-color: var(--text-color);
   --highlight-color: var(--color-primary-100);
   --primary-alt: var(--color-primary-900);
@@ -51,24 +53,70 @@
 
   --accent-color: var(--color-primary-500);
 
+
+
+
+
+
+
+
+
+
   /* Spacing */
-  --space: 1.6rem; /* Should equal body line-height */
-  --section-space: calc(var(--space) * 4);
-  --flow-space: var(--space);
-  --gutter: var(--space);
-  --content-width: 55rem;
-  --sidebar-width: 15rem;
+  --content-width: 55rem; /* 880px */
+  --sidebar-width: 15rem; /* 240px */
+
+  /* --------------------------------------------------------------------------
+   * Size table using 8pt grid
+   * PX       REM         STEP
+   * :----    :-------    :-----
+   * 4px      0.25rem     0.5
+   * 8px      0.5rem      1
+   * 12px     0.75rem     1.5
+   * 16px     1rem        2
+   * 18px     1.25rem     2.5
+   * 24px     1.5rem      3
+   * 28px     1.75        3.5
+   * 32px     2rem        4
+   * 36px     2.25rem     4.5
+   * 44px     2.75rem     5.5
+   * 48px     3rem        6
+   * 64px     4rem        8
+   * 72px     4.5rem      9
+   * 80px     5rem        10
+   * 128px    8rem        16
+  -------------------------------------------------------------------------- */
+
+  --sp_0: 0.25rem;    /* 4px     utility to substitute 0 margins to add some polish */
+  --sp_1: 0.5rem;     /* 8px     utility for tight paddings etc */
+  --sp_2: 1rem;       /* 16px    1/2 line height, for closely related elements */
+  --sp_4: 2rem;       /* 32px    1 line height, for related elements */
+  --sp_8: 4rem;       /* 64px    2 line heights, for loosly related elements */
+  --sp_16: 8rem;      /* 128px   4 line heights, for unrelated elements */
+
+  --flow-space: var(--sp_4);
+  --gutter: var(--sp_2);
+  --section-space: var(--sp_16);
 
   /* Modular Scale */
-  --ratio: 1.2; /* 1.2 is very similar to default browser style */
-  --ms-0: 1rem; /* 1rem = 16px | 1.25rem = 20px | 1.125rem = 18px */
-  --ms-1: calc(var(--ms-0) * var(--ratio));
-  --ms-2: calc(var(--ms-1) * var(--ratio));
-  --ms-3: calc(var(--ms-2) * var(--ratio));
-  --ms-4: calc(var(--ms-3) * var(--ratio));
-  --ms-5: calc(var(--ms-4) * var(--ratio));
-  --ms--1: calc(var(--ms-0) / var(--ratio));
-  --ms--2: calc(var(--ms--1) / var(--ratio));
+  --typeset_-1: 1rem/1.5rem var(--font-body);       /* 16px/24px */
+  --typeset_0: 1.25rem/2rem var(--font-body);       /* 18px/32px */
+  --typeset_1: 1.5rem/2rem var(--font-body);        /* 24px/32px */
+  --typeset_2: 2rem/2.5rem var(--font-body);    /* 36px/44px */
+  --typeset_3: 2.5rem/3rem var(--font-body);        /* 48px/56px */
+  --typeset_4: 3rem/3rem var(--font-body);      /* 72px/72px */
+  --typeset_5: 5rem/5rem var(--font-body);          /* 80px/80px */
+}
+@media (min-width: 55rem) {
+  :root {
+    --typeset_-1: 1rem/1.5rem var(--font-body);       /* 16px/24px */
+    --typeset_0: 1.25rem/2rem var(--font-body);       /* 18px/32px */
+    --typeset_1: 1.5rem/2rem var(--font-body);        /* 24px/32px */
+    --typeset_2: 2.25rem/2.75rem var(--font-body);    /* 36px/44px */
+    --typeset_3: 3rem/3.5rem var(--font-body);        /* 48px/56px */
+    --typeset_4: 4.5rem/4.5rem var(--font-body);      /* 72px/72px */
+    --typeset_5: 5rem/5rem var(--font-body);          /* 80px/80px */
+  }
 }
 
 /* END !SECTION TOKENS */

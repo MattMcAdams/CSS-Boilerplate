@@ -3,414 +3,118 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Matt's CSS Boilerplate</title>
+    <title>UA Type Workshop</title>
     <meta name="description" content="A simple, modern CSS boilerplate">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="src/_01-tokens.css">
+    <link rel="stylesheet" href="src/_02-reset.css">
+    <link rel="stylesheet" href="src/_03-core.css">
+    <link rel="stylesheet" href="src/_04-forms.css">
+    <link rel="stylesheet" href="src/_05-layout.css">
+    <link rel="stylesheet" href="src/_07-components.css">
+    <link rel="stylesheet" href="src/_08-utilities.css">
   </head>
-  <style>
-    h2 {
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-
-    .permalink {
-      color: inherit;
-      text-decoration: none;
-      position: relative;
-    }
-    .permalink::before {
-      content: "#";
-      position: absolute;
-      left: -1em;
-      padding-right: 0.5em;
-      display: none;
-    }
-    .permalink:focus::before,
-    .permalink:hover::before {
-      display: block;
-    }
-
-    .sidebar nav {
-      background: var(--element-bg-color);
-      position: sticky;
-      top: var(--space);
-      /* padding: 0.5rem 0; */
-    }
-    .sidebar nav ul {
-      margin: 0;
-    }
-    .sidebar nav a {
-      padding: 0.5rem 1rem;
-      display: block;
-      color: var(--text-color);
-    }
-    .sidebar nav a:hover,
-    .sidebar nav a:focus {
-      color: white;
-      text-decoration-color: white;
-      background-color: var(--text-color);
-    }
-
-    #footer {
-      background: var(--element-bg-color);
-      padding: var(--space);
-    }
-
-    /* html {
-      scrollbar-color: var(--color-primary-500) var(--color-primary-100);
-    }
-
-    ::-webkit-scrollbar {
-      background-color: var(--color-primary-100);
-      width: 7px;
-      height: 7px;
-    }
-    ::-webkit-scrollbar-thumb {
-      background-color: var(--color-primary-500);
-    } */
-  </style>
   <body>
 <div id="app">
 
   <!-- <header id="top-header">
   </header> -->
 
-  <div class="hero container container-wide" id="introduction">
-    <section class="section">
-      <h1 class="center">Simple, Modern, Responsive</h1>
-      <p class="txt-h3 center" style="margin-top: 0;">CSS Boilerplate</p>
-    </section>
-    <hr>
-  </div>
+    <main class="content container" id="main">
+        <h1>UA Type Workshop</h1>
+        <p>This is a playground for typography and space for the design system at the University of Alabama.</p>
+        <p>The space-type system is based on an 8px (0.5rem) grid, with a 4px (0.25rem) type grid. The typography is loosly based on a modular scale with a perfect fifth (2:3) ratio, but deviates to deliver sizes in whole pixels, and line heights that conform to the type grid. This means that there are never half pixels, and numbers can be translated 1:1 into design software.</p>
+        <p>In practice, this will create 9 CSS variables to cover space, and 6 to cover typography.</p>
 
-  <div id="main" class="has-sidebar">
-    <div class="sidebar">
-      <nav>
-        <ul class="nav">
-          <li><a href="#introduction">Introduction</a></li>
-          <li><a href="#typography">Typography</a></li>
-          <li><a href="#lists">Lists</a></li>
-          <li><a href="#blockquote">Blockquote</a></li>
-          <li><a href="#details-summary">Details & Summary</a></li>
-          <li><a href="#code">Code</a></li>
-          <li><a href="#buttons">Buttons</a></li>
-          <li><a href="#forms">Forms</a></li>
-          <li><a href="#media">Media</a></li>
-          <li><a href="#tables">Tables</a></li>
-        </ul>
-      </nav>
-    </div>
-    <main class="content">
-      <section>
-        <p>Heavily inspired by Skeleton, this CSS boilerplate contains a simple CSS reset, base html styles using modern techniques, and a few features to help things along. It enables smooth scrolling, adds a top scroll margin, enforces the <code>hidden</code> attribute, adds a <code>visually-hidden</code> class to keep hidden content available for screen readers, and a bunch of other small tweaks and goodies.</p>
-        <p>This is not a framework, but a starting point. There is no build, no package, no hastle. Just download the file and start adjusting it to fit your needs. What is here has been designed to be as little opinionated style as possible while giving a nice baseline aesthetic.</p>
-      </section>
-      <section>
-      <h2 id="typography"><a class="permalink" href="#typography" title="Permalink to Typography">Typography</a></h2>
-      <div class="grid">
-        <div class="flow">
-          <p>The typographical base is built on a 16px base (1rem) on a 1.2 modular scale. All font sizes are set with rems and have custom line heights.</p>
-          <p>The fonts are Open Sans, with Fira Code for monospace. Fonts can be changed using CSS custom properties.</p>
-          <p>Other semantic type tags like <a href="#">anchors</a>, <strong>strong</strong>, <em>emphasis</em>, <u>underline</u>, <del>del</del>, <ins>ins</ins>, <mark>mark</mark>, <abbr title="abbreviation">abbr with a title</abbr>, <q cite="example.com">q with cite</q> are all included.</p>
-          <p><code>&lt;address&gt;</code> is also supported:</p>
-          <address>
-            Name<br>
-            Street Address<br>
-            Phone Number<br>
-            Email Address<br>
-            Website<br>
-          </address>
-        </div>
-        <div class="flow">
-          <p class="txt-h1">Heading 1</p>
-          <p class="txt-h2">Heading 2</p>
-          <p class="txt-h3">Heading 3</p>
-          <p class="txt-h4">Heading 4</p>
-          <p class="txt-h5"">Heading 5</p>
-          <p class="txt-h6">Heading 6</p>
-          <p>Paragraph</p>
-          <p><small>Small</small></p>
-        </div>
-      </div>
-      </section>
-      <section>
-        <h2 id="lists"><a class="permalink" href="#lists" title="Permalink to Lists">Lists</a></h2>
-        <p>Lists of the same type can be nested up to three times with different styles, and styles have been included for unordered lists, ordered lists, and definition lists.</p>
-        <div class="grid">
-          <div>
-            <ul>
-              <li>Item 1
-                <ul>
-                  <li>Item 2.1
-                    <ul>
-                      <li>Item 2.1.1</li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <ol>
-              <li>Item 1
-                <ol>
-                  <li>Item 2.1
-                    <ol>
-                      <li>Item 2.1.1</li>
-                    </ol>
-                  </li>
-                </ol>
-              </li>
-            </ol>
-          </div>
-          <div>
-            <dl>
-              <dt>Term</dt>
-              <dd>Description</dd>
-              <dt>Term</dt>
-              <dd>Description</dd>
-            </dl>
-          </div>
-        </div>
-      </section>
-      <section>
-        <h2 id="blockquote"><a class="permalink" href="#blockquote" title="Permalink to Blockquote">Blockquote</a></h2>
-        <p>A blockquote can be created using the <code>&lt;blockquote&gt;</code> element, or by using the <code>.callout</code> class. Paragraph elements should be placed inside the blockquote element.</p>
+        <h2>Second level heading, extra long to test line height</h2>
+        <p>Thirty-six current UA faculty have received NSF CAREER Awards, the nation’s most prestigious recognition of top-performing young scientists, in disciplines ranging from nanoscience and engineering to biological sciences. During the 2019-2020 academic year, seven professors received this award, the most awards in a single year at UA. And 52 UA faculty researchers are in the National Academy of Inventors.</p>
+        <p>UA’s Capstone Agency was awarded Best Student-Run Firm by the Public Relations Student Society of America for the third time in 2020.</p>
+
+        <h3>Third level heading, extra long to test line height and max heading length</h3>
+        <p>At 38,320 students, UA enrolled the largest freshmen class in history in fall 2021. It is the third year out of the last four years with a fall enrollment of more than 38,000 students. Graduate School enrollment of 6,152 is a 7% increase from fall 2020 and breaks last year's record enrollment number.</p>
         <blockquote>
-          <p>Awesome quote</p>
+          <p>"As a member of The University of Alabama community, I will pursue knowledge, act with fairness, integrity and respect; promote equity and inclusion; foster individual and civic responsibility; and strive for excellence in all I do." </p>
         </blockquote>
-      </section>
-      <section>
-        <h2 id="details-summary"><a class="permalink" href="#details-summary" title="Permalink to Details & Summary">Details & Summary</a></h2>
-        <details class="accordion">
-          <summary>I'm a summary</summary>
-          <div class="details-content">Here is some details content. This accordion style is in the optional _components.css file and is used by adding the <code>.accordion</code> class to the <code>&lt;details&gt;</code> element.</div>
-        </details>
-        <details>
-          <summary>I'm a summary</summary>
-          <div class="details-content">Here is some details content.</div>
-        </details>
-      </section>
-      <section>
-        <h2 id="code"><a class="permalink" href="#code" title="Permalink to Code">Code</a></h2>
-        <p>Styles have been included for <code>&lt;code&gt;</code>, <code>&lt;samp&gt;</code>, and <kbd>&lt;kbd&gt;</kbd> elements. Code blocks can be made by wrapping a <code>&lt;code&gt;</code> element inside a <code>&lt;pre&gt;</code> element. Code blocks overflow automatically on the x axis in case there is not enough room for a line of code.</p>
-<pre><code>.some-class {
-  background-color: blue;
-}
+        <p>Caroline Yuk, a senior majoring in interdisciplinary studies through New College, was among 46 Americans selected to study in the United Kingdom through the prestigious Marshall Scholarship. Yuk is the third UA student to win the award and first in more than 40 years.</p>
 
-&lt;!-- Remember every whitespace and break will be preserved in a &lt;pre&gt;, including indentation in your code. --&gt;</code></pre>
-      </section>
-      <section>
-        <h2 id="buttons"><a class="permalink" href="#buttons" title="Permalink to Buttons">Buttons</a></h2>
-        <p>Standard Buttons</p>
-        <a class="button" href="#">Anchor button</a>
-        <button>Button element</button>
-        <input type="submit" value="Submit input">
-        <input type="button" value="Button input">
-        <p>Disabled</p>
-        <a class="button" href="#" disabled tabindex="-1">Anchor button</a>
-        <button class="button-primary" disabled>Button element</button>
-        <input type="submit" value="submit input" disabled>
-        <input class="button-primary" type="button" value="button input" disabled>
-      </section>
-      <section>
-        <h2 id="forms"><a class="permalink" href="#forms" title="Permalink to Forms">Forms</a></h2>
-        <form>
-          <fieldset>
-            <legend>Fieldset</legend>
-            <div class="grid">
-              <div>
-                <label for="exampleEmailInput">Your email</label>
-                <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="exampleEmailInput">
-              </div>
-              <div>
-                <label for="exampleRecipientInput">Reason for contacting</label>
-                <select class="u-full-width" id="exampleRecipientInput">
-                  <optgroup label="First group">
-                  <option value="Option 1">Questions</option>
-                  <option value="Option 2">Admiration</option>
-                  </optgroup>
-                  <optgroup label="Second group">
-                  <option value="Option 3">Can I get your number?</option>
-                  </optgroup>
-                </select>
-              </div>
-            </div>
-            <label for="exampleSearch">Search</label>
-            <input type="search" id="exampleSearch">
-          </fieldset>
-
-          <label for="dogs">How much do you like dogs?</label>
-          <input type="range" id="dogs" name="dogs" min="9" max="10" step="0.1" value="10">
-
-          <label for="exampleMessage" class="required">Message</label>
-          <textarea class="u-full-width" placeholder="Hi Dave …" id="exampleMessage" required></textarea>
-
-          <label for="exampleProgress">Progress</label>
-          <progress id="exampleProgress" max="100" value="60"></progress>
-
-              <label for="send-copy">
-                <input type="checkbox" name="example-checkbox-set" id="send-copy" value="send-copy">
-                Send a copy to yourself
-              </label>
-
-              <label for="radio-1">
-                <input type="radio" name="example-radio-set" id="radio-1" value="cats">
-                Cats
-              </label>
-              <label for="radio-2">
-                <input type="radio" name="example-radio-set" id="radio-2" value="dogs">
-                Dogs
-              </label>
-
-          <input class="button-primary" type="submit" value="Submit">
-
-        </form>
-      </section>
-      <section>
-        <h2 id="media"><a class="permalink" href="#media" title="Permalink to Media">Media</a></h2>
-        <p>Images are given <code>display: block</code> and <code>max-width: 100%</code> by default. A video wrapper is provided for responsive embeds, and utilities are provided to control aspect ratio for images and video.</p>
-        <audio controls src="/media/cc0-audio/t-rex-roar.mp3">
-          Your browser does not support the
-          <code>audio</code> element.
-        </audio>
-        <figure>
-          <img src="https://i.picsum.photos/id/1020/4288/2848.jpg?hmac=Jo3ofatg0fee3HGOliAIIkcg4KGXC8UOTO1dm5qIIPc"
-            alt="Bear cubs in snowy mountains">
-          <figcaption>Default Figure & Caption styles</figcaption>
-        </figure>
-
-        <div class="video-wrapper">
-          <iframe width="1704" height="968" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player"
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        </div>
-
-      </section>
-      <section>
-        <h2 id="tables"><a class="permalink" href="#tables" title="Permalink to Tables">Tables</a></h2>
+        <h3>Lorem Ipsom</h3>
+        <p>The University of Alabama will not require standardized ACT or SAT scores from students applying through the Fall 2022 Semester. Admission consideration for freshman entering through the Fall 2022 Semester will be based on a holistic review. Holistic admissions at The University of Alabama includes both academic and non-academic criteria.</p>
         <div class="table-wrapper">
         <table>
-          <caption>CSS Variables</caption>
           <thead>
-            <tr>
-              <th style="width: 25%">Variable</th>
-              <th style="width: 40%">Description</th>
-              <th style="width: 35%">Default</th>
-            </tr>
+            <tr> <th>Column 1</th> <th>Column 2</th> <th>Column 3</th> </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><code>--font-body</code></td>
-              <td>Sets the default font</td>
-              <td>Open Sans</td>
-            </tr>
-            <tr>
-              <td><code>--font-mono</code></td>
-              <td>Sets the font for code</td>
-              <td>Fira Code</td>
-            </tr>
-            <tr>
-              <td><code>--page-bg-color</code></td>
-              <td>Sets the background of the page</td>
-              <td><code>white</code></td>
-            </tr>
-            <tr>
-              <td><code>--element-bg-color</code></td>
-              <td>Sets the background of some elements</td>
-              <td><code>#F0F1F3</code></td>
-            </tr>
-            <tr>
-              <td><code>--text-color</code></td>
-              <td>Color used for all text</td>
-              <td><code>#2D2F34</code></td>
-            </tr>
-            <tr>
-              <td><code>--light-text-color</code></td>
-              <td>Color used for light text. Note that it should still be accessible against the page background</td>
-              <td><code>#707682</code></td>
-            </tr>
-            <tr>
-              <td><code>--highlight-color</code></td>
-              <td>Color used for highlights</td>
-              <td><code>#E6F1FF</code></td>
-            </tr>
-            <tr>
-              <td><code>--primary-color</code></td>
-              <td>Color used for accents, navigation, buttons, etc.</td>
-              <td><code>#0074E0</code></td>
-            </tr>
-            <tr>
-              <td><code>--primary-alt-color</code></td>
-              <td>Color used for button hovers, etc.</td>
-              <td><code>#052E55</code></td>
-            </tr>
-            <tr>
-              <td><code>--space</code></td>
-              <td>The standard unit of space</td>
-              <td><code>1.6rem</code></td>
-            </tr>
-            <tr>
-              <td><code>--flow-space</code></td>
-              <td>The vertical space between elements in flow</td>
-              <td><code>var(--space)</code></td>
-            </tr>
-            <tr>
-              <td><code>--section-space</code></td>
-              <td>The amount of space between sections</td>
-              <td><code>calc(var(--space) * 4)</code></td>
-            </tr>
-            <tr>
-              <td><code>--content-width</code></td>
-              <td>The max width of the main content area</td>
-              <td><code>900px</code></td>
-            </tr>
-            <tr>
-              <td><code>--sidebar-width</code></td>
-              <td>The max width of the sidebar</td>
-              <td><code>300px</code></td>
-            </tr>
-            <tr>
-              <td><code>--gutter</code></td>
-              <td>The width of the side padding</td>
-              <td><code>var(--space)</code></td>
-            </tr>
-            <tr>
-              <td><code>--ratio</code></td>
-              <td>The ratio used for modular type scale</td>
-              <td><code>1.2</code></td>
-            </tr>
-            <tr>
-              <td><code>--ms-0</code></td>
-              <td>The base font size. 1rem = 16px, 1.125rem = 18px, 1.25 = 20px. </td>
-              <td><code>1rem</code></td>
-            </tr>
+            <tr> <td>Cell 1/1</td> <td>Cell 1/2</td> <td>Cell 1/3</td> </tr>
+            <tr> <td>Cell 2/1</td> <td>Cell 2/2</td> <td>Cell 2/3</td> </tr>
+            <tr> <td>Cell 3/1</td> <td>Cell 3/2</td> <td>Cell 3/3</td> </tr>
           </tbody>
         </table>
         </div>
-        <p><code>--ms-1</code> through <code>--ms-5</code>, and <code>--ms--1</code> are also available. They use a calc function to find the correct step in the <a href="https://www.mattmcadams.com/thoughts/typographical-scale/">modular scale</a> based on the <code>--ratio</code>.</p>
-        <p>Generally, I might also recommend setting up a color scale for your project. I've used semantic variables for the colors here because not all projects require a color scale. Please see below some pre-generated colors I had thought about including in this boilerplate:</p>
+        <p>The University of Alabama reserves the right to refuse admission or re-enrollment or to place conditions on admission or re-enrollment of applicants and former students who it determines represent a safety risk to University students, employees and University property. Applicants have the right to appeal any such decision to the Undergraduate Admissions Advisory Committee within 7 business days of the date the notice was received.</p>
+        <p>Withholding information or giving false information may make you ineligible for admission to, or continuation at, the University. Therefore, by submitting this information, you certify that it is true, correct and complete. Also, by submitting this application, you give permission for the University to obtain additional information from others pertinent to your record prior to attending the University.</p>
+        <p>U.S. News and World Report ranks The University of Alabama’s Manderson Graduate School of Business No. 22 among public universities. The rankings are based on level of accreditation, faculty credentials, admissions selectivity, reputation for excellence among peer institutions and academic and career support services offered to students.</p>
+        <form>
+          <label>Input field</label>
+          <input type="text">
+          <label>Input field</label>
+          <input type="text">
+          <button>Button</button>
+        </form>
+
+        <h4>Fourth level heading, extra long to test line height and max heading length. It takes a long title to wrap, so this is unlikely</h4>
+        <p>There are two ways in which students can be eligible for scholarships under UA’s current test optional admission policy.</p>
         <ul>
-          <li><a href="https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/707682/112/118/130/white" target="_blank">Gray</a></li>
-          <li><a href="https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/DC2F2F/220/47/47/white" target="_blank">Red</a></li>
-          <li><a href="https://hihayk.github.io/scale/#4/4/60/90/0/-10/50/-10/D08200/208/130/0/white" target="_blank">Yellow</a></li>
-          <li><a href="https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/00883E/0/136/62/white" target="_blank">Green</a></li>
-          <li><a href="https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/0074E0/0/116/224/white" target="_blank">Primary / Blue</a></li>
+          <li><strong>Competitive Scholarships</strong> – The competitive scholarship application is part of your application for admission. Students who elect not to send a test score are eligible for competitive scholarship consideration if their application for admission and supporting documentation is submitted by January 15. </li>
+          <li><strong>Automatic Merit Scholarships</strong> – To qualify for automatic merit scholarships, students must provide a test score and official transcript. Applicants may indicate that they do not want their test scores included in the review of their application for admission and still submit test scores for automatic merit scholarship consideration by May 1.</li>
         </ul>
-      </section>
+        <p>UA's Culverhouse School of Accountancy's undergraduate program ranks 11th overall in 2019, 10th overall for a program with a faculty size at more than 24 and 3rd in the South, according to Public Accounting Report. UA’s master’s programs are ranked 10th overall, 8th in schools with more than 24 faculty and 2nd in the South. UA’s doctoral program is ranked 9th overall.</p>
+        <p class="txt-small"><small>After you are admitted to UA, you will be notified about the Freshman Supplemental Scholarship Application.. This is an optional scholarship application that will be accessible in myBama.</small></p>
+        <section class="section">
+        <h2>Technical Info</h2>
+        <h3>Size table using 8px grid</h3>
+        <table>
+          <thead>
+            <tr><th>PX</th><th>REM</th><th>STEP</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>4px</td><td>0.25rem</td><td>0.5</td></tr>
+            <tr><td>8px</td><td>0.5rem</td><td>1</td></tr>
+            <tr><td>12px</td><td>0.75rem</td><td>1.5</td></tr>
+            <tr><td>16px</td><td>1rem</td><td>2</td></tr>
+            <tr><td>18px</td><td>1.25rem</td><td>2.5</td></tr>
+            <tr><td>24px</td><td>1.5rem</td><td>3</td></tr>
+            <tr><td>32px</td><td>2rem</td><td>4</td></tr>
+            <tr><td>36px</td><td>2.25rem</td><td>4.5</td></tr>
+            <tr><td>44px</td><td>2.75rem</td><td>5.5</td></tr>
+            <tr><td>48px</td><td>3rem</td><td>6</td></tr>
+            <tr><td>64px</td><td>4rem</td><td>8</td></tr>
+            <tr><td>72px</td><td>4.5rem</td><td>9</td></tr>
+            <tr><td>80px</td><td>5rem</td><td>10</td></tr>
+            <tr><td>128px</td><td>8rem</td><td>16</td></tr>
+          </tbody>
+        </table>
+        <h3>Variables</h3>
+        <pre><code>--sp_0: 0.25rem;   /* 4px   */
+--sp_1: 0.5rem;    /* 8px   */
+--sp_2: 1rem;      /* 16px  */
+--sp_4: 2rem;      /* 32px  */
+--sp_8: 4rem;      /* 64px  */
+--sp_16: 8rem;     /* 128px */
+
+--flow-space: var(--sp_4);
+--gutter: var(--sp_2);
+--section-space: var(--sp_16);
+
+/* Modular Scale */
+--typeset_-1: 1rem/1.5rem var(--font-body);       /* 16px/24px */
+--typeset_0: 1.25rem/2rem var(--font-body);       /* 18px/32px */
+--typeset_1: 1.5rem/2rem var(--font-body);        /* 24px/32px */
+--typeset_2: 2.25rem/2.75rem var(--font-body);    /* 36px/44px */
+--typeset_3: 3rem/3.5rem var(--font-body);        /* 48px/56px */
+--typeset_4: 4.5rem/4.5rem var(--font-body);      /* 72px/72px */</code></pre>
+        </section>
     </main>
-  </div>
-
-  <footer id="footer">
-    <div class="container container-wide">
-      CSS Boilerplate by <a href="https://mattmcadams.com">Matthew McAdams</a>.<br>
-      <a href="https://github.com/MattMcAdams/CSS-Boilerplate">Open Source</a> & Free to use (<a href="https://github.com/MattMcAdams/CSS-Boilerplate/blob/master/LICENSE">Public Domain</a>)
-    </div>
-  </footer>
-
-</div>
-
+</div> <!-- #app -->
 </body>
-
 </html>

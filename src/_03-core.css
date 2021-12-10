@@ -52,8 +52,8 @@
 /* Adds a margin above an element when it is the target of an ID link */
 
 * {
-  scroll-margin-top: var(--space);
-  scroll-margin-bottom: var(--space);
+  scroll-margin-top: var(--flow-space);
+  scroll-margin-bottom: var(--flow-space);
 }
 
 ::selection {
@@ -67,64 +67,43 @@
 /* Set the document's default font, color, size, and line height */
 
 body {
-  font-family: var(--font-body);
+  font: var(--typeset_0);
   color: var(--text-color);
-  line-height: 1.6;
-  font-size: var(--ms-0);
 }
 
-/* Set font and flow margin to headings, and heading-like elements.
- * Setup utility classes for font sizes */
+/* Setup flow spacing for typography elements */
 
-h1, h2, h3, h4, h5,
-.txt-h1, .txt-h2, .txt-h3, .txt-h4, .txt-h5, .txt-h6,
-label, th, legend {
-  /* font-family: var(--font-head); */
+h1, h2, h3, h4, h5, h6, p,
+label, legend, address {
   margin-bottom: var(--flow-space);
 }
 
 /* Double flow spacing before headings & set heading color. */
 
-h1, h2, h3, h4, h5, h6,
-.txt-h1, .txt-h2, .txt-h3, .txt-h4, .txt-h5, .txt-h6 {
+h1, h2, h3, h4, h5, h6 {
   margin-top: calc(var(--flow-space) * 2);
-  /* color: var(--heading-color); */
-  line-height: 1.2;
 }
 
 /* Decrease space between sequential headings */
 
-h1 + h2,
 h2 + h3,
 h3 + h4,
 h4 + h5,
-h5 + h6,
-.txt-h1 + .txt-h2,
-.txt-h2 + .txt-h3,
-.txt-h3 + .txt-h4,
-.txt-h4 + .txt-h5,
-.txt-h5 + .txt-h6 {
+h5 + h6 {
   margin-top: 0;
-}
-
-/* Add flow spacing after paragraphs */
-
-p, .txt-p {
-  margin-bottom: var(--flow-space);
 }
 
 /* Heading typography */
 
-h1, .txt-h1 { font-size: var(--ms-5); margin-top: 0;}
-h2, .txt-h2 { font-size: var(--ms-4); }
-h3, .txt-h3 { font-size: var(--ms-3); }
-h4, .txt-h4 { font-size: var(--ms-2); }
-h5, .txt-h5 { font-size: var(--ms-1); }
-h6, .txt-h6, label, th, legend { font-size: var(--ms-0); font-weight: bold; }
+h1 { font: var(--typeset_4); font-weight: 800; letter-spacing: -0.01em; margin-top: 0;}
+h2 { font: var(--typeset_3); font-weight: 600; letter-spacing: -0.01em;}
+h3 { font: var(--typeset_2); font-weight: 600; letter-spacing: -0.01em; }
+h4 { font: var(--typeset_1); font-weight: 700; letter-spacing: -0.01em; }
+h5, h6, label, th, legend { font: var(--typeset_0); font-weight: bold; }
 
 /* Set typography for small text */
 
-small, .txt-small { font-size: var(--ms--1); line-height: 1.3; }
+small, .txt-small { font: var(--typeset_-1); }
 
 /* Basic styles for inline semantics */
 
@@ -206,11 +185,6 @@ abbr[title] {
 
 q[cite] { font-style: italic; }
 
-/* Add flow spacing after address */
-
-address {
-  margin-bottom: var(--flow-space);
-}
 
 /* END !SECTION TYPOGRAPHY */
 /** -----------------------------------------------------------------
@@ -263,7 +237,7 @@ a:not([class])[data-link-type='document']::after {
 blockquote,
 .callout {
   border-left: 5px solid var(--color-primary-500);
-  padding: calc(var(--space) / 2) var(--space);
+  padding: var(--sp_2) var(--sp_4);
   background-color: var(--color-primary-100);
   margin-bottom: var(--flow-space);
 }
@@ -298,7 +272,7 @@ ol:not([class]) ol:not([class]) ol:not([class]) { list-style-type: lower-roman; 
 /* Set indention and flow spacing for lists */
 
 ul:not([class]), ol:not([class]) {
-  margin-left: var(--space);
+  margin-left: 1em;
 }
 
 /* Add flow spacing to list elements */
@@ -315,7 +289,7 @@ ul:not([class]) ul,
 ol:not([class]) li,
 ol:not([class]) ol,
 ol:not([class]) ul {
-  margin-bottom: calc(var(--flow-space) / 4);
+  margin-bottom: var(--sp_1);
 }
 
 /* Ensure nested lists have the correct spacing */
@@ -324,13 +298,13 @@ ul:not([class]) ol,
 ul:not([class]) ul,
 ol:not([class]) ol,
 ol:not([class]) ul {
-  margin-top: calc(var(--flow-space) / 4);
+  margin-top: var(--sp_1);
 }
 
 /* Add basic styles for definition lists */
 
 dt { font-weight: bold; }
-dd { padding-left: var(--space); }
+dd { padding-left: var(--flow-space); }
 
 /* END !SECTION LISTS */
 /** -----------------------------------------------------------------
@@ -462,15 +436,18 @@ table {
 }
 
 caption {
-  padding: calc(var(--space) / 2);
-  font-family: var(--font-head);
-  font-weight: bold;
+  padding: var(--sp_1);
+  font: var(--typeset_1);
+  text-align: left;
 }
 
 th, td {
-  padding: calc(var(--space) / 2);
+  font: var(--typeset_-1);
+  padding: var(--sp_1);
   text-align: left;
 }
+
+th { font-weight: bold; }
 
 tr {
   border-bottom: 0.5px solid var(--light-text-color);
@@ -512,8 +489,10 @@ pre {
 pre code,
 pre samp {
   display: block;
-  padding: var(--space);
+  padding: var(--sp_2);
   overflow: auto;
+  font: var(--typeset_-1);
+  font-family: var(--font-mono);
 }
 
 /* END !SECTION CODE */
