@@ -9,7 +9,7 @@ details.accordion summary {
   cursor: pointer;
   padding: var(--sp_1);
   padding-left: calc(var(--sp_2) + 1em);
-  background: var(--element-bg-color);
+  background: var(--element-background);
   /*border-radius: 5px;*/
 }
 
@@ -25,7 +25,7 @@ details.accordion summary::before {
 details.accordion .details-content {
   padding: var(--sp_1);
   padding-left: calc(var(--sp_2) + 1rem);
-  border: 2px solid var(--element-bg-color);
+  border: 2px solid var(--element-background);
   /*border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;*/
 }

@@ -7,7 +7,14 @@
   <title>Matt's CSS Boilerplate</title>
   <meta name="description" content="A simple, modern CSS boilerplate">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="src/_01-tokens.css">
+  <link rel="stylesheet" href="src/_02-reset.css">
+  <link rel="stylesheet" href="src/_03-core.css">
+  <link rel="stylesheet" href="src/_04-forms.css">
+  <link rel="stylesheet" href="src/_05-layout.css">
+  <link rel="stylesheet" href="src/_06-animation.css">
+  <link rel="stylesheet" href="src/_07-components.css">
+  <link rel="stylesheet" href="src/_08-utilities.css">
 </head>
 <style>
   h2 {
@@ -35,9 +42,9 @@
   }
 
   .sidebar nav {
-    background: var(--element-bg-color);
+    background: var(--element-background);
     position: sticky;
-    top: var(--space);
+    top: var(--flow-space);
     /* padding: 0.5rem 0; */
   }
 
@@ -59,8 +66,8 @@
   }
 
   #footer {
-    background: var(--element-bg-color);
-    padding: var(--space);
+    background: var(--element-background);
+    padding: var(--flow-space);
   }
 
   /* html {
@@ -322,123 +329,33 @@
           <h2 id="tables"><a class="permalink" href="#tables" title="Permalink to Tables">Tables</a></h2>
           <div class="table-wrapper">
             <table>
-              <caption>CSS Variables</caption>
+              <caption>Caption</caption>
               <thead>
                 <tr>
-                  <th style="width: 25%">Variable</th>
-                  <th style="width: 40%">Description</th>
-                  <th style="width: 35%">Default</th>
+                  <th>Column A</th>
+                  <th>Column B</th>
+                  <th>Column C</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><code>--font-body</code></td>
-                  <td>Sets the default font</td>
-                  <td>Open Sans</td>
+                  <td>A1</td>
+                  <td>B1</td>
+                  <td>C1</td>
                 </tr>
                 <tr>
-                  <td><code>--font-mono</code></td>
-                  <td>Sets the font for code</td>
-                  <td>Fira Code</td>
+                  <td>A2</td>
+                  <td>B2</td>
+                  <td>C2</td>
                 </tr>
                 <tr>
-                  <td><code>--page-bg-color</code></td>
-                  <td>Sets the background of the page</td>
-                  <td><code>white</code></td>
-                </tr>
-                <tr>
-                  <td><code>--element-bg-color</code></td>
-                  <td>Sets the background of some elements</td>
-                  <td><code>#F0F1F3</code></td>
-                </tr>
-                <tr>
-                  <td><code>--text-color</code></td>
-                  <td>Color used for all text</td>
-                  <td><code>#2D2F34</code></td>
-                </tr>
-                <tr>
-                  <td><code>--light-text-color</code></td>
-                  <td>Color used for light text. Note that it should still be accessible against the page background
-                  </td>
-                  <td><code>#707682</code></td>
-                </tr>
-                <tr>
-                  <td><code>--highlight-color</code></td>
-                  <td>Color used for highlights</td>
-                  <td><code>#E6F1FF</code></td>
-                </tr>
-                <tr>
-                  <td><code>--primary-color</code></td>
-                  <td>Color used for accents, navigation, buttons, etc.</td>
-                  <td><code>#0074E0</code></td>
-                </tr>
-                <tr>
-                  <td><code>--primary-alt-color</code></td>
-                  <td>Color used for button hovers, etc.</td>
-                  <td><code>#052E55</code></td>
-                </tr>
-                <tr>
-                  <td><code>--space</code></td>
-                  <td>The standard unit of space</td>
-                  <td><code>1.6rem</code></td>
-                </tr>
-                <tr>
-                  <td><code>--flow-space</code></td>
-                  <td>The vertical space between elements in flow</td>
-                  <td><code>var(--space)</code></td>
-                </tr>
-                <tr>
-                  <td><code>--section-space</code></td>
-                  <td>The amount of space between sections</td>
-                  <td><code>calc(var(--space) * 4)</code></td>
-                </tr>
-                <tr>
-                  <td><code>--content-width</code></td>
-                  <td>The max width of the main content area</td>
-                  <td><code>900px</code></td>
-                </tr>
-                <tr>
-                  <td><code>--sidebar-width</code></td>
-                  <td>The max width of the sidebar</td>
-                  <td><code>300px</code></td>
-                </tr>
-                <tr>
-                  <td><code>--gutter</code></td>
-                  <td>The width of the side padding</td>
-                  <td><code>var(--space)</code></td>
-                </tr>
-                <tr>
-                  <td><code>--ratio</code></td>
-                  <td>The ratio used for modular type scale</td>
-                  <td><code>1.2</code></td>
-                </tr>
-                <tr>
-                  <td><code>--ms-0</code></td>
-                  <td>The base font size. 1rem = 16px, 1.125rem = 18px, 1.25 = 20px. </td>
-                  <td><code>1rem</code></td>
+                  <td>A3</td>
+                  <td>B3</td>
+                  <td>C3</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p><code>--ms-1</code> through <code>--ms-5</code>, and <code>--ms--1</code> are also available. They use a
-            calc function to find the correct step in the <a
-              href="https://www.mattmcadams.com/thoughts/typographical-scale/">modular scale</a> based on the
-            <code>--ratio</code>.</p>
-          <p>Generally, I might also recommend setting up a color scale for your project. I've used semantic variables
-            for the colors here because not all projects require a color scale. Please see below some pre-generated
-            colors I had thought about including in this boilerplate:</p>
-          <ul>
-            <li><a href="https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/707682/112/118/130/white"
-                target="_blank">Gray</a></li>
-            <li><a href="https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/DC2F2F/220/47/47/white"
-                target="_blank">Red</a></li>
-            <li><a href="https://hihayk.github.io/scale/#4/4/60/90/0/-10/50/-10/D08200/208/130/0/white"
-                target="_blank">Yellow</a></li>
-            <li><a href="https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/00883E/0/136/62/white"
-                target="_blank">Green</a></li>
-            <li><a href="https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/0074E0/0/116/224/white"
-                target="_blank">Primary / Blue</a></li>
-          </ul>
         </section>
       </main>
     </div>

@@ -72,19 +72,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: calc(var(--gutter) / -2);
+  align-content: center;
+  gap: var(--gutter);
 }
 
 /* The first level item will be aligned to the left of the level
  * the second will be aligned to the right.
  * You can add more items, they will be evenly spaced,
  * though 2 is recommended */
-
-.level_item {
-  align-self: center;
-  display: block;
-  padding: calc(var(--gutter) / 2);
-}
 
 /* END !SECTION LEVEL */
 /** -----------------------------------------------------------------
@@ -101,7 +96,7 @@
     --grid-gap: var(--gutter);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
-    grid-gap: var(--grid-gap);
+    gap: var(--grid-gap);
   }
 }
 
@@ -110,7 +105,7 @@
     --grid-gap: var(--gutter);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
-    grid-gap: var(--grid-gap);
+    gap: var(--grid-gap);
   }
 }
 
@@ -119,7 +114,7 @@
     --grid-gap: var(--gutter);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
-    grid-gap: var(--grid-gap);
+    gap: var(--grid-gap);
   }
 }
 
@@ -184,8 +179,8 @@
   width: 100%;
   flex: 1 0 auto;
   align-self: center;
-  padding-top: var(--section-space);
-  padding-bottom: var(--section-space);
+  padding-block-start: var(--section-space);
+  padding-block-end: var(--section-space);
 }
 
 /* Ensure footer does not shrink */
@@ -211,7 +206,7 @@
 
   display: grid;
   grid-template-areas: "content" "sidebar";
-  grid-gap: var(--section-space);
+  gap: var(--section-space);
 }
 
 
