@@ -80,7 +80,7 @@
   --sp_1: 0.5rem;     /* 8px     utility for tight paddings etc */
   --sp_2: 1rem;       /* 16px    1/2 line height, for closely related elements */
   --sp_4: 2rem;       /* 32px    1 line height, for related elements */
-  --sp_8: 4rem;       /* 64px    2 line heights, for loosly related elements */
+  --sp_8: 4rem;       /* 64px    2 line heights, for loosely related elements */
   --sp_16: 8rem;      /* 128px   4 line heights, for unrelated elements */
 
   --flow-space: var(--sp_4);

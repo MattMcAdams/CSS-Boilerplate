@@ -1,6 +1,6 @@
 # Modern CSS Boilerplate
 
-This project rethinks the CSS boilerplate using modern style authoring techniques. It covers [(almost) all html elements](https://github.com/MattMcAdams/CSS-Boilerplate/blob/master/html-reference.md) and has a few goals:
+This project rethinks the CSS boilerplate using modern style authoring techniques. It covers (almost) all html elements and has a few goals:
 
 - Use frictionless selectors to avoid style overrides
 - Encourage better markup using attribute selectors
@@ -10,7 +10,7 @@ This project rethinks the CSS boilerplate using modern style authoring technique
 
 If you'd like to read more about the selector process, check out my [blog post](https://www.mattmcadams.com/thoughts/smart-selectors). The best way to get to know the project and its features is to [read through the source](https://github.com/MattMcAdams/CSS-Boilerplate/blob/master/index.css), its just over 1200 lines with a lot of blank lines and comments.
 
-I've been using this boilerplate for a while, making small tweaks and bug fixes as I've adapted it to work with many different projects. It's a breeze to build on and easy to edit. Rip out what you don't want, it's all throughly commented, and add in what you need.
+I've been using this boilerplate for a while, making small tweaks and bug fixes as I've adapted it to work with many different projects. It's a breeze to build on and easy to edit. Rip out what you don't want, it's all thoroughly commented, and add in what you need.
 
 ## A Work in Progress
 
@@ -18,7 +18,7 @@ The idea is that you can add in whatever utilities or components your project ne
 
 ## Build
 
-While not necessary, you _can_ customize what ends up in the index.css by adjusting the concatenation build script, or removing/adding any css files to the /src directory. The build script only combines the css files into a single index.css, so there are no dependencies. I do not plan to use SCSS or create more complicated buids.
+While not necessary, you _can_ customize what ends up in the index.css by adjusting the concatenation build script, or removing/adding any css files to the /src directory. The build script only combines the css files into a single index.css, so there are no dependencies. I do not plan to use SCSS or create more complicated builds.
 
 ## Questions, Concerns, Contact, Etc
 
@@ -30,4 +30,4 @@ I'm not really looking for contributors at the moment, especially since I haven'
 
 ## License
 
-Free to use, go for it, have fun. Specifically this is licesned under [The Unlicense](https://github.com/MattMcAdams/CSS-Boilerplate/blob/master/LICENSE).
+Free to use, go for it, have fun. Specifically this is licensed under [The Unlicense](https://github.com/MattMcAdams/CSS-Boilerplate/blob/master/LICENSE).
