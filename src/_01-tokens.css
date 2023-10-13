@@ -12,12 +12,12 @@
 :root {
   /* Fonts */
   --font-body: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-head: var(--font-body);
+  --font-head: inherit;
   --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
   /* --font-icon: null; */
 
   --text-color: #2D2F34;
-  --heading-color: var(--text-color);
+  --heading-color: inherit;
   --light-text-color: #707682;
   --link-color: #0074E0;
   --link-color-alt: #0263BC;
