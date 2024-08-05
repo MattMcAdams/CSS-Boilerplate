@@ -3,118 +3,122 @@
   The Unlicense <https://unlicense.org>
   https://github.com/MattMcAdams/CSS-Boilerplate
 ================================================================== */
-
-/** -----------------------------------------------------------------
-  * SECTION TOKENS
-  * font: font-style font-variant font-weight font-size/line-height font-family; }
------------------------------------------------------------------- */
+/* =================================================================
+/* SECTION Tokens
+================================================================= */
 
 :root {
-  /* Fonts */
-  --font-body: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-head: var(--font-body);
-  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  /* --font-icon: null; */
+  /* Spacing */
+  --space_05: 0.25rem; /* 4px   - utility to substitute 0 margins */
+  --space_1: 0.5rem;   /* 8px   - utility for tight paddings etc */
+  --space_2: 1rem;     /* 16px  - 1/2 line height, for closely related elements */
+  --space_4: 2rem;     /* 32px  - 1 line height, for related elements */
+  --space_8: 4rem;     /* 64px  - 2 line heights, for loosely related elements */
+  --space_16: 8rem;    /* 128px - 4 line heights, for unrelated elements */
 
-  --text-color: #2D2F34;
-  --heading-color: var(--text-color);
-  --light-text-color: #707682;
-  --link-color: #0074E0;
-  --link-color-alt: #0263BC;
-  --ins-background: #E6F7EB;
-  --del-background: #FFE6E6;
-  --mark-background: #FFF9E6;
-  --page-background: white;
-  --element-background: #F0F1F3;
-  --accent-color: var(--link-color);
-  --invalid-color: #DC2F2F;
+  /* Semantic Space */
+  --space_flow: var(--space_4);
+  --space_gutter: var(--space_2);
+  --space_section: var(--space_8);
+  --space_grid-gap: var(--space_4);
+  --space_flex-gap: var(--space_2);
+  --space_layout-gap: var(--space_4);
+
+  /* Layout Widths */
+  --width_content: 60rem; /* 960px + gutters */
+  --width_sidebar: 20rem; /* 320px + gutters */
+  --width_wide: calc(
+    var(--width_content) +
+    var(--width_sidebar) +
+    var(--space_layout-gap)
+  );
+  /* Total wide width: 60rem + 20rem + 2rem = 82rem */
 
   /* Colors */
-  /* --color-gray-100: #F0F1F3; */
-  /* --color-gray-500: #707682; */
-  /* --color-gray-900: #2D2F34; */
-  /* https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/707682/112/118/130/white */
-  /* --color-red-100: #FFE6E6; */
-  /* --color-red-500: #DC2F2F; */
-  /* --color-red-900: #551616; */
-  /* https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/DC2F2F/220/47/47/white */
-  /* --color-yellow-100: #FFF9E6; */
-  /* --color-yellow-500: #D08200; */
-  /* --color-yellow-900: #4F3304; */
-  /* https://hihayk.github.io/scale/#4/4/60/90/0/-10/50/-10/D08200/208/130/0/white */
-  /* --color-green-100: #E6F7EB; */
-  /* --color-green-500: #00883E; */
-  /* --color-green-900: #033419; */
-  /* https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/00883E/0/136/62/white */
-  /* --color-primary-100: #E6F1FF; */
-  /* --color-primary-500: #0074E0; */
-  /* --color-primary-900: #052E55; */
-  /* https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/0074E0/0/116/224/white */
+  --color_text--default: #18181b;
+  --color_text--subtle: #71717a;
+  --color_text--link: #6366f1;
+  --color_text--link-alt: #4f46e5;
+  --color_text--accent: var(--color_text--link);
+  --color_background--surface: white;
+  --color_background--element: #f4f4f5;
+  --color_background--chip: #e4e4e7;
+  --color_accent: var(--color_text--link);
 
-  /* Spacing */
-  --content-width: 55rem; /* 880px */
-  --sidebar-width: 15rem; /* 240px */
+  /* Font Families */
+  --font_body: system-ui, sans-serif;
+  --font_head: inherit;
+  --font_mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
 
-  /* --------------------------------------------------------------------------
-   * Size table using 8pt grid
-   * PX       REM         STEP
-   * :----    :-------    :-----
-   * 4px      0.25rem     0.5
-   * 8px      0.5rem      1
-   * 12px     0.75rem     1.5
-   * 16px     1rem        2
-   * 18px     1.25rem     2.5
-   * 24px     1.5rem      3
-   * 28px     1.75        3.5
-   * 32px     2rem        4
-   * 36px     2.25rem     4.5
-   * 44px     2.75rem     5.5
-   * 48px     3rem        6
-   * 64px     4rem        8
-   * 72px     4.5rem      9
-   * 80px     5rem        10
-   * 128px    8rem        16
-  -------------------------------------------------------------------------- */
+  /* Font Weights */
+  --font_weight--thin: 100;
+  --font_weight--extralight: 200;
+  --font_weight--light: 300;
+  --font_weight--normal: 400;
+  --font_weight--medium: 500;
+  --font_weight--semibold: 600;
+  --font_weight--bold: 700;
+  --font_weight--extrabold: 800;
+  --font_weight--black: 900;
 
-  --sp_0: 0.25rem;    /* 4px     utility to substitute 0 margins to add some polish */
-  --sp_1: 0.5rem;     /* 8px     utility for tight paddings etc */
-  --sp_2: 1rem;       /* 16px    1/2 line height, for closely related elements */
-  --sp_4: 2rem;       /* 32px    1 line height, for related elements */
-  --sp_8: 4rem;       /* 64px    2 line heights, for loosly related elements */
-  --sp_16: 8rem;      /* 128px   4 line heights, for unrelated elements */
-
-  --flow-space: var(--sp_4);
-  --gutter: var(--sp_2);
-  --section-space: var(--sp_16);
-
-  /* Modular Scale */
-  --typeset_-1: 1rem/1.5rem var(--font-body);       /* 16px/24px */
-  --typeset_0: 1.25rem/2rem var(--font-body);       /* 18px/32px */
-  --typeset_1: 1.5rem/2rem var(--font-body);        /* 24px/32px */
-  --typeset_2: 2rem/2.5rem var(--font-body);    /* 36px/44px */
-  --typeset_3: 2.5rem/3rem var(--font-body);        /* 48px/56px */
-  --typeset_4: 3rem/3rem var(--font-body);      /* 72px/72px */
-  --typeset_5: 5rem/5rem var(--font-body);          /* 80px/80px */
+  /* Font Sizes & Line Heights */
+  --font_size--xsmall: 0.75rem;     /* 12px */
+  --font_height--xsmall: 1rem;      /* 16px */
+  --font_size--small: 1rem;         /* 16px */
+  --font_height--small: 1.5rem;     /* 24px */
+  --font_size--normal: 1.25rem;     /* 20px */
+  --font_height--normal: 1.75rem;   /* 28px */
+  --font_size--medium: 1.5rem;      /* 24px */
+  --font_height--medium: 2rem;      /* 32px */
+  --font_size--large: 1.75rem;      /* 28px */
+  --font_height--large: 2.25rem;    /* 36px */
+  --font_size--xlarge: 2rem;        /* 32px */
+  --font_height--xlarge: 2.5rem;    /* 40px */
+  --font_size--xxlarge: 2.5rem;     /* 40px */
+  --font_height--xxlarge: 2.5rem;   /* 40px */
 }
-@media (min-width: 55rem) {
+
+@media (min-width: 30rem) {
   :root {
-    --typeset_-1: 1rem/1.5rem var(--font-body);       /* 16px/24px */
-    --typeset_0: 1.25rem/2rem var(--font-body);       /* 18px/32px */
-    --typeset_1: 1.5rem/2rem var(--font-body);        /* 24px/32px */
-    --typeset_2: 2.25rem/2.75rem var(--font-body);    /* 36px/44px */
-    --typeset_3: 3rem/3.5rem var(--font-body);        /* 48px/56px */
-    --typeset_4: 4.5rem/4.5rem var(--font-body);      /* 72px/72px */
-    --typeset_5: 5rem/5rem var(--font-body);          /* 80px/80px */
+    --font_size--large: 2rem;       /* 32px */
+    --font_height--large: 2.5rem;   /* 40px */
+    --font_size--xlarge: 2.5rem;    /* 40px */
+    --font_height--xlarge: 3rem;    /* 48px */
+    --font_size--xxlarge: 3rem;     /* 48px */
+    --font_height--xxlarge: 3rem;   /* 48px */
   }
 }
 
-/* END !SECTION TOKENS */
-/** -----------------------------------------------------------------
-  * SECTION RESET
-  * http://meyerweb.com/eric/tools/css/reset/
-  * v2.0 | 20110126
-  * License: none (public domain)
------------------------------------------------------------------- */
+@media (min-width: 60rem) {
+  :root {
+    --space_section: var(--space_16);
+    --font_size--large: 2.25rem;    /* 36px */
+    --font_height--large: 2.75rem;  /* 44px */
+    --font_size--xlarge: 3rem;      /* 48px */
+    --font_height--xlarge: 3.5rem;  /* 56px */
+    --font_size--xxlarge: 4.5rem;   /* 72px */
+    --font_height--xxlarge: 4.5rem; /* 72px */
+  }
+}
+
+del {
+  --color_background--element: #fdebeb;
+}
+
+ins {
+  --color_background--element: #e3fcec;
+}
+
+/* !SECTION Tokens */
+/* =================================================================
+/* SECTION Reset
+** http://meyerweb.com/eric/tools/css/reset/
+** v2.0 | 20110126 * License: none (public domain)
+================================================================= */
+
+
+
+/* !SECTION Reset */
 
 * {
   box-sizing: border-box;
@@ -134,7 +138,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video, hr {
   margin: 0;
   padding: 0;
   border: 0;
@@ -175,10 +179,10 @@ table {
   border-spacing: 0;
 }
 
-/* END !SECTION RESET */
-/** -----------------------------------------------------------------
-  * SECTION CORE
------------------------------------------------------------------- */
+/* END !SECTION Reset */
+/* =================================================================
+/* SECTION Core
+================================================================= */
 
 /* Links that point to a location on the same page will scroll
  * smoothly down to that location. */
@@ -191,8 +195,7 @@ table {
  * content. Note that for Accessibility guidelines, this content
  * must become visible if toggled over using a keyboard. */
 
-.visually-hidden:not(:focus):not(:active),
-.sr-only:not(:focus):not(:active) {
+.visually-hidden:not(:focus):not(:active) {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;
@@ -221,7 +224,7 @@ table {
 /* Use primary color for focus styles */
 
 :focus-visible {
-  outline-color: var(--color-accent);
+  outline-color: var(--color_accent);
   outline-offset: 3px;
   outline-width: 2px;
 }
@@ -229,66 +232,74 @@ table {
 /* Adds a margin above an element when it is the target of an ID link */
 
 * {
-  scroll-margin-top: var(--flow-space);
-  scroll-margin-bottom: var(--flow-space);
+  scroll-margin-top: var(--space_flow);
+  scroll-margin-bottom: var(--space_flow);
 }
 
 /* ::selection {
   background-color: var(--color-primary-100);
 } */
 
-/** -----------------------------------------------------------------
-  * SECTION TYPOGRAPHY
------------------------------------------------------------------- */
+/* ==============================
+/* SECTION Typography
+============================== */
 
 /* Set the document's default font, color, size, and line height */
 
 body {
-  font: var(--typeset_0);
-  color: var(--text-color);
-  background: var(--page-background);
-}
-
-/* Setup flow spacing for typography elements */
-
-h1, h2, h3, h4, h5, h6, p,
-label, legend, address {
-  margin-block-end: var(--flow-space);
-}
-
-/* Double flow spacing before headings & set heading color. */
-
-h1, h2, h3, h4, h5, h6 {
-  color: var(--heading-color);
-  margin-block-start: calc(var(--flow-space) * 2);
-}
-
-/* Decrease space between sequential headings */
-
-h2 + h3,
-h3 + h4,
-h4 + h5,
-h5 + h6 {
-  margin-block-start: 0;
+  font-family: var(--font_body);
+  font-size: var(--font_size--normal);
+  line-height: var(--font_height--normal);
+  color: var(--color_text--default);
+  background: var(--color_background--surface);
+  accent-color: var(--color_accent);
 }
 
 /* Heading typography */
 
-h1, .txt-h1 { font: var(--typeset_4); font-weight: 800; letter-spacing: -0.01em; margin-block-start: 0;}
-h2, .txt-h2 { font: var(--typeset_3); font-weight: 600; letter-spacing: -0.01em;}
-h3, .txt-h3 { font: var(--typeset_2); font-weight: 600; letter-spacing: -0.01em; }
-h4, .txt-h4 { font: var(--typeset_1); font-weight: 700; letter-spacing: -0.01em; }
-h5, .txt-h5, h6, .txt-h6, label, th, legend { font: var(--typeset_0); font-weight: bold; }
+h1, h2, h3, h4, h5 {
+  font-family: var(--font_head);
+  font-weight: var(--font_weight--bold);
+}
+
+h1,
+.util_txt--h1 {
+  font-size: var(--font_size--xxlarge);
+  line-height: var(--font_height--xxlarge);
+}
+
+h2,
+.util_txt--h2 {
+  font-size: var(--font_size--xlarge);
+  line-height: var(--font_height--xlarge);
+}
+
+h3,
+.util_txt--h3 {
+  font-size: var(--font_size--large);
+  line-height: var(--font_height--large);
+}
+
+h4,
+.util_txt--h4 {
+  font-size: var(--font_size--medium);
+  line-height: var(--font_height--medium);
+}
 
 /* Set typography for small text */
 
-small, .txt-small { font: var(--typeset_-1); }
+small,
+.util_txt--small {
+  font-size: var(--font_size--small);
+  line-height: var(--font_height--small);
+}
 
 /* Basic styles for inline semantics */
 
-strong { font-weight: bold; }
-em, cite { font-style: italic; }
-u { text-decoration: underline; font-style: normal;}
+strong, b { font-weight: bold; }
+em, cite, i, q { font-style: italic; }
+s { text-decoration: line-through; }
+u { text-decoration: underline; font-style: normal; }
 
 /* Basic style for subscript and superscript text */
 
@@ -297,56 +308,27 @@ sub, sup {
   line-height: 0;
   position: relative;
 }
+
 sup { top: -0.5em; }
 sub { bottom: -0.25em; }
 
-/* del, ins, and s styles. Note that these are opinionated and may
- * need to be restyled to suit your use case. These pseudoelements
- * exist to announce the presence of these elements. Read more
- * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins#accessibility_concerns */
-
-/* del::before,
-del::after,
-ins::before,
-ins::after,
-s::before,
-s::after {
-  clip-path: inset(100%);
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-} */
-
-/* del::before { content: " [deletion start] "; }
-del::after { content: " [deletion end] "; }
-ins::before { content: " [insertion start] "; }
-ins::after { content: " [insertion end] "; }
-s::before { content: " [start of stricken text] "; }
-s::after { content: " [end of stricken text] "; } */
-
 del {
-  background: var(--del-background);
+  background: var(--color_background--element);
   text-decoration: line-through;
   padding: 0.1em 0.3em;
 }
 
 ins {
-  background: var(--ins-background);
-  text-decoration: none;
+  background: var(--color_background--element);
+  text-decoration: underline;
   padding: 0.1em 0.3em;
 }
-
-/* See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s */
-
-s { text-decoration: line-through; }
 
 /* Mark styles - see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark */
 
 mark {
-  background: var(--mark-background);
+  background: var(--color_text--accent);
+  color: var(--color_background--surface);
   padding: 0.1em 0.3em;
 }
 
@@ -360,80 +342,90 @@ abbr[title] {
   text-decoration-style: dotted;
 }
 
-/* Italisize q when it includes a cite */
 
-q[cite] { font-style: italic; }
-
-
-/* !SECTION TYPOGRAPHY */
-/** -----------------------------------------------------------------
-  * SECTION LINKS
-  * :not([class]) is so that the styles won't need to be overridden
-  * in special use cases like navigation / buttons
------------------------------------------------------------------- */
+/* !SECTION Typography */
+/* ==============================
+/* SECTION Links
+** :not([class]) is so that the styles won't need to be overridden
+** in special use cases like navigation / buttons
+============================== */
 
 a:not([class]) {
-  color: var(--link-color);
+  color: var(--color_text--link);
   text-decoration: none;
   font-weight: bold;
 }
 
-/* VISITED STYLES GO HERE */
+/* a:not([class]):visited { } */
 
 a:not([class]):hover,
 a:not([class]):focus {
   text-decoration: underline;
-  text-decoration-color: var(--link-color);
+  text-decoration-color: var(--color_text--link-alt);
   text-decoration-thickness: 2px;
 }
 
-/*
-OPTIONAL STYLES
-Add an icon for links that go to a PDF and/or links that open in a new tab
-*/
+/* OPTIONAL STYLES - Add an icon for special links */
 
 /* a:not([class])[target="_blank"]::after,
 a:not([class])[data-link-type="external"] {
-  content: ' \e91f';
-  font-size: 90%;
-}
-
-a:not([class])[href$='.pdf']::after,
-a:not([class])[data-link-type='document']::after {
-  content: '\e91d';
-  font-size: 90%;
-  padding-left: 0.1em;
+  content: '';
+  padding-inline-start: 0.1em;
 } */
 
-/* !SECTION LINKS */
-/** -----------------------------------------------------------------
-  * SECTION BLOCKQUOTE
------------------------------------------------------------------- */
+/* a:not([class])[href$='.pdf']::after,
+a:not([class])[data-link-type='document']::after {
+  content: '';
+  padding-inline-start: 0.1em;
+} */
 
-/* Add basic styling for blockquotes, and provide a utility class
- * to apply these styles outside of a quote context */
+/* a:not([class])[href^="tel:"]::before,
+a:not([class])[data-link-type="telephone"]::before {
+  content: '';
+  padding-inline-end: 0.1em;
+} */
 
-blockquote,
-.callout {
-  border-left: 5px solid var(--accent-color);
-  padding: var(--sp_2) var(--sp_4);
-  margin-block-end: var(--flow-space);
+/* a:not([class])[href^="mailto:"]::before,
+a:not([class])[data-link-type="email"]::before {
+  content: '';
+  padding-inline-end: 0.1em;
+} */
+
+/* !SECTION Links */
+/* ==============================
+/* SECTION Blockquote
+============================== */
+
+blockquote {
+  border-left: 5px solid var(--color_accent);
+  padding: var(--space_2) var(--space_4);
+  font-weight: var(--font_weight--semibold);
 }
 
-/* Remove the bottom margin from the last child in the blockquote */
-
-blockquote :last-child,
-.callout :last-child {
-  margin-block-end: 0;
+blockquote footer,
+blockquote cite {
+  font-size: var(--font_size--small);
+  line-height: var(--font_height--small);
+  font-weight: var(--font_weight--normal);
 }
 
-/* !SECTION BLOCKQUOTE */
-/** -----------------------------------------------------------------
-  * SECTION LISTS
-  * :not([class]) is so that the styles won't need to be overridden
-  * in special use cases. For example, when list markup might need
-  * to be paired with a grid layout
------------------------------------------------------------------- */
+blockquote cite {
+  font-style: italic;
+}
+
+blockquote > cite,
+blockquote > footer {
+  display: block;
+  margin-block-start: calc(var(--space_flow) / 2);
+}
+
+/* !SECTION Blockquote */
+/* ==============================
+/* SECTION Lists
+** :not([class]) is so that the styles won't need to be overridden
+** in special use cases. For example, when list markup might need
+** to be paired with a grid layout
+============================== */
 
 /* Set nested unordered list styles */
 
@@ -449,45 +441,25 @@ ol:not([class]) ol:not([class]) ol:not([class]) { list-style-type: lower-roman; 
 
 /* Set indention and flow spacing for lists */
 
-ul:not([class]), ol:not([class]) {
-  margin-inline-start: 1em;
-}
-
-/* Add flow spacing to list elements */
-
-ul, ol, dl {
-  margin-block-end: var(--flow-space);
-}
-
-/* Add spacing between list items */
-
-ul:not([class]) li,
-ul:not([class]) ol,
-ul:not([class]) ul,
 ol:not([class]) li,
+ul:not([class]) li,
 ol:not([class]) ol,
-ol:not([class]) ul {
-  margin-block-end: var(--sp_1);
-}
-
-/* Ensure nested lists have the correct spacing */
-
+ol:not([class]) ul,
 ul:not([class]) ol,
-ul:not([class]) ul,
-ol:not([class]) ol,
-ol:not([class]) ul {
-  margin-block-start: var(--sp_1);
+ul:not([class]) ul {
+  margin-block-end: var(--space_1);
+  margin-inline-start: var(--space_2);
 }
 
 /* Add basic styles for definition lists */
 
 dt { font-weight: bold; }
-dd { padding-inline-start: var(--flow-space); }
+dd { padding-inline-start: var(--space_2); }
 
-/* !SECTION LISTS */
-/** -----------------------------------------------------------------
-  * SECTION MEDIA
------------------------------------------------------------------- */
+/* !SECTION Lists */
+/* ==============================
+/* SECTION Media
+============================== */
 
 /* Allow media to sit correctly in content flow */
 
@@ -495,12 +467,9 @@ img,
 figure,
 video,
 .aspect-ratio,
-.video-wrapper,
-.embed-container {
+.embed-wrapper {
   display: block;
   width: 100%;
-  margin: auto;
-  margin-block-end: var(--flow-space);
 }
 
 img {
@@ -509,18 +478,16 @@ img {
   height: auto;
 }
 
-/* Let SVG scale without boundaries */
-img[src$=".svg"] {
-  width: 100%;
-  height: auto;
-  max-width: none;
+/* Add placeholder background for video */
+
+video:not(:has(source)) {
+  background: var(--color_background--element);
 }
 
 /* Basic style for figcaption */
 
 figcaption {
   display: block;
-  text-align: center;
   font-style: italic;
 }
 
@@ -529,39 +496,26 @@ figcaption {
 
 audio {
   display: block;
+  width: 100%;
   max-width: 100%;
   border-radius: 900px;
-  margin-block-end: var(--flow-space);
 }
 
 /* Setup media wrappers */
 
 .aspect-ratio,
-.video-wrapper,
-.embed-container {
+.embed-wrapper {
+  --aspect-ratio: 16/9;
   width: 100%;
   padding-block-start: calc(100%/(var(--aspect-ratio)));
   position: relative;
 }
 
-/* Define aspect ratios */
-
-.video-wrapper,
-.embed-container,
-.sixteen-by-nine { --aspect-ratio: 16/9; }
-.one-by-one { --aspect-ratio: 1/1; }
-.three-by-two { --aspect-ratio: 3/2; }
-.four-by-three { --aspect-ratio: 3/2; }
-.eight-by-five { --aspect-ratio: 8/5; }
-
 /* Position inner elements in media wrappers */
 
-.embed-container > iframe,
-.embed-container > embed,
-.embed-container > object,
-.video-wrapper > iframe,
-.video-wrapper > embed,
-.video-wrapper > object
+.embed-wrapper > iframe,
+.embed-wrapper > embed,
+.embed-wrapper > object,
 .aspect-ratio > iframe,
 .aspect-ratio > embed,
 .aspect-ratio > object,
@@ -586,67 +540,77 @@ audio {
   overflow-x: auto;
 }
 
-/* !SECTION MEDIA */
-/** -----------------------------------------------------------------
-  * SECTION RULES
------------------------------------------------------------------- */
+/* !SECTION Media */
+/* ==============================
+/* SECTION Rules
+============================== */
 
 hr {
   border: none;
-  border-block-end: 0.5px solid var(--light-text-color);
+  border-block-end: 1px solid var(--color_text--subtle);
   width: 100%;
-  margin-block-end: var(--flow-space);
 }
 
 hr.spacer {
+  --spacer-height: calc(var(--space_flow) * 2);
   border: none;
-  margin: calc(var(--flow-space) * 2) 0;
+  margin-block-start: var(--spacer-height) 0;
 }
 
-/* !SECTION RULES */
-/** -----------------------------------------------------------------
-  * SECTION TABLES
------------------------------------------------------------------- */
+/* !SECTION Rules*/
+/* ==============================
+/* SECTION Tables
+============================== */
 
 table {
   width: 100%;
-  margin-block-end: var(--flow-space);
 }
 
 caption {
-  padding: var(--sp_1);
-  font: var(--typeset_1);
-  text-align: left;
+  font-size: inherit;
+  line-height: inherit;
+  text-align: start;
+  margin-block-end: var(--space_2);
+}
+
+thead {
+  background-color: var(--color_text--default);
+  color: var(--color_background--surface);
 }
 
 th, td {
-  font: var(--typeset_-1);
-  padding: var(--sp_1);
-  text-align: left;
+  font-size: var(--font_size--small);
+  line-height: var(--font_height--small);
+  padding: var(--space_2);
+  text-align: start;
 }
 
 th { font-weight: bold; }
 
 tr {
-  border-block-end: 0.5px solid var(--light-text-color);
+  border-block-end: 0.5px solid var(--color_text--subtle);
 }
 
-tr:hover {
-  background-color: var(--element-background);
+tbody tr:hover {
+  background-color: var(--color_background--element);
 }
 
-/* !SECTION TABLES */
-/** -----------------------------------------------------------------
-  * SECTION CODE
------------------------------------------------------------------- */
+tfoot {
+  background-color: var(--color_background--chip);
+}
+
+/* !SECTION Tables */
+/* ==============================
+/* SECTION Code
+============================== */
 
 code, samp, kbd, var {
-  font-family: var(--font-mono);
+  font-family: var(--font_mono);
   padding: 0.1em 0.3em;
 }
 
 code, samp {
-  background-color: var(--element-background);
+  background-color: var(--color_background--element);
 }
 
 var {
@@ -655,28 +619,25 @@ var {
 }
 
 kbd {
-  background-color: var(--text-color);
-  color: white;
+  background-color: var(--color_text--default);
+  color: var(--color_background--surface);
   border-radius: 5px;
-}
-
-pre {
-  margin-bottom: var(--flow-space);
 }
 
 pre code,
 pre samp {
   display: block;
-  padding: var(--sp_2);
+  padding: var(--space_2);
   overflow: auto;
-  font: var(--typeset_-1);
-  font-family: var(--font-mono);
+  font-family: var(--font_mono);
+  font-size: var(--font_size--small);
+  line-height: var(--font_height--small);
 }
 
-/* !SECTION CODE */
-/** -----------------------------------------------------------------
-  * SECTION DETAILS
------------------------------------------------------------------- */
+/* !SECTION Code */
+/* ==============================
+/* SECTION Details
+============================== */
 
 /* Display:block removes Firefox's marker
  * ::webkit-details-marker removed Chrome & Safair's marker */
@@ -684,7 +645,6 @@ pre samp {
 details {
   display: block;
   position: relative;
-  margin-block-end: var(--flow-space);
 }
 
 summary::-webkit-details-marker {
@@ -694,224 +654,243 @@ summary::-webkit-details-marker {
 summary {
   display: block;
   cursor: pointer;
-  padding-inline-start: 1.5em;
+  color: var(--color_text--default);
+  font-weight: var(--font_weight--bold);
   font-weight: bold;
 }
 
 summary::before {
-  position: absolute;
+  content: "+";
+  box-sizing: border-box;
+  text-align: center;
+  display: inline-block;
+  font-size: 1em;
+  width: 1em;
+  margin-inline-end: 0.5em;
   will-change: transform;
   transition: transform 300ms ease;
-  font-size: 1em;
-  content: "▸";
-  left: 0;
-  display: inline-block;
-  text-align: center;
-  width: 1em;
 }
 
 summary:focus::before {
-  color: var(--accent-color);
+  color: var(--color_accent);
+}
+
+summary + * {
+  margin-block-start: calc(var(--space_flow) / 2);
 }
 
 details[open] > summary::before {
-  transform: rotate(90deg);
+  transform: rotate(45deg);
 }
 
-details .details-content {
-  padding-inline-start: 1.5em;
+details {
+  background: var(--color_background--element);
+  padding: var(--space_2);
 }
 
-/* !SECTION DETAILS */
-/* !SECTION CORE */
-/** -----------------------------------------------------------------
-  * SECTION FORMS
-  * Form elements not styled:
-  * Meter. Next to impossible to size consistently
-  * File. You're better off implementing something with JS
-  * Date & Color. Styling these is far too complicated for the
-  * scope of this project.
------------------------------------------------------------------- */
+/* !SECTION Details */
+/* ==============================
+/* SECTION Meter
+============================== */
+
+meter {
+  --meter-color_track: var(--color_background--element);
+  --meter-color_optimum: #15803d;
+  --meter-color_sub-optimum: #f59e0b;
+  --meter-color_sub-sub-optimum: #dc2626;
+
+  display: block;
+  width: 100%;
+  height: 1rem;
+
+  -webkit-appearance: none;
+  border-radius: 0;
+  background: none;
+  background-color: var(--meter-color_track);
+}
+
+/* Set the track color for webkit browsers */
+
+meter::-webkit-meter-bar {
+  background: var(--meter-color_track);
+}
+
+/* Set the optimum color */
+
+meter::-webkit-meter-optimum-value {
+  background: var(--meter-color_optimum);
+}
+
+meter:-moz-meter-optimum::-moz-meter-bar {
+  background: var(--meter-color_optimum);
+}
+
+/* Set the sub optimum color */
+
+meter:-moz-meter-sub-optimum::-moz-meter-bar {
+  background: var(--meter-color_sub-optimum);
+}
+
+meter::-webkit-meter-suboptimum-value {
+  background: var(--meter-color_sub-optimum);
+}
+
+/* Set the sub sub optimum color */
+
+meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+  background: var(--meter-color_sub-sub-optimum);
+}
+
+/* The red (even less good) bar in Chrome etc. */
+meter::-webkit-meter-even-less-good-value {
+  background: var(--meter-color_sub-sub-optimum);
+}
+
+/* !SECTION Meter */
+/* ==============================
+/* SECTION Progress
+============================== */
+
+progress[value] {
+  --progress-color_track: var(--color_background--element);
+  --progress-color_fill: var(--color_accent);
+
+  display: block;
+  width: 100%;
+  height: 0.25rem;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  border-radius: 0;
+
+  background: var(--progress-color_track);
+}
+
+progress[value]::-webkit-progress-bar {
+  background: var(--progress-color_track);
+}
+
+progress[value]::-webkit-progress-value {
+  background: var(--progress-color_fill);
+}
+
+progress[value]::-moz-progress-bar {
+  background: var(--progress-color_fill);
+}
+
+/* !SECTION Progress */
+/* !SECTION Core */
+/* =================================================================
+/* SECTION Forms
+** File uploads are not styled, you're better off implementing
+** something with JS.
+** Date & Color inputs are not styled, they're far too complicated
+** for the scope of this project.
+================================================================= */
+
+/* Setup form specific styles and variables  */
+
+form {
+  --form_invalid-color: #dc2626;
+}
+
+/* Add required input notice if required fields exist */
+
+form:has(.form-field input[required])::after {
+  content: "* indicates a required field";
+  color: var(--form_invalid-color);
+  margin-block-start: var(--space_flow);
+  display: block;
+}
+
+/* Standardize labels */
 
 label, legend {
   background-color: transparent;
+  font: inherit;
+}
+
+/* Standard styles for normal inputs */
+
+input:not([type="checkbox"], [type="radio"], [type="color"]),
+select,
+textarea,
+button {
+  font: inherit;
+  padding: var(--space_1);
   display: block;
-  font: var(--typeset_-1);
-  font-weight: bold;
-  margin-block-end: var(--sp_0);
-}
-
-label + label {
-  margin-block-start: var(--sp_1);
-}
-
-label.required::after {
-  content: " *";
-  color: var(--invalid-color);
-}
-
-fieldset {
-  border: 0.5px solid var(--light-text-color);
-  padding: var(--sp_2);
-  margin-block-end: var(--flow-space);
-  background-color: var(--element-background);
-}
-
-fieldset > :last-child {
-  margin-block-end: 1rem;
-}
-
-legend {
-  padding: 0 0.5em;
-  margin-inline-start: -0.5em;
-}
-
-/* Normalize fonts, sizes, and borders */
-.button, button, input, select, textarea, datalist {
-  font-family: inherit;
-  font-size: 100%;
+  width: 100%;
+  border: 1px solid var(--color_text--subtle);
   line-height: inherit;
   box-sizing: border-box;
-
-  padding: var(--sp_1) var(--sp_2);
-  border: 1px solid var(--light-text-color);
-  margin: 0;
-  margin-block-end: var(--flow-space);
-  background-color: var(--page-background);
+  background: transparent;
 }
 
-/* Normalize input width */
-.button, input, select, textarea, datalist {
-  width: 100%;
+/* Remove border and padding for file inputs */
+
+input[type="file"] {
+  padding: var(--space_1) 0;
+  border: none;
 }
+
+/* Set textarea default height and restrict resize to vertical */
 
 textarea {
   resize: vertical;
   min-height: 10rem;
+  font-family: var(--font_mono);
+  font-size: var(--font_size--small);
+  line-height: var(--font_height--small);
 }
 
-input:active,
-input:focus,
-textarea:active,
-textarea:focus,
-select:active,
-select:focus,
-datalist:focus,
-datalist:active {
-  outline-offset: 1px;
-}
+/* ==============================
+/* SECTION Form field class
+============================== */
 
-/** -----------------------------------------------------------------
-  * SECTION RADIO & CHECKBOX
------------------------------------------------------------------- */
-
-@supports (appearance: none) or (-moz-appearance: none) or (-webkit-appearance: none)  {
-  input[type="checkbox"],
-  input[type="radio"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    position: relative;
-    display: inline-block;
-    top: -0.1em;
-    width: 1em;
-    height: 1em;
-    padding: 0;
-    margin: 0;
-    vertical-align: middle;
-    transition: box-shadow 0.1s ease;
-  }
-
-  input[type="checkbox"]:checked,
-  input[type="radio"]:checked {
-    box-shadow: inset 0 0 0 .25em var(--accent-color);
-    border-color: var(--accent-color);
-  }
-
-  input[type="radio"] {
-    border-radius: 50%;
-  }
-}
-
-/* !SECTION RADIO & CHECKBOX */
-/** -----------------------------------------------------------------
-  * SECTION NUMBER, SELECT, SEARCH
------------------------------------------------------------------- */
-
-/* Remove increment/decrement buttons from number fields */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  appearance: none;
-}
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
-/* Hide the default arrow icon and implement a custom one */
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none; /* hides the native UI */
-
-  padding-inline-end: var(--sp_4); /* prevents input text from running into background image */
-
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8" fill="none" stroke="black"><path d="M7.5 3L4 6 .5 3"/></svg>');
-  background-size: 0.7em;
-  background-repeat: no-repeat;
-  background-position: right var(--sp_1) center;
-}
-
-/* Remove the chrome cancel button */
-input[type="search"]::-webkit-search-cancel-button {
-  display: none;
-}
-
-/* !SECTION NUMBER, SELECT, SEARCH */
-/** -----------------------------------------------------------------
-  * SECTION PROGRESS
------------------------------------------------------------------- */
-
-/* Normalize progress bar */
-progress[value] {
-  border: 0;
-  background-color: var(--element-background);
-  -webkit-appearance: none;
+.form-field label {
   display: block;
-  width: 100%;
-  margin-block-end: var(--flow-space);
 }
 
-progress[value]::-webkit-progress-bar {
-  background-color: var(--element-background);
+/* Add required marker to labels if their input is required */
+
+.form-field:has(input[required]) label::after {
+  content: " *";
+  color: var(--form_invalid-color);
 }
 
-progress[value]::-webkit-progress-value {
-  background: var(--accent-color);
-}
-progress[value]::-moz-progress-bar {
-  background: var(--accent-color);
+/* !SECTION Form field class */
+/* ==============================
+/* SECTION Radio & Checkbox
+============================== */
+
+ul:has(input[type="checkbox"]),
+ul:has(input[type="radio"]),
+ol:has(input[type="checkbox"]),
+ol:has(input[type="radio"]) {
+  list-style: none;
 }
 
-/* indeterminate styles
- * progress:not([value]) {} */
+ul:has(input[type="checkbox"]) li,
+ul:has(input[type="radio"]) li,
+ol:has(input[type="checkbox"]) li,
+ol:has(input[type="radio"]) li {
+  margin: 0;
+}
 
-/* !SECTION PROGRESS */
-/** -----------------------------------------------------------------
-  * SECTION RANGE
------------------------------------------------------------------- */
+/* !SECTION Radio & Checkbox */
+/* ==============================
+/* SECTION Range
+============================== */
 
 input[type="range"],
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   font-size: 1rem;
+  height: 1rem;
   padding: 0;
   border: none;
-}
-
-input[type="range"]:focus,
-input[type="range"]:active {
-  outline: none;
-  --light-text-color: var(--accent-color);
 }
 
 /* Track Styles */
@@ -919,264 +898,298 @@ input[type="range"]::-webkit-slider-runnable-track {
   border: none;
   height: 5px;
   border-radius: 0;
-  background-color: var(--element-background);
+  background-color: var(--color_background--element);
 }
+
 input[type="range"]::-moz-range-track {
   height: 5px;
   border: none;
   border-radius: 0;
-  background-color: var(--element-background);
+  background-color: var(--color_background--element);
+}
+
+input[type="range"]::-moz-range-progress{
+  background-color: var(--color_accent);
+  height: 5px;
 }
 
 /* Thumb Styles */
 input[type="range"]::-webkit-slider-thumb {
-  margin-block-start: -0.5rem;
+  margin-block-start: calc((1.2rem / -2) + 2.5px);
   width: 1.2rem;
   height: 1.2rem;
-  border: 2px solid var(--page-background);
+  border: 2px solid var(--color_background--surface);
   border-radius: 1000rem;
-  background: var(--light-text-color);
+  background: var(--color_accent);
 }
+
 input[type="range"]::-moz-range-thumb {
-  border: 2px solid var(--page-background);
+  border: 2px solid var(--color_background--surface);
   border-radius: 1000rem;
   font-size: 1.2rem;
-  background: var(--light-text-color);
+  background: var(--color_accent);
 }
 
-/* !SECTION RANGE */
-/* !SECTION FORMS */
-/** -----------------------------------------------------------------
-  * SECTION BUTTONS
------------------------------------------------------------------- */
-
-label + button,
-label + .button,
-label + input[type="submit"],
-label + input[type="reset"],
-label + input[type="button"] {
-  margin-block-start: var(--flow-space);
-}
+/* !SECTION Range */
+/* ==============================
+/* SECTION Buttons
+============================== */
 
 .button,
+.button--secondary,
 button,
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-  display: block;
+  display: inline-block;
+  width: auto;
   text-align: center;
   white-space: nowrap;
   text-decoration: none;
-  width: min-content;
-  background-color: transparent;
+  background-color: var(--color_text--link);
   cursor: pointer;
   box-sizing: border-box;
-
-  color: white;
-  background-color: var(--link-color);
-  border: 1px solid var(--link-color);
-  margin-block-end: var(--flow-space);
-
-  font-weight: bold;
-  padding-inline-start: var(--sp_4);
-  padding-inline-end: var(--sp_4);
+  color: var(--color_background--surface);
+  border: 2px solid var(--color_text--link);
+  padding-inline: var(--space_4);
+  padding-block: var(--space_1);
 }
 
-.button img,
-button img,
-input[type="submit"] img,
-input[type="reset"] img,
-input[type="button"] img {
-  margin: 0;
-}
-
-.button:hover,
+a.button:hover,
+a.button--secondary:hover,
 button:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover,
 input[type="button"]:hover,
-.button:focus,
+a.button:focus,
+a.button--secondary:focus,
 button:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus,
 input[type="button"]:focus {
-  border-color: var(--link-color-alt);
-  background-color: var(--link-color-alt);
+  border-color: var(--color_text--link-alt);
+  background-color: var(--color_text--link-alt);
 }
 
-input[type="submit"]:active,
-input[type="submit"]:focus,
-input[type="reset"]:active,
-input[type="reset"]:focus,
-input[type="button"]:active,
-input[type="button"]:focus {
-  outline-offset: 3px;
+.button--secondary,
+button[type="reset"],
+input[type="reset"] {
+  background-color: var(--color_background--surface);
+  color: var(--color_text--link);
+  border-color: var(--color_text--link);
 }
 
-.button[tabindex="-1"],
+a.button--secondary:hover,
+button[type="reset"]:hover,
+input[type="reset"]:hover,
+a.button--secondary:focus,
+button[type="reset"]:focus,
+input[type="reset"]:focus {
+  background-color: var(--color_background--surface);
+  color: var(--color_text--link-alt);
+  border-color: var(--color_text--link-alt);
+}
+
+span.button,
 button[disabled],
 input[type="submit"][disabled],
 input[type="reset"][disabled],
 input[type="button"][disabled] {
-  background-color: var(--element-background);
-  color: var(--light-text-color);
-  border-color: var(--element-background);
+  cursor: auto;
+  background-color: var(--color_background--chip);
+  color: var(--color_text--subtle);
+  border-color: var(--color_background--chip);
 }
 
-/* !SECTION BUTTONS */
-/** -----------------------------------------------------------------
-  * SECTION LAYOUT
------------------------------------------------------------------- */
+span.button--secondary,
+input[type="reset"][disabled],
+button[type="reset"][disabled] {
+  cursor: auto;
+  background-color: var(--color_background--surface);
+  color: var(--color_background--chip);
+  border-color: var(--color_background--chip);
+}
 
-/* Section spacing */
+/* !SECTION Buttons */
+/* !SECTION Forms */
+/* =================================================================
+/* SECTION Layout
+================================================================= */
+/* ==============================
+/* SECTION Container System
+** Containers allow for a robust and flexible layout system by
+** applying the gutter padding and max width to the container itself.
+** Containers can be nested as needed.
+============================== */
 
-.section { margin: var(--section-space) 0; }
-
-/* Standard content container */
+/* Setup containers */
 
 .container {
-  max-width: var(--content-width);
-  padding: 0 var(--gutter);
-  margin: 0 auto;
-  width: 100%;
-}
-.container-wide {
-  max-width: calc(var(--content-width) + var(--gutter) + var(--sidebar-width) + var(--section-space))
+  margin-inline: auto;
+  padding-inline: var(--space_gutter);
+  max-width: var(--width_content);
 }
 
-/** -----------------------------------------------------------------
-  * SECTION FLOW SPACING
-  * Use flow spacing in flow areas, provide a fallback for browsers
-  * that don't support css variables
------------------------------------------------------------------- */
-
-/* .flow > * + * {
-  margin-top: 1.5rem;
-  margin-top: var(--flow-space);
+.container--wide {
+  margin-inline: auto;
+  padding-inline: var(--space_gutter);
+  max-width: var(--width_wide);
 }
 
-.flow > * + h1,
-.flow > * + h2,
-.flow > * + h3,
-.flow > * + h4,
-.flow > * + h5,
-.flow > * + h6,
-.flow > * + .txt-h1,
-.flow > * + .txt-h2,
-.flow > * + .txt-h3,
-.flow > * + .txt-h4,
-.flow > * + .txt-h5,
-.flow > * + .txt-h6 {
-  margin-top: 1.5rem;
-  margin-top: calc(var(--flow-space) * 2);
+.container--full {
+  margin-inline: auto;
+  padding-inline: var(--space_gutter);
 }
 
-.flow > h1 + h2,
-.flow > h2 + h3,
-.flow > h3 + h4,
-.flow > h4 + h5,
-.flow > h5 + h6,
-.flow > .txt-h1 + .txt-h2,
-.flow > .txt-h2 + .txt-h3,
-.flow > .txt-h3 + .txt-h4,
-.flow > .txt-h4 + .txt-h5,
-.flow > .txt-h5 + .txt-h6 {
-  margin-top: 1.5rem;
-  margin-top: calc(var(--flow-space) * 0.5);
-} */
+/* Allow nested containers wider than parent */
 
-/* END !SECTION FLOW SPACING */
-/** -----------------------------------------------------------------
-  * SECTION LEVEL
------------------------------------------------------------------- */
+.container > .container--wide {
+  max-width: var(--width_wide);
+  margin-inline: calc(
+    min(
+      calc(100vw - 100%),
+      calc(var(--width_wide) - 100%)
+    ) / -2
+  );
+}
 
-/* Level
- * Creates a bar with content vertically aligned on both sides
- * Good for split navigation bars etc. */
+.container > .container--full,
+.container--wide > .container--full {
+  max-width: 100vw;
+  margin-inline: calc((100vw - 100%) / -2);
+}
 
-.level {
+/* Remove duplicate gutters from nested containers the same size as parent */
+
+.container > .container,
+.container--wide > .container--wide,
+.container--full > .container--full {
+  margin-inline: calc(var(--space_gutter) * -1);
+}
+
+/* Account for containers smaller than parent */
+
+.container--wide > .container,
+.container--full > .container {
+  margin-inline: max(
+    calc(var(--space_gutter) * -1),
+    calc((100% - var(--width_content)) / 2)
+  );
+}
+
+.container--full > .container--wide {
+  margin-inline: max(
+    calc(var(--space_gutter) * -1),
+    calc((100% - var(--width_wide)) / 2)
+  );
+}
+
+/* !SECTION Containers */
+/* ==============================
+/* SECTION Flow Spacing
+** Flow spacing is the space between elements in a vertical flow.
+** The .section class is provided for larger gaps between sections.
+** Flow spacing can be applied to a individual container using the .layout--flow class. or to the entire document using the .global--flow class. The implementation is different for each method, so consider how you want the spacing to be applied.
+============================== */
+
+.layout--flow > * + *,
+blockquote > * + *,
+details > * + * {
+  margin-block-start: var(--space_flow);
+}
+
+.layout--flow-double > * + * {
+  margin-block-start: calc(var(--space_flow) * 2);
+}
+
+.layout--flow-half > * + * {
+  margin-block-start: calc(var(--space_flow) / 2);
+}
+
+.layout--flow > * + h1,
+.layout--flow > * + h2,
+.layout--flow > * + h3,
+.layout--flow > * + h4,
+.layout--flow > * + h5,
+.layout--flow > * + h6 {
+  margin-block-start: calc(var(--space_flow) * 2);
+}
+
+.layout--flow > h1 + h2,
+.layout--flow > h2 + h3,
+.layout--flow > h3 + h4,
+.layout--flow > h4 + h5,
+.layout--flow > h5 + h6 {
+  margin-block-start: calc(var(--space_flow) / 2);
+}
+
+.section {
+  margin-block-start: var(--space_section);
+}
+
+/* !SECTION Flow Spacing */
+/* ==============================
+/* SECTION Level
+** Creates a bar with content vertically aligned on both sides
+** Good for split navigation bars etc.
+============================== */
+
+.layout--level {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: center;
-  gap: var(--gutter);
+  gap: var(--space_gutter);
 }
 
-/* The first level item will be aligned to the left of the level
- * the second will be aligned to the right.
- * You can add more items, they will be evenly spaced,
- * though 2 is recommended */
+/* !SECTION Level */
+/* ==============================
+/* SECTION Grid
+** The grid layout creates a responsive grid with a fluid number of columns.
+** You can define the number of columns to allow as well as the minimum
+** width of each grid item. Just be aware that if you set the minimum width
+** too high, the grid may not fit on viewports smaller than the minimum width.
+============================== */
 
-/* END !SECTION LEVEL */
-/** -----------------------------------------------------------------
-  * SECTION GRID
------------------------------------------------------------------- */
+.layout--grid {
+  --grid-column--count: 6;
+  --grid-gap--width: var(--space_grid-gap);
+  --grid-gap--count: var(--grid-column--count) - 1;
+  --grid-gap--total: calc(var(--grid-gap--width) * var(--grid-gap--count));
+  --grid-item--min-width: 15rem;
+  --grid-item--max-width: calc((100% - var(--grid-gap--total)) / var(--grid-column--count));
 
-/* Super simple grid
- * min-width should be just under the pixel value in minmax * 2
- * This helps avoid grid blowout on screens smaller than the
- * preferred min-width of a grid item. */
-
-@media ( min-width: 25em ) {
-  .grid {
-    --grid-gap: var(--gutter);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
-    gap: var(--grid-gap);
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr));
 }
 
-@media ( orientation: portrait ) and ( min-width: 25em ) {
-  .grid-portrait {
-    --grid-gap: var(--gutter);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
-    gap: var(--grid-gap);
-  }
+/* Stabilize height of components that are side by side */
+
+.layout--grid > div > :only-child,
+.layout--grid > li > :only-child {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
 }
 
-@media ( orientation: landscape ) and (min-width: 25em ) {
-  .grid-landscape {
-    --grid-gap: var(--gutter);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
-    gap: var(--grid-gap);
-  }
+.layout--grid > div > :only-child > *,
+.layout--grid > li > :only-child > * {
+  flex: 1;
 }
 
-/* END !SECTION GRID */
-/** -----------------------------------------------------------------
-  * SECTION PAGE SCAFFOLDING
-  <template>
-    <div id="app">
-
-      <header id="top-header">
-        <div class="container"></div>
-      </header>
-
-      IF SIDEBAR
-      <div id="main" class="has-sidebar">
-        <div class="sidebar"></div>
-        <main class="content"></main>
-      </div>
-
-      IF NO SIDEBAR
-      <main id="main" class="container">
-      </main>
-
-      <footer id="footer">
-        <div class="container"></div>
-      </footer>
-
-    </div>
-  </template>
------------------------------------------------------------------- */
-
-/* Setup page container
- * This, and the next three style declarations help fix an
- * issue so that the page will never be shorter than the
- * screen is tall. This ensures the footer will always
- * be at the bottom of the page. */
+/* !SECTION Grid */
+/* ==============================
+/* SECTION App
+** The app wrapper ensures the the site footer sticks to the
+** bottom of the viewport on short pages.
+** Structure should be as follows:
+** <div id="app">
+**   <header></header>
+**   <main></main>
+**   <footer></footer>
+** </div>
+** No other elements should be present in the app div.
+============================== */
 
 #app {
   min-height: 100vh;
@@ -1185,136 +1198,90 @@ input[type="button"][disabled] {
   max-width: 100vw;
 }
 
-/* Stick the top header to the top of the screen
- * Good place to put a level with some navigation */
-
-#top-header {
-  position: absolute;
-  z-index: 1000;
-  width: 100%;
-}
-
-/* The main content will absorb any free vertical space,
- * pushing the footer neatly to the bottom.
- *
- * Extra space is given above and below the main area between the
- * header and footer (or the top and bottom of the page when such
- * elements don't exist) */
-
-#main {
+#app > :nth-child(2) {
   width: 100%;
   flex: 1 0 auto;
-  align-self: center;
-  padding-block-start: var(--section-space);
-  padding-block-end: var(--section-space);
+  place-content: start center;
 }
 
-/* Ensure footer does not shrink */
+/* !SECTION App */
+/* ==============================
+/* SECTION Page Layout
+** The page layout provides grid areas for a hero, content, and sidebar.
+** It arranges the grid areas responsively based on the presence of a sidebar.
+** Inside the <main class="page"> tag, the structure should follow:
+** <div class="page_header"> (optional, may use header element)
+** <div class="page_content"> (may use article element)
+** <div class="page_sidebar"> (optional, may use aside or nav elements)
+============================== */
 
-#footer { flex-shrink: 0; }
-
-
-
-/* SIDEBAR LAYOUT */
-
-/* Container of content & sidebar
- * Max width equals the combined width of the sidebar, content,
- * and the space between them.
- *
- * Setup grid layout. Display sidebar under the content by default
- * This mostly matters for mobile.
- * Add space between content and sidebar */
-
-.has-sidebar {
-  max-width: calc(var(--content-width) + var(--section-space) + var(--sidebar-width));
-  padding: 0 var(--gutter);
-  margin: 0 auto;
-
+.page {
   display: grid;
-  grid-template-areas: "content" "sidebar";
-  gap: var(--section-space);
+  grid-template-areas:
+    "header"
+    "content"
+    "sidebar";
+  grid-template-columns: 1fr;
+  column-gap: var(--space_layout-gap);
+  max-width: var(--width_wide);
+  margin-inline: auto;
 }
 
+/* Fix for x overflow elements breaking layout */
 
-/* Assign sidebar to the sidebar area,
- * Assign content to the content area,
- * Min-Width prevents grid blow out */
-
-.has-sidebar > .sidebar {
-  grid-area: sidebar;
+.page > * {
   min-width: 0;
 }
-.has-sidebar > .content {
+
+/* Page areas */
+
+.page__header {
+  grid-area: header;
+}
+
+.page__content {
   grid-area: content;
-  min-width: 0;
+  margin-block: var(--space_section);
 }
 
-/* On landscape, adjust layout for two columns,
- * Arange areas so that the sidebar is on the left side of content.
- * minmax prevents content from being larger than screen width */
+.page__sidebar {
+  grid-area: sidebar;
+  margin-block-end: var(--space_section);
+}
 
-@media ( min-width: 65em ) {
-  .has-sidebar {
-    grid-template-columns: var(--sidebar-width) minmax(1px, 1fr);
-    grid-template-areas: "sidebar content"
+/* Layout fixes */
+
+.page:has(.page__sidebar) .container > .container--wide,
+.page:has(.page__sidebar) .container > .container--full,
+.page:has(.page__sidebar) .container--wide > .container,
+.page:has(.page__sidebar) .container--wide > .container--full,
+.page:has(.page__sidebar) .container--full > .container,
+.page:has(.page__sidebar) .container--full > .container--wide {
+  margin-inline: calc(var(--space_gutter) * -1);
+}
+
+.page:not(:has(.page__sidebar)) .width--full,
+.page:not(:has(.page__sidebar)) .container--full {
+  width: 100vw;
+  max-width: 100vw;
+  margin-inline: calc((100vw - 100%) / -2);
+}
+
+/* Enable sidebar */
+
+@media (min-width: 60rem) {
+  .page:has(.page__sidebar) {
+    grid-template-areas:
+      "header header"
+      "sidebar content";
+    grid-template-columns:
+      minmax(calc(25% - (var(--space_layout-gap) / 2)), var(--width_sidebar))
+      min(calc(75% - (var(--space_layout-gap) / 2)), var(--width_content));
+  }
+  .page__sidebar {
+    margin-block-start: var(--space_section);
   }
 }
 
-/* END !SECTION PAGE SCAFFOLDING */
-/* END !SECTION LAYOUT */
-/** -----------------------------------------------------------------
-  * SECTION ACCORDION
-  * Border radius has been commented out to avoid being too
-  * opinionated, but left in so you can see how to implement it
------------------------------------------------------------------- */
-
-details.accordion summary {
-  display: block;
-  cursor: pointer;
-  padding: var(--sp_1);
-  padding-left: calc(var(--sp_2) + 1em);
-  background: var(--element-background);
-  /*border-radius: 5px;*/
-}
-
-details.accordion summary::before {
-  left: var(--sp_1);
-}
-
-/*details.accordion[open] > summary {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}*/
-
-details.accordion .details-content {
-  padding: var(--sp_1);
-  padding-left: calc(var(--sp_2) + 1rem);
-  border: 2px solid var(--element-background);
-  /*border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;*/
-}
-
-/* END !SECTION ACCORDION */
-/* Clearfix if you still need that sort of thing */
-
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Utility to make any element cover the area of it's parent.
- * You will have to give the parent { position: relative; } though */
-
-.cover {
-  position: absolute;
-  inset: 0;
-  object-fit: cover;
-}
-
-/* Center utility */
-
-.center {
-  display: grid;
-  place-items: center;
-}
+/* !SECTION Page Layout */
+/* !SECTION Layout */
