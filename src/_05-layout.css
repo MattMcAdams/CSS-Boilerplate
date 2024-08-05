@@ -1,156 +1,199 @@
-/** -----------------------------------------------------------------
-  * SECTION LAYOUT
------------------------------------------------------------------- */
+/* =================================================================
+/* SECTION Layout
+================================================================= */
+/* ==============================
+/* SECTION Container System
+** Containers allow for a robust and flexible layout system by applying the gutter padding and max width to the container itself. Containers can be nested as needed.
+============================== */
 
-/* Section spacing */
-
-.section { margin: var(--section-space) 0; }
-
-/* Standard content container */
+/* Setup containers */
 
 .container {
-  max-width: var(--content-width);
-  padding: 0 var(--gutter);
-  margin: 0 auto;
-  width: 100%;
-}
-.container-wide {
-  max-width: calc(var(--content-width) + var(--gutter) + var(--sidebar-width) + var(--section-space))
+  margin-inline: auto;
+  padding-inline: var(--space_gutter);
+  max-width: var(--width_content);
 }
 
-/** -----------------------------------------------------------------
-  * SECTION FLOW SPACING
-  * Use flow spacing in flow areas, provide a fallback for browsers
-  * that don't support css variables
------------------------------------------------------------------- */
-
-/* .flow > * + * {
-  margin-top: 1.5rem;
-  margin-top: var(--flow-space);
+.container--wide {
+  margin-inline: auto;
+  padding-inline: var(--space_gutter);
+  max-width: var(--width_wide);
 }
 
-.flow > * + h1,
-.flow > * + h2,
-.flow > * + h3,
-.flow > * + h4,
-.flow > * + h5,
-.flow > * + h6,
-.flow > * + .txt-h1,
-.flow > * + .txt-h2,
-.flow > * + .txt-h3,
-.flow > * + .txt-h4,
-.flow > * + .txt-h5,
-.flow > * + .txt-h6 {
-  margin-top: 1.5rem;
-  margin-top: calc(var(--flow-space) * 2);
+.container--full {
+  margin-inline: auto;
+  padding-inline: var(--space_gutter);
 }
 
-.flow > h1 + h2,
-.flow > h2 + h3,
-.flow > h3 + h4,
-.flow > h4 + h5,
-.flow > h5 + h6,
-.flow > .txt-h1 + .txt-h2,
-.flow > .txt-h2 + .txt-h3,
-.flow > .txt-h3 + .txt-h4,
-.flow > .txt-h4 + .txt-h5,
-.flow > .txt-h5 + .txt-h6 {
-  margin-top: 1.5rem;
-  margin-top: calc(var(--flow-space) * 0.5);
-} */
+/* Allow nested containers wider than parent */
 
-/* END !SECTION FLOW SPACING */
-/** -----------------------------------------------------------------
-  * SECTION LEVEL
------------------------------------------------------------------- */
+.container > .container--wide {
+  max-width: var(--width_wide);
+  margin-inline: calc(
+    min(
+      calc(100vw - 100%),
+      calc(var(--width_wide) - 100%)
+    ) / -2
+  );
+}
 
-/* Level
- * Creates a bar with content vertically aligned on both sides
- * Good for split navigation bars etc. */
+.container > .container--full,
+.container--wide > .container--full {
+  max-width: 100vw;
+  margin-inline: calc((100vw - 100%) / -2);
+}
 
-.level {
+/* Remove duplicate gutters from nested containers the same size as parent */
+
+.container > .container,
+.container--wide > .container--wide,
+.container--full > .container--full {
+  margin-inline: calc(var(--space_gutter) * -1);
+}
+
+/* Account for containers smaller than parent */
+
+.container--wide > .container,
+.container--full > .container {
+  margin-inline: max(
+    calc(var(--space_gutter) * -1),
+    calc((100% - var(--width_content)) / 2)
+  );
+}
+
+.container--full > .container--wide {
+  margin-inline: max(
+    calc(var(--space_gutter) * -1),
+    calc((100% - var(--width_wide)) / 2)
+  );
+}
+
+/* !SECTION Container System */
+/* ==============================
+/* SECTION Layout & Width System
+** Layouts provide a flexible layout system by applying the gutter padding and max width to all children of the layout container. Width classes allow specified children to have a different max width than the other children of the layout container. Layouts can be nested as needed.
+============================== */
+
+.layout--standard > *,
+.layout--wide > * {
+  margin-inline: auto;
+  padding-inline: var(--space_gutter);
+}
+
+.layout--standard > * {
+  max-width: min(var(--width_content), 100%);
+}
+
+.layout--wide > * {
+  max-width: min(var(--width_wide), 100%);
+}
+
+/* NOTE These must be listed separately from the Layouts section because of the cascade */
+
+.width--content {
+  max-width: min(var(--width_content), 100%);
+}
+
+.width--wide {
+  max-width: min(var(--width_wide), 100%);
+}
+
+.width--full {
+  max-width: 100vw;
+}
+
+/* Remove duplicate margins from nested layouts */
+
+.layout--standard > .layout--standard,
+.layout--standard > .layout--wide,
+.layout--wide > .layout--standard,
+.layout--wide > .layout--wide {
+  padding-inline: 0;
+}
+
+/* !SECTION Layout & Width System */
+/* ==============================
+/* SECTION Flow Spacing
+============================== */
+
+.layout--flow > * + * {
+  margin-block-start: var(--space_flow);
+}
+
+.layout--flow > * + h1,
+.layout--flow > * + h2,
+.layout--flow > * + h3,
+.layout--flow > * + h4,
+.layout--flow > * + h5,
+.layout--flow > * + h6{
+  margin-block-start: calc(var(--space_flow) * 2);
+}
+
+.layout--flow > h1 + h2,
+.layout--flow > h2 + h3,
+.layout--flow > h3 + h4,
+.layout--flow > h4 + h5,
+.layout--flow > h5 + h6 {
+  margin-block-start: calc(var(--space_flow) / 2);
+}
+
+/* !SECTION Flow Spacing */
+/* ==============================
+/* SECTION Level
+** Creates a bar with content vertically aligned on both sides
+** Good for split navigation bars etc.
+============================== */
+
+.layout--level {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: center;
-  gap: var(--gutter);
+  gap: var(--space_gutter);
 }
 
-/* The first level item will be aligned to the left of the level
- * the second will be aligned to the right.
- * You can add more items, they will be evenly spaced,
- * though 2 is recommended */
+/* !SECTION Level */
+/* ==============================
+/* SECTION Grid
+============================== */
 
-/* END !SECTION LEVEL */
-/** -----------------------------------------------------------------
-  * SECTION GRID
------------------------------------------------------------------- */
+.layout--grid {
+  --grid-column--count: 6;
+  --grid-gap--width: var(--space_grid-gap);
+  --grid-gap--count: var(--grid-column--count) - 1;
+  --grid-gap--total: calc(var(--grid-gap--width) * var(--grid-gap--count));
+  --grid-item--min-width: 15rem;
+  --grid-item--max-width: calc((100% - var(--grid-gap--total)) / var(--grid-column--count));
 
-/* Super simple grid
- * min-width should be just under the pixel value in minmax * 2
- * This helps avoid grid blowout on screens smaller than the
- * preferred min-width of a grid item. */
-
-@media ( min-width: 25em ) {
-  .grid {
-    --grid-gap: var(--gutter);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
-    gap: var(--grid-gap);
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr));
 }
 
-@media ( orientation: portrait ) and ( min-width: 25em ) {
-  .grid-portrait {
-    --grid-gap: var(--gutter);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
-    gap: var(--grid-gap);
-  }
+/* Stabilize height of components that are side by side */
+
+.layout--grid > div > :only-child,
+.layout--grid > li > :only-child {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
 }
 
-@media ( orientation: landscape ) and (min-width: 25em ) {
-  .grid-landscape {
-    --grid-gap: var(--gutter);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
-    gap: var(--grid-gap);
-  }
+.layout--grid > div > :only-child > *,
+.layout--grid > li > :only-child > * {
+  flex: 1;
 }
 
-/* END !SECTION GRID */
-/** -----------------------------------------------------------------
-  * SECTION PAGE SCAFFOLDING
-  <template>
-    <div id="app">
-
-      <header id="top-header">
-        <div class="container"></div>
-      </header>
-
-      IF SIDEBAR
-      <div id="main" class="has-sidebar">
-        <div class="sidebar"></div>
-        <main class="content"></main>
-      </div>
-
-      IF NO SIDEBAR
-      <main id="main" class="container">
-      </main>
-
-      <footer id="footer">
-        <div class="container"></div>
-      </footer>
-
-    </div>
-  </template>
------------------------------------------------------------------- */
-
-/* Setup page container
- * This, and the next three style declarations help fix an
- * issue so that the page will never be shorter than the
- * screen is tall. This ensures the footer will always
- * be at the bottom of the page. */
+/* !SECTION Grid */
+/* ==============================
+/* SECTION App
+** Structure should be as follows:
+** <div id="app">
+**   <header></header>
+**   <main></main>
+**   <footer></footer>
+** </div>
+** No other elements should be present in the app div.
+============================== */
 
 #app {
   min-height: 100vh;
@@ -159,80 +202,88 @@
   max-width: 100vw;
 }
 
-/* Stick the top header to the top of the screen
- * Good place to put a level with some navigation */
-
-#top-header {
-  position: absolute;
-  z-index: 1000;
-  width: 100%;
-}
-
-/* The main content will absorb any free vertical space,
- * pushing the footer neatly to the bottom.
- *
- * Extra space is given above and below the main area between the
- * header and footer (or the top and bottom of the page when such
- * elements don't exist) */
-
-#main {
+#app > :nth-child(2) {
   width: 100%;
   flex: 1 0 auto;
-  align-self: center;
-  padding-block-start: var(--section-space);
-  padding-block-end: var(--section-space);
+  place-content: start center;
 }
 
-/* Ensure footer does not shrink */
+/* !SECTION App */
+/* ==============================
+/* SECTION Page Layout
+** Inside the <main class="page"> tag, the structure should follow:
+** <div class="page_header"> (optional, may use header element)
+** <div class="page_content"> (may use article element)
+** <div class="page_sidebar"> (optional, may use aside or nav elements)
+============================== */
 
-#footer { flex-shrink: 0; }
-
-
-
-/* SIDEBAR LAYOUT */
-
-/* Container of content & sidebar
- * Max width equals the combined width of the sidebar, content,
- * and the space between them.
- *
- * Setup grid layout. Display sidebar under the content by default
- * This mostly matters for mobile.
- * Add space between content and sidebar */
-
-.has-sidebar {
-  max-width: calc(var(--content-width) + var(--section-space) + var(--sidebar-width));
-  padding: 0 var(--gutter);
-  margin: 0 auto;
-
+.page {
   display: grid;
-  grid-template-areas: "content" "sidebar";
-  gap: var(--section-space);
+  grid-template-areas:
+    "header"
+    "content"
+    "sidebar";
+  grid-template-columns: 1fr;
+  column-gap: var(--space_layout-gap);
+  max-width: var(--width_wide);
+  margin-inline: auto;
 }
 
+/* Fix for x overflow elements breaking layout */
 
-/* Assign sidebar to the sidebar area,
- * Assign content to the content area,
- * Min-Width prevents grid blow out */
-
-.has-sidebar > .sidebar {
-  grid-area: sidebar;
+.page > * {
   min-width: 0;
 }
-.has-sidebar > .content {
+
+/* Page areas */
+
+.page_header {
+  grid-area: header;
+}
+
+.page_content {
   grid-area: content;
-  min-width: 0;
+  margin-block: var(--space_section);
 }
 
-/* On landscape, adjust layout for two columns,
- * Arange areas so that the sidebar is on the left side of content.
- * minmax prevents content from being larger than screen width */
+.page_sidebar {
+  grid-area: sidebar;
+  margin-block-end: var(--space_section);
+}
 
-@media ( min-width: 65em ) {
-  .has-sidebar {
-    grid-template-columns: var(--sidebar-width) minmax(1px, 1fr);
-    grid-template-areas: "sidebar content"
+/* Layout fixes */
+
+.page:has(.page_sidebar) .container > .container--wide,
+.page:has(.page_sidebar) .container > .container--full,
+.page:has(.page_sidebar) .container--wide > .container,
+.page:has(.page_sidebar) .container--wide > .container--full,
+.page:has(.page_sidebar) .container--full > .container,
+.page:has(.page_sidebar) .container--full > .container--wide {
+  margin-inline: calc(var(--space_gutter) * -1);
+}
+
+.page:not(:has(.page_sidebar)) .width--full,
+.page:not(:has(.page_sidebar)) .container--full {
+  width: 100vw;
+  max-width: 100vw;
+  margin-inline: calc((100vw - 100%) / -2);
+}
+
+/* Enable sidebar */
+
+@media (min-width: 60rem) {
+  .page:has(.page_sidebar) {
+    grid-template-areas:
+      "header header"
+      "sidebar content";
+    grid-template-columns:
+      minmax(calc(25% - (var(--space_layout-gap) / 2)), var(--width_sidebar))
+      min(calc(75% - (var(--space_layout-gap) / 2)), var(--width_content));
+  }
+  .page_sidebar {
+    margin-block-start: var(--space_section);
   }
 }
 
-/* END !SECTION PAGE SCAFFOLDING */
-/* END !SECTION LAYOUT */
+/* !SECTION Page Layout */
+/* !SECTION Layout */
