@@ -1,6 +1,6 @@
 /* Clearfix if you still need that sort of thing */
 
-.clearfix:after {
+.util_clearfix:after {
   content: "";
   display: table;
   clear: both;
@@ -9,7 +9,7 @@
 /* Utility to make any element cover the area of it's parent.
  * You will have to give the parent { position: relative; } though */
 
-.cover {
+.util_cover {
   position: absolute;
   inset: 0;
   object-fit: cover;
@@ -17,7 +17,7 @@
 
 /* Center utility */
 
-.center {
+.util_center {
   display: grid;
   place-items: center;
 }
