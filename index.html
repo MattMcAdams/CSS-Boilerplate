@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -16,360 +16,707 @@
   <link rel="stylesheet" href="src/_07-components.css">
   <link rel="stylesheet" href="src/_08-utilities.css">
 </head>
-<style>
-  h2 {
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-
-  .permalink {
-    color: inherit;
-    text-decoration: none;
-    position: relative;
-  }
-
-  .permalink::before {
-    content: "#";
-    position: absolute;
-    left: -1em;
-    padding-right: 0.5em;
-    display: none;
-  }
-
-  .permalink:focus::before,
-  .permalink:hover::before {
-    display: block;
-  }
-
-  .sidebar nav {
-    background: var(--element-background);
-    position: sticky;
-    top: var(--flow-space);
-    /* padding: 0.5rem 0; */
-  }
-
-  .sidebar nav ul {
-    margin: 0;
-  }
-
-  .sidebar nav a {
-    padding: 0.5rem 1rem;
-    display: block;
-    color: var(--text-color);
-  }
-
-  .sidebar nav a:hover,
-  .sidebar nav a:focus {
-    color: white;
-    text-decoration-color: white;
-    background-color: var(--text-color);
-  }
-
-  #footer {
-    background: var(--element-background);
-    padding: var(--flow-space);
-  }
-
-  /* html {
-      scrollbar-color: var(--color-primary-500) var(--color-primary-100);
-    }
-
-    ::-webkit-scrollbar {
-      background-color: var(--color-primary-100);
-      width: 7px;
-      height: 7px;
-    }
-    ::-webkit-scrollbar-thumb {
-      background-color: var(--color-primary-500);
-    } */
-
-</style>
 
 <body>
-  <div id="app">
-
-    <!-- <header id="top-header">
-  </header> -->
-
-    <div class="hero container container-wide" id="introduction">
-      <section class="section">
-        <h1 class="center">Simple, Modern, Responsive</h1>
-        <p class="txt-h3 center" style="margin-top: 0;">CSS Boilerplate</p>
-      </section>
-      <hr>
-    </div>
-
-    <div id="main" class="has-sidebar">
-      <div class="sidebar">
-        <nav>
-          <ul class="nav">
-            <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#typography">Typography</a></li>
-            <li><a href="#lists">Lists</a></li>
-            <li><a href="#blockquote">Blockquote</a></li>
-            <li><a href="#details-summary">Details & Summary</a></li>
-            <li><a href="#code">Code</a></li>
-            <li><a href="#buttons">Buttons</a></li>
-            <li><a href="#forms">Forms</a></li>
-            <li><a href="#media">Media</a></li>
-            <li><a href="#tables">Tables</a></li>
-          </ul>
-        </nav>
-      </div>
-      <main class="content">
-        <section>
-          <p>Heavily inspired by Skeleton, this CSS boilerplate contains a simple CSS reset, base html styles using
-            modern techniques, and a few features to help things along. It enables smooth scrolling, adds a top scroll
-            margin, enforces the <code>hidden</code> attribute, adds a <code>visually-hidden</code> class to keep hidden
-            content available for screen readers, and a bunch of other small tweaks and goodies.</p>
-          <p>This is not a framework, but a starting point. There is no build, no package, no hastle. Just download the
-            file and start adjusting it to fit your needs. What is here has been designed to be as little opinionated
-            style as possible while giving a nice baseline aesthetic.</p>
-        </section>
-        <section>
-          <h2 id="typography"><a class="permalink" href="#typography" title="Permalink to Typography">Typography</a>
-          </h2>
-          <div class="grid">
-            <div class="flow">
-              <p>The typographical base is built on a 16px base (1rem) on a 1.2 modular scale. All font sizes are set
-                with rems and have custom line heights.</p>
-              <p>The fonts are Open Sans, with Fira Code for monospace. Fonts can be changed using CSS custom
-                properties.</p>
-              <p>Other semantic type tags like <a href="#">anchors</a>, <strong>strong</strong>, <em>emphasis</em>,
-                <u>underline</u>, <del>del</del>, <ins>ins</ins>, <mark>mark</mark>, <abbr title="abbreviation">abbr
-                  with a title</abbr>, <q cite="example.com">q with cite</q> are all included.</p>
-              <p><code>&lt;address&gt;</code> is also supported:</p>
-              <address>
-                Name<br>
-                Street Address<br>
-                Phone Number<br>
-                Email Address<br>
-                Website<br>
-              </address>
+  <div id="top" role="document">
+    <div class="page">
+      <header class="page__header layout--flow">
+        <div class="layout--flow container--wide section">
+          <h1>HTML5 Test Page</h1>
+          <p>This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
+          <p>I've made a couple of modifications to the template, but credit goes to Chris Bracco on [GitHub](https://github.com/cbracco/html5-test-page/tree/master) for a really well structured html test page.</p>
+        </div>
+      </header>
+      <main class="page__content layout--flow-double">
+        <section id="text" class="container layout--flow-double">
+          <article id="text__headings" class="layout--flow">
+            <header>
+              <h2>Headings</h2>
+            </header>
+            <div class="layout--flow">
+              <h1>Heading 1</h1>
+              <h2>Heading 2</h2>
+              <h3>Heading 3</h3>
+              <h4>Heading 4</h4>
+              <h5>Heading 5</h5>
+              <h6>Heading 6</h6>
             </div>
-            <div class="flow">
-              <p class="txt-h1">Heading 1</p>
-              <p class="txt-h2">Heading 2</p>
-              <p class="txt-h3">Heading 3</p>
-              <p class="txt-h4">Heading 4</p>
-              <p class="txt-h5"">Heading 5</p>
-          <p class=" txt-h6">Heading 6</p>
-              <p>Paragraph</p>
-              <p><small>Small</small></p>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="text__paragraphs" class="layout--flow">
+            <header>
+              <h2>Paragraphs</h2>
+            </header>
+            <div class="layout--flow">
+              <p>A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+              <p>A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
             </div>
-          </div>
-        </section>
-        <section>
-          <h2 id="lists"><a class="permalink" href="#lists" title="Permalink to Lists">Lists</a></h2>
-          <p>Lists of the same type can be nested up to three times with different styles, and styles have been included
-            for unordered lists, ordered lists, and definition lists.</p>
-          <div class="grid">
-            <div>
-              <ul>
-                <li>Item 1
-                  <ul>
-                    <li>Item 2.1
-                      <ul>
-                        <li>Item 2.1.1</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="text__blockquotes" class="layout--flow">
+            <header>
+              <h2>Blockquote</h2>
+            </header>
+            <div class="layout--flow">
+              <blockquote>
+                <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text.</p>
+                <p>It is typically distinguished visually using indentation and a different typeface or smaller size quotation. It may or may not include a citation, usually placed at the bottom.</p>
+                <cite><a href="#!">Said no one, ever.</a></cite>
+              </blockquote>
             </div>
-            <div>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="text__lists" class="layout--flow">
+            <header>
+              <h2>Lists</h2>
+            </header>
+            <div class="layout--flow">
+              <h3>Definition list</h3>
+              <dl>
+                <dt>Definition List Title</dt>
+                <dd>This is a definition list division.</dd>
+              </dl>
+              <h3>Ordered List</h3>
               <ol>
-                <li>Item 1
+                <li>List Item 1</li>
+                <li>
+                  List Item 2
                   <ol>
-                    <li>Item 2.1
+                    <li>List Item 1</li>
+                    <li>
+                      List Item 2
                       <ol>
-                        <li>Item 2.1.1</li>
+                        <li>List Item 1</li>
+                        <li>List Item 2</li>
+                        <li>List Item 3</li>
                       </ol>
                     </li>
+                    <li>List Item 3</li>
                   </ol>
                 </li>
+                <li>List Item 3</li>
               </ol>
+              <h3>Unordered List</h3>
+              <ul>
+                <li>List Item 1</li>
+                <li>
+                  List Item 2
+                  <ul>
+                    <li>List Item 1</li>
+                    <li>
+                      List Item 2
+                      <ul>
+                        <li>List Item 1</li>
+                        <li>List Item 2</li>
+                        <li>List Item 3</li>
+                      </ul>
+                    </li>
+                    <li>List Item 3</li>
+                  </ul>
+                </li>
+                <li>List Item 3</li>
+              </ul>
             </div>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="text__details" class="layout--flow">
+            <header>
+              <h2>Details & Summary</h2>
+            </header>
+            <details>
+              <summary>Expand for details</summary>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, odio! Odio natus ullam ad quaerat, eaque
+                necessitatibus, aliquid distinctio similique voluptatibus dicta consequuntur animi. Quaerat facilis quidem
+                unde eos! Ipsa.</p>
+            </details>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="text__address" class="layout--flow">
+            <header>
+              <h2>Address</h2>
+            </header>
+            <address>
+              Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br>
+              Visit us at:<br>
+              Example.com<br>
+              Box 564, Disneyland<br>
+              USA
+            </address>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="text__hr" class="layout--flow">
+            <header>
+              <h2>Horizontal rules</h2>
+            </header>
             <div>
-              <dl>
-                <dt>Term</dt>
-                <dd>Description</dd>
-                <dt>Term</dt>
-                <dd>Description</dd>
-              </dl>
+              <hr>
             </div>
-          </div>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="text__tables" class="layout--flow">
+            <header>
+              <h2>Tabular data</h2>
+            </header>
+            <div class="table-wrapper">
+              <table>
+                <caption>Table Caption</caption>
+                <thead>
+                  <tr>
+                    <th>Table Heading 1</th>
+                    <th>Table Heading 2</th>
+                    <th>Table Heading 3</th>
+                    <th>Table Heading 4</th>
+                    <th>Table Heading 5</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th>Table Footer 1</th>
+                    <th>Table Footer 2</th>
+                    <th>Table Footer 3</th>
+                    <th>Table Footer 4</th>
+                    <th>Table Footer 5</th>
+                  </tr>
+                </tfoot>
+                <tbody>
+                  <tr>
+                    <td>Table Cell 1</td>
+                    <td>Table Cell 2</td>
+                    <td>Table Cell 3</td>
+                    <td>Table Cell 4</td>
+                    <td>Table Cell 5</td>
+                  </tr>
+                  <tr>
+                    <td>Table Cell 1</td>
+                    <td>Table Cell 2</td>
+                    <td>Table Cell 3</td>
+                    <td>Table Cell 4</td>
+                    <td>Table Cell 5</td>
+                  </tr>
+                  <tr>
+                    <td>Table Cell 1</td>
+                    <td>Table Cell 2</td>
+                    <td>Table Cell 3</td>
+                    <td>Table Cell 4</td>
+                    <td>Table Cell 5</td>
+                  </tr>
+                  <tr>
+                    <td>Table Cell 1</td>
+                    <td>Table Cell 2</td>
+                    <td>Table Cell 3</td>
+                    <td>Table Cell 4</td>
+                    <td>Table Cell 5</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="text__code" class="layout--flow">
+            <header>
+              <h2>Code</h2>
+            </header>
+            <div class="layout--flow">
+              <p><strong>Keyboard input:</strong> <kbd>Cmd</kbd></p>
+              <p><strong>Inline code:</strong> <code>&lt;div&gt;code&lt;/div&gt;</code></p>
+              <p><strong>Sample output:</strong> <samp>This is sample output from a computer program.</samp></p>
+              <h3>Pre-formatted text</h3>
+              <pre>P R E F O R M A T T E D T E X T
+! " # $ % &amp; ' ( ) * + , - . /
+0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
+@ A B C D E F G H I J K L M N O
+P Q R S T U V W X Y Z [ \ ] ^ _
+` a b c d e f g h i j k l m n o
+p q r s t u v w x y z { | } ~ </pre>
+              <h3>Codeblock</h3>
+              <p>A codeblock can be created by wrapping a <code>code</code> element with a <code>pre</code> element.</p>
+              <pre><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Sample HTML Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, world!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="text__inline" class="layout--flow">
+            <header>
+              <h2>Inline elements</h2>
+            </header>
+            <div class="layout--flow">
+              <p><a href="#!">This is a text link</a>.</p>
+              <p><strong>Strong is used to indicate strong importance.</strong></p>
+              <p><em>This text has added emphasis.</em></p>
+              <p>The <b>b element</b> is stylistically different text from normal text, without any special importance.
+              </p>
+              <p>The <i>i element</i> is text that is offset from the normal text.</p>
+              <p>The <u>u element</u> is text with an unarticulated, though explicitly rendered, non-textual annotation.
+              </p>
+              <p><del>This text is deleted</del> and <ins>This text is inserted</ins>.</p>
+              <p><s>This text has a strikethrough</s>.</p>
+              <p>Superscript<sup>®</sup>.</p>
+              <p>Subscript for things like H<sub>2</sub>O.</p>
+              <p><small>This small text is small for fine print, etc.</small></p>
+              <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
+              <p>&ldquo;<q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation.</q>&rdquo;</p>
+              <p><cite>This is a citation.</cite></p>
+              <p>The <dfn>dfn element</dfn> indicates a definition.</p>
+              <p>The <mark>mark element</mark> indicates a highlight.</p>
+              <p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
+              <p>The time element: <time datetime="2013-04-06T12:32+00:00">2 weeks ago</time></p>
+            </div>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
         </section>
-        <section>
-          <h2 id="blockquote"><a class="permalink" href="#blockquote" title="Permalink to Blockquote">Blockquote</a>
-          </h2>
-          <p>A blockquote can be created using the <code>&lt;blockquote&gt;</code> element, or by using the
-            <code>.callout</code> class. Paragraph elements should be placed inside the blockquote element.</p>
-          <blockquote>
-            <p>Awesome quote</p>
-          </blockquote>
+        <section id="embedded" class="container layout--flow">
+          <article id="embedded__images" class="layout--flow">
+            <header>
+              <h2>Images</h2>
+            </header>
+            <div class="layout--flow">
+              <h3>Plain <code>&lt;img&gt;</code> element</h3>
+              <img src="https://picsum.photos/seed/1/500/300" alt="Photo of a kitten">
+              <h3><code>&lt;figure&gt;</code> element with <code>&lt;img&gt;</code> element</h3>
+              <figure>
+                <img src="https://picsum.photos/seed/2/500/300" alt="Photo of a kitten">
+              </figure>
+              <h3><code>&lt;figure&gt;</code> element with <code>&lt;img&gt;</code> and <code>&lt;figcaption&gt;</code>
+                elements</h3>
+              <figure>
+                <img src="https://picsum.photos/seed/3/500/300" alt="Photo of a kitten">
+                <figcaption>Here is a caption for this image.</figcaption>
+              </figure>
+              <h3><code>&lt;figure&gt;</code> element with a <code>&lt;picture&gt;</code> element</h3>
+              <figure>
+                <picture>
+                  <source srcset="https://picsum.photos/seed/4/800/300" media="(min-width: 800px)">
+                  <img src="https://picsum.photos/400/200" alt="Photo of a kitten" />
+                </picture>
+              </figure>
+            </div>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="embedded__audio" class="layout--flow">
+            <header>
+              <h2>Audio</h2>
+            </header>
+            <div><audio controls="">audio</audio></div>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="embedded__video" class="layout--flow">
+            <header>
+              <h2>Video</h2>
+            </header>
+            <div><video controls="">video</video></div>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="embedded__meter" class="layout--flow">
+            <header>
+              <h2>Meter</h2>
+            </header>
+            <div class="layout--flow">
+              <h3>Sub sub-optimum</h3>
+              <meter
+                min="0"
+                low="30"
+                optimum="75"
+                high="55"
+                max="100"
+                value="10"
+              >25 out of 100</meter>
+              <h3>Sub optimum</h3>
+              <meter
+                min="0"
+                low="30"
+                optimum="75"
+                high="55"
+                max="100"
+                value="50"
+              >50 out of 100</meter>
+              <h3>Optimum</h3>
+              <meter
+                min="0"
+                low="30"
+                optimum="75"
+                high="55"
+                max="100"
+                value="75"
+              >75 out of 100</meter>
+            </div>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="embedded__progress" class="layout--flow">
+            <header>
+              <h2>Progress</h2>
+            </header>
+            <div class="layout--flow">
+              <p>Indeterminate progress bars can not really be styled, so I've left that alone. If you know of a way to get an animated indeterminate progress bar, please let me know!</p>
+              <p>If you need this kind of progress bar, I would suggest creating a loading bar component that includes the progress element for benefit of accessibility technology but have it visually represented with a styled div.</p>
+              <progress>progress</progress>
+              <progress value="50" max="100">50%</progress>
+            </div>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="embedded__iframe" class="layout--flow">
+            <header>
+              <h2>IFrame</h2>
+            </header>
+            <div class="layout--flow">
+              <p>By default, <code>iframe</code> and other embed containers like <code>object</code> and <code>embed</code> are left unstyled beyond the global reset. An <code>.embed-wrapper</code> class is provided to control the aspect ratio of the embedded material while filling the available width. The aspect ratio defaults to 16/9 but you can change this by adjusting the <var>--aspect-ratio</var> variable for that element.</p>
+              <p>The border added to this iframe is the result of an inline style. The aspect ratio on this iframe has also been adjusted to 2/1 as an example.</p>
+              <div class="embed-wrapper" style="--aspect-ratio: 2/1; border: 5px solid var(--color_text--default)">
+                <iframe src="layout.html" height="300"></iframe>
+              </div>
+              <p>The page embedded here was from a test I was doing for the layout system included in this boilerplate! <a href="layout.html">You can check it out here</a>.</p>
+            </div>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
         </section>
-        <section>
-          <h2 id="details-summary"><a class="permalink" href="#details-summary"
-              title="Permalink to Details & Summary">Details & Summary</a></h2>
-          <details class="accordion">
-            <summary>I'm a summary</summary>
-            <div class="details-content">Here is some details content. This accordion style is in the optional
-              _components.css file and is used by adding the <code>.accordion</code> class to the
-              <code>&lt;details&gt;</code> element.</div>
-          </details>
-          <details>
-            <summary>I'm a summary</summary>
-            <div class="details-content">Here is some details content.</div>
-          </details>
-        </section>
-        <section>
-          <h2 id="code"><a class="permalink" href="#code" title="Permalink to Code">Code</a></h2>
-          <p>Styles have been included for <code>&lt;code&gt;</code>, <code>&lt;samp&gt;</code>, and
-            <kbd>&lt;kbd&gt;</kbd> elements. Code blocks can be made by wrapping a <code>&lt;code&gt;</code> element
-            inside a <code>&lt;pre&gt;</code> element. Code blocks overflow automatically on the x axis in case there is
-            not enough room for a line of code.</p>
-          <pre><code>.some-class {
-  background-color: blue;
-}
-
-&lt;!-- Remember every whitespace and break will be preserved in a &lt;pre&gt;, including indentation in your code. --&gt;</code></pre>
-        </section>
-        <section>
-          <h2 id="buttons"><a class="permalink" href="#buttons" title="Permalink to Buttons">Buttons</a></h2>
-          <p>Standard Buttons</p>
-          <a class="button" href="#">Anchor button</a>
-          <button>Button element</button>
-          <input type="submit" value="Submit input">
-          <input type="button" value="Button input">
-          <p>Disabled</p>
-          <a class="button" href="#" disabled tabindex="-1">Anchor button</a>
-          <button class="button-primary" disabled>Button element</button>
-          <input type="submit" value="submit input" disabled>
-          <input class="button-primary" type="button" value="button input" disabled>
-        </section>
-        <section>
-          <h2 id="forms"><a class="permalink" href="#forms" title="Permalink to Forms">Forms</a></h2>
-          <form>
-            <fieldset>
-              <legend>Fieldset</legend>
-              <div class="grid">
-                <div>
-                  <label for="exampleEmailInput">Your email</label>
-                  <input class="u-full-width" type="email" placeholder="test@mailbox.com" id="exampleEmailInput">
+        <section id="forms" class="container layout--flow-double">
+          <article id="forms__input" class="layout--flow">
+            <header>
+              <h2>Form elements</h2>
+            </header>
+            <div class="layout--flow">
+              <p>Additional features such as validation and automatic required labels are included for forms structured so that each label and input pair are wrapped in a div with the <code>form-field</code> class.</p>
+              <pre><code>&lt;form&gt;
+  &lt;div class="form-field"&gt;
+    &lt;label for="input__text"&gt;Text Input&lt;/label&gt;
+    &lt;input id="input__text" type="text" placeholder="Text Input" required&gt;
+  &lt;/div&gt;
+&lt;form&gt;</code></pre>
+              <p>If using a library for forms, you may want to delete the form styles from this boilerplate or heavily alter them.</p>
+              <h3>Input fields</h3>
+              <form class="layout--flow">
+                <div class="form-field">
+                  <label for="input__text">Text Input</label>
+                  <input id="input__text" type="text" placeholder="Text Input" required>
                 </div>
-                <div>
-                  <label for="exampleRecipientInput">Reason for contacting</label>
-                  <select class="u-full-width" id="exampleRecipientInput">
-                    <optgroup label="First group">
-                      <option value="Option 1">Questions</option>
-                      <option value="Option 2">Admiration</option>
-                    </optgroup>
-                    <optgroup label="Second group">
-                      <option value="Option 3">Can I get your number?</option>
+                <div class="form-field">
+                  <label for="input__password">Password</label>
+                  <input type="password" placeholder="Type your Password">
+                </div>
+                <div class="form-field">
+                  <label for="input__webaddress">Web Address</label>
+                  <input id="input__webaddress" type="url" placeholder="https://yoursite.com">
+                </div class="form-field">
+                <div class="form-field">
+                  <label for="input__email">Email Address</label>
+                  <input id="input__email" type="email" placeholder="name@email.com">
+                </div>
+                <div class="form-field">
+                  <label for="input__phone">Phone Number</label>
+                  <input id="input__phone" type="tel" placeholder="(999) 999-9999">
+                </div>
+                <div class="form-field">
+                  <label for="input__search">Search</label>
+                  <input id="input__search" type="search" placeholder="Enter Search Term">
+                </div>
+                <div class="form-field">
+                  <label for="input__number">Number Input</label>
+                  <input id="input__number" type="number" placeholder="Enter a Number">
+                </div>
+                <div class="form-field">
+                  <label for="input__file">File Input</label>
+                  <input id="input__file" type="file" required>
+                </div>
+              </form>
+            </div>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="forms__select" class="layout--flow">
+            <header>
+              <h2>Select menus</h2>
+            </header>
+            <div class="layout--flow">
+              <form class="layout--flow">
+                <div class="form-field">
+                  <label for="select">Select</label>
+                  <select id="select" required>
+                    <optgroup label="Option Group">
+                      <option>Option One</option>
+                      <option>Option Two</option>
+                      <option>Option Three</option>
                     </optgroup>
                   </select>
                 </div>
-              </div>
-              <label for="exampleSearch">Search</label>
-              <input type="search" id="exampleSearch">
-            </fieldset>
-
-            <label for="dogs">How much do you like dogs?</label>
-            <input type="range" id="dogs" name="dogs" min="9" max="10" step="0.1" value="10">
-
-            <label for="exampleMessage" class="required">Message</label>
-            <textarea class="u-full-width" placeholder="Hi Dave …" id="exampleMessage" required></textarea>
-
-            <label for="exampleProgress">Progress</label>
-            <progress id="exampleProgress" max="100" value="60"></progress>
-
-            <label for="send-copy">
-              <input type="checkbox" name="example-checkbox-set" id="send-copy" value="send-copy">
-              Send a copy to yourself
-            </label>
-
-            <label for="radio-1">
-              <input type="radio" name="example-radio-set" id="radio-1" value="cats">
-              Cats
-            </label>
-            <label for="radio-2">
-              <input type="radio" name="example-radio-set" id="radio-2" value="dogs">
-              Dogs
-            </label>
-
-            <input class="button-primary" type="submit" value="Submit">
-
-          </form>
-        </section>
-        <section>
-          <h2 id="media"><a class="permalink" href="#media" title="Permalink to Media">Media</a></h2>
-          <p>Images are given <code>display: block</code> and <code>max-width: 100%</code> by default. A video wrapper
-            is provided for responsive embeds, and utilities are provided to control aspect ratio for images and video.
-          </p>
-          <audio controls src="/media/cc0-audio/t-rex-roar.mp3">
-            Your browser does not support the
-            <code>audio</code> element.
-          </audio>
-          <figure>
-            <img src="https://i.picsum.photos/id/1020/4288/2848.jpg?hmac=Jo3ofatg0fee3HGOliAIIkcg4KGXC8UOTO1dm5qIIPc"
-              alt="Bear cubs in snowy mountains">
-            <figcaption>Default Figure & Caption styles</figcaption>
-          </figure>
-
-          <div class="video-wrapper">
-            <iframe width="1704" height="968" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="YouTube video player" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-          </div>
-
-        </section>
-        <section>
-          <h2 id="tables"><a class="permalink" href="#tables" title="Permalink to Tables">Tables</a></h2>
-          <div class="table-wrapper">
-            <table>
-              <caption>Caption</caption>
-              <thead>
-                <tr>
-                  <th>Column A</th>
-                  <th>Column B</th>
-                  <th>Column C</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>A1</td>
-                  <td>B1</td>
-                  <td>C1</td>
-                </tr>
-                <tr>
-                  <td>A2</td>
-                  <td>B2</td>
-                  <td>C2</td>
-                </tr>
-                <tr>
-                  <td>A3</td>
-                  <td>B3</td>
-                  <td>C3</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                <div class="form-field">
+                  <label for="select_multiple">Select (multiple)</label>
+                  <select id="select_multiple" multiple="multiple">
+                    <optgroup label="Option Group">
+                      <option>Option One</option>
+                      <option>Option Two</option>
+                      <option>Option Three</option>
+                    </optgroup>
+                  </select>
+                </div>
+              </form>
+            </div>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="forms__checkbox" class="layout--flow">
+            <header>
+              <h2>Checkboxes</h2>
+            </header>
+            <div class="layout--flow">
+              <fieldset id="forms__checkbox">
+                <legend>Legend</legend>
+                <ul>
+                  <li>
+                    <label for="checkbox1"><input id="checkbox1" name="checkbox" type="checkbox" checked="checked"> Choice A</label>
+                  </li>
+                  <li>
+                    <label for="checkbox2"><input id="checkbox2" name="checkbox" type="checkbox"> Choice B</label>
+                  </li>
+                  <li>
+                    <label for="checkbox3"><input id="checkbox3" name="checkbox" type="checkbox"> Choice C</label>
+                  </li>
+                </ul>
+              </fieldset>
+            </div>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="forms__checkbox" class="layout--flow">
+            <header>
+              <h2>Radio buttons</h2>
+            </header>
+            <div class="layout--flow">
+              <fieldset id="forms__checkbox">
+                <legend>Legend</legend>
+                <ul>
+                  <li><label for="radio1"><input id="radio1" name="radio" type="radio" checked="checked"> Option 1</label>
+                  </li>
+                  <li><label for="radio2"><input id="radio2" name="radio" type="radio"> Option 2</label></li>
+                  <li><label for="radio3"><input id="radio3" name="radio" type="radio"> Option 3</label></li>
+                </ul>
+              </fieldset>
+            </div>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="forms__textareas" class="layout--flow">
+            <header>
+              <h2>Textarea</h2>
+            </header>
+            <div class="layout--flow">
+              <form>
+                <div class="form-field">
+                  <label for="textarea">Textarea</label>
+                  <textarea id="textarea" placeholder="Enter your message here"></textarea>
+                </div>
+              </form>
+            </div>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="forms__html5" class="layout--flow">
+            <header>
+              <h2>HTML5 inputs</h2>
+            </header>
+            <div class="layout--flow">
+              <form class="layout--flow">
+                <div class="form-field">
+                  <label for="ic">Color input</label>
+                  <input type="color" id="ic" value="#000000">
+                </div>
+                <div class="form-field">
+                  <label for="idd">Date input</label>
+                  <input type="date" id="idd" value="1970-01-01">
+                </div>
+                <div class="form-field">
+                  <label for="idm">Month input</label>
+                  <input type="month" id="idm" value="1970-01">
+                </div>
+                <div class="form-field">
+                  <label for="idw">Week input</label>
+                  <input type="week" id="idw" value="1970-W01">
+                </div>
+                <div class="form-field">
+                  <label for="idt">Datetime input</label>
+                  <input type="datetime" id="idt" value="1970-01-01T00:00:00Z">
+                </div>
+                <div class="form-field">
+                  <label for="idtl">Datetime-local input</label>
+                  <input type="datetime-local" id="idtl" value="1970-01-01T00:00">
+                </div>
+              </form>
+            </div>
+          </article>
+          <article id="forms__datalist" class="layout--flow">
+            <header>
+              <h2>DataList</h2>
+            </header>
+            <div class="layout--flow">
+              <form class="layout--flow">
+                <div class="form-field">
+                  <label for="idl">Label</label>
+                  <input type="text" id="idl" list="example-list">
+                  <datalist id="example-list">
+                    <option value="Example #1" />
+                    <option value="Example #2" />
+                    <option value="Example #3" />
+                  </datalist>
+                </div>
+              </form>
+            </div>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="forms__range" class="layout--flow">
+            <header>
+              <h2>Range</h2>
+            </header>
+            <div class="layout--flow">
+              <form class="layout--flow">
+                <div class="form-field">
+                  <label for="ir">Range input</label>
+                  <input type="range" id="ir" value="10">
+                </div>
+              </form>
+            </div>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
+          <article id="forms__action" class="layout--flow">
+            <header>
+              <h2>Action buttons</h2>
+            </header>
+            <div class="layout--flow">
+              <form class="layout--flow">
+                <div class="layout--flow">
+                  <div>
+                    <input type="button" value="input (button)">
+                    <button>button</button>
+                  </div>
+                  <div>
+                    <input type="submit" value="input (submit)">
+                    <button type="submit">button (submit)</button>
+                  </div>
+                  <div>
+                    <input type="reset" value="input (reset)">
+                    <button type="reset">button (reset)</button>
+                  </div>
+                  <div>
+                    <input type="button" value="input (button - disabled)" disabled>
+                    <button disabled>button (disabled)</button>
+                  </div>
+                  <div>
+                    <input type="reset" value="input (reset - disabled)" disabled>
+                    <button type="reset" disabled>button (reset - disabled)</button>
+                  </div>
+                  <div>
+                    <a class="button">anchor (.button)</a>
+                    <a class="button--secondary">anchor (.button--secondary)</a>
+                  </div>
+                  <div>
+                    <span class="button">span (.button)</span>
+                    <span class="button--secondary">span (.button--secondary)</span>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <footer>
+              <p><a href="#top">[Top]</a></p>
+            </footer>
+          </article>
         </section>
       </main>
+      <nav class="page__sidebar">
+        <div class="container">
+          <ul>
+            <li>
+              <a href="#text">Text</a>
+              <ul>
+                <li><a href="#text__headings">Headings</a></li>
+                <li><a href="#text__paragraphs">Paragraphs</a></li>
+                <li><a href="#text__blockquotes">Blockquotes</a></li>
+                <li><a href="#text__lists">Lists</a></li>
+                <li><a href="#text__details">Details / Summary</a></li>
+                <li><a href="#text__address">Address</a></li>
+                <li><a href="#text__hr">Horizontal rules</a></li>
+                <li><a href="#text__tables">Tabular data</a></li>
+                <li><a href="#text__code">Code</a></li>
+                <li><a href="#text__inline">Inline elements</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#embedded">Embedded content</a>
+              <ul>
+                <li><a href="#embedded__images">Images</a></li>
+                <li><a href="#embedded__audio">Audio</a></li>
+                <li><a href="#embedded__video">Video</a></li>
+                <li><a href="#embedded__meter">Meter</a></li>
+                <li><a href="#embedded__progress">Progress</a></li>
+                <li><a href="#embedded__iframe">IFrames</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#forms">Form elements</a>
+              <ul>
+                <li><a href="#forms__input">Input fields</a></li>
+                <li><a href="#forms__select">Select menus</a></li>
+                <li><a href="#forms__checkbox">Checkboxes</a></li>
+                <li><a href="#forms__radio">Radio buttons</a></li>
+                <li><a href="#forms__textareas">Textareas</a></li>
+                <li><a href="#forms__html5">HTML5 inputs</a></li>
+                <li><a href="#forms__datalist">Datalist</a></li>
+                <li><a href="#forms__range">Range</a></li>
+                <li><a href="#forms__action">Action buttons</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
 
-    <footer id="footer">
-      <div class="container container-wide">
-        CSS Boilerplate by <a href="https://mattmcadams.com">Matthew McAdams</a>.<br>
-        <a href="https://github.com/MattMcAdams/CSS-Boilerplate">Open Source</a> & Free to use (<a
-          href="https://github.com/MattMcAdams/CSS-Boilerplate/blob/master/LICENSE">Public Domain</a>)
-      </div>
+    <footer>
+      <p>Matt McAdams</p>
     </footer>
-
   </div>
-
 </body>
 
 </html>

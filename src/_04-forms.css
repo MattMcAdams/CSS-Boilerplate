@@ -1,191 +1,112 @@
-/** -----------------------------------------------------------------
-  * SECTION FORMS
-  * Form elements not styled:
-  * Meter. Next to impossible to size consistently
-  * File. You're better off implementing something with JS
-  * Date & Color. Styling these is far too complicated for the
-  * scope of this project.
------------------------------------------------------------------- */
+/* =================================================================
+/* SECTION Forms
+** File uploads are not styled, you're better off implementing
+** something with JS.
+** Date & Color inputs are not styled, they're far too complicated
+** for the scope of this project.
+================================================================= */
+
+/* Setup form specific styles and variables  */
+
+form {
+  --form_invalid-color: #dc2626;
+}
+
+/* Add required input notice if required fields exist */
+
+form:has(.form-field input[required])::after {
+  content: "* indicates a required field";
+  color: var(--form_invalid-color);
+  margin-block-start: var(--space_flow);
+  display: block;
+}
+
+/* Standardize labels */
 
 label, legend {
   background-color: transparent;
+  font: inherit;
+}
+
+/* Standard styles for normal inputs */
+
+input:not([type="checkbox"], [type="radio"], [type="color"]),
+select,
+textarea,
+button {
+  font: inherit;
+  padding: var(--space_1);
   display: block;
-  font: var(--typeset_-1);
-  font-weight: bold;
-  margin-block-end: var(--sp_0);
-}
-
-label + label {
-  margin-block-start: var(--sp_1);
-}
-
-label.required::after {
-  content: " *";
-  color: var(--invalid-color);
-}
-
-fieldset {
-  border: 0.5px solid var(--light-text-color);
-  padding: var(--sp_2);
-  margin-block-end: var(--flow-space);
-  background-color: var(--element-background);
-}
-
-fieldset > :last-child {
-  margin-block-end: 1rem;
-}
-
-legend {
-  padding: 0 0.5em;
-  margin-inline-start: -0.5em;
-}
-
-/* Normalize fonts, sizes, and borders */
-.button, button, input, select, textarea, datalist {
-  font-family: inherit;
-  font-size: 100%;
+  width: 100%;
+  border: 1px solid var(--color_text--subtle);
   line-height: inherit;
   box-sizing: border-box;
-
-  padding: var(--sp_1) var(--sp_2);
-  border: 1px solid var(--light-text-color);
-  margin: 0;
-  margin-block-end: var(--flow-space);
-  background-color: var(--page-background);
+  background: transparent;
 }
 
-/* Normalize input width */
-.button, input, select, textarea, datalist {
-  width: 100%;
+/* Remove border and padding for file inputs */
+
+input[type="file"] {
+  padding: var(--space_1) 0;
+  border: none;
 }
+
+/* Set textarea default height and restrict resize to vertical */
 
 textarea {
   resize: vertical;
   min-height: 10rem;
+  font-family: var(--font_mono);
+  font-size: var(--font_size--small);
+  line-height: var(--font_height--small);
 }
 
-input:active,
-input:focus,
-textarea:active,
-textarea:focus,
-select:active,
-select:focus,
-datalist:focus,
-datalist:active {
-  outline-offset: 1px;
-}
+/* ==============================
+/* SECTION Form field class
+============================== */
 
-/** -----------------------------------------------------------------
-  * SECTION RADIO & CHECKBOX
------------------------------------------------------------------- */
-
-@supports (appearance: none) or (-moz-appearance: none) or (-webkit-appearance: none)  {
-  input[type="checkbox"],
-  input[type="radio"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    position: relative;
-    display: inline-block;
-    top: -0.1em;
-    width: 1em;
-    height: 1em;
-    padding: 0;
-    margin: 0;
-    vertical-align: middle;
-    transition: box-shadow 0.1s ease;
-  }
-
-  input[type="checkbox"]:checked,
-  input[type="radio"]:checked {
-    box-shadow: inset 0 0 0 .25em var(--accent-color);
-    border-color: var(--accent-color);
-  }
-
-  input[type="radio"] {
-    border-radius: 50%;
-  }
-}
-
-/* !SECTION RADIO & CHECKBOX */
-/** -----------------------------------------------------------------
-  * SECTION NUMBER, SELECT, SEARCH
------------------------------------------------------------------- */
-
-/* Remove increment/decrement buttons from number fields */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  appearance: none;
-}
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
-/* Hide the default arrow icon and implement a custom one */
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none; /* hides the native UI */
-
-  padding-inline-end: var(--sp_4); /* prevents input text from running into background image */
-
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8" fill="none" stroke="black"><path d="M7.5 3L4 6 .5 3"/></svg>');
-  background-size: 0.7em;
-  background-repeat: no-repeat;
-  background-position: right var(--sp_1) center;
-}
-
-/* Remove the chrome cancel button */
-input[type="search"]::-webkit-search-cancel-button {
-  display: none;
-}
-
-/* !SECTION NUMBER, SELECT, SEARCH */
-/** -----------------------------------------------------------------
-  * SECTION PROGRESS
------------------------------------------------------------------- */
-
-/* Normalize progress bar */
-progress[value] {
-  border: 0;
-  background-color: var(--element-background);
-  -webkit-appearance: none;
+.form-field label {
   display: block;
-  width: 100%;
-  margin-block-end: var(--flow-space);
 }
 
-progress[value]::-webkit-progress-bar {
-  background-color: var(--element-background);
+/* Add required marker to labels if their input is required */
+
+.form-field:has(input[required]) label::after {
+  content: " *";
+  color: var(--form_invalid-color);
 }
 
-progress[value]::-webkit-progress-value {
-  background: var(--accent-color);
-}
-progress[value]::-moz-progress-bar {
-  background: var(--accent-color);
+/* !SECTION Form field class */
+/* ==============================
+/* SECTION Radio & Checkbox
+============================== */
+
+ul:has(input[type="checkbox"]),
+ul:has(input[type="radio"]),
+ol:has(input[type="checkbox"]),
+ol:has(input[type="radio"]) {
+  list-style: none;
 }
 
-/* indeterminate styles
- * progress:not([value]) {} */
+ul:has(input[type="checkbox"]) li,
+ul:has(input[type="radio"]) li,
+ol:has(input[type="checkbox"]) li,
+ol:has(input[type="radio"]) li {
+  margin: 0;
+}
 
-/* !SECTION PROGRESS */
-/** -----------------------------------------------------------------
-  * SECTION RANGE
------------------------------------------------------------------- */
+/* !SECTION Radio & Checkbox */
+/* ==============================
+/* SECTION Range
+============================== */
 
 input[type="range"],
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   font-size: 1rem;
+  height: 1rem;
   padding: 0;
   border: none;
-}
-
-input[type="range"]:focus,
-input[type="range"]:active {
-  outline: none;
-  --light-text-color: var(--accent-color);
 }
 
 /* Track Styles */
@@ -193,108 +114,117 @@ input[type="range"]::-webkit-slider-runnable-track {
   border: none;
   height: 5px;
   border-radius: 0;
-  background-color: var(--element-background);
+  background-color: var(--color_background--element);
 }
+
 input[type="range"]::-moz-range-track {
   height: 5px;
   border: none;
   border-radius: 0;
-  background-color: var(--element-background);
+  background-color: var(--color_background--element);
+}
+
+input[type="range"]::-moz-range-progress{
+  background-color: var(--color_accent);
+  height: 5px;
 }
 
 /* Thumb Styles */
 input[type="range"]::-webkit-slider-thumb {
-  margin-block-start: -0.5rem;
+  margin-block-start: calc((1.2rem / -2) + 2.5px);
   width: 1.2rem;
   height: 1.2rem;
-  border: 2px solid var(--page-background);
+  border: 2px solid var(--color_background--surface);
   border-radius: 1000rem;
-  background: var(--light-text-color);
+  background: var(--color_accent);
 }
+
 input[type="range"]::-moz-range-thumb {
-  border: 2px solid var(--page-background);
+  border: 2px solid var(--color_background--surface);
   border-radius: 1000rem;
   font-size: 1.2rem;
-  background: var(--light-text-color);
+  background: var(--color_accent);
 }
 
-/* !SECTION RANGE */
-/* !SECTION FORMS */
-/** -----------------------------------------------------------------
-  * SECTION BUTTONS
------------------------------------------------------------------- */
-
-label + button,
-label + .button,
-label + input[type="submit"],
-label + input[type="reset"],
-label + input[type="button"] {
-  margin-block-start: var(--flow-space);
-}
+/* !SECTION Range */
+/* ==============================
+/* SECTION Buttons
+============================== */
 
 .button,
+.button--secondary,
 button,
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-  display: block;
+  display: inline-block;
+  width: auto;
   text-align: center;
   white-space: nowrap;
   text-decoration: none;
-  width: min-content;
-  background-color: transparent;
+  background-color: var(--color_text--link);
   cursor: pointer;
   box-sizing: border-box;
-
-  color: white;
-  background-color: var(--link-color);
-  border: 1px solid var(--link-color);
-  margin-block-end: var(--flow-space);
-
-  font-weight: bold;
-  padding-inline-start: var(--sp_4);
-  padding-inline-end: var(--sp_4);
+  color: var(--color_background--surface);
+  border: 2px solid var(--color_text--link);
+  padding-inline: var(--space_4);
+  padding-block: var(--space_1);
 }
 
-.button img,
-button img,
-input[type="submit"] img,
-input[type="reset"] img,
-input[type="button"] img {
-  margin: 0;
-}
-
-.button:hover,
+a.button:hover,
+a.button--secondary:hover,
 button:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover,
 input[type="button"]:hover,
-.button:focus,
+a.button:focus,
+a.button--secondary:focus,
 button:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus,
 input[type="button"]:focus {
-  border-color: var(--link-color-alt);
-  background-color: var(--link-color-alt);
+  border-color: var(--color_text--link-alt);
+  background-color: var(--color_text--link-alt);
 }
 
-input[type="submit"]:active,
-input[type="submit"]:focus,
-input[type="reset"]:active,
-input[type="reset"]:focus,
-input[type="button"]:active,
-input[type="button"]:focus {
-  outline-offset: 3px;
+.button--secondary,
+button[type="reset"],
+input[type="reset"] {
+  background-color: var(--color_background--surface);
+  color: var(--color_text--link);
+  border-color: var(--color_text--link);
 }
 
-.button[tabindex="-1"],
+a.button--secondary:hover,
+button[type="reset"]:hover,
+input[type="reset"]:hover,
+a.button--secondary:focus,
+button[type="reset"]:focus,
+input[type="reset"]:focus {
+  background-color: var(--color_background--surface);
+  color: var(--color_text--link-alt);
+  border-color: var(--color_text--link-alt);
+}
+
+span.button,
 button[disabled],
 input[type="submit"][disabled],
 input[type="reset"][disabled],
 input[type="button"][disabled] {
-  background-color: var(--element-background);
-  color: var(--light-text-color);
-  border-color: var(--element-background);
+  cursor: auto;
+  background-color: var(--color_background--chip);
+  color: var(--color_text--subtle);
+  border-color: var(--color_background--chip);
 }
 
-/* !SECTION BUTTONS */
+span.button--secondary,
+input[type="reset"][disabled],
+button[type="reset"][disabled] {
+  cursor: auto;
+  background-color: var(--color_background--surface);
+  color: var(--color_background--chip);
+  border-color: var(--color_background--chip);
+}
+
+/* !SECTION Buttons */
+/* !SECTION Forms */

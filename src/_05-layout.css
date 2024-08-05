@@ -3,7 +3,9 @@
 ================================================================= */
 /* ==============================
 /* SECTION Container System
-** Containers allow for a robust and flexible layout system by applying the gutter padding and max width to the container itself. Containers can be nested as needed.
+** Containers allow for a robust and flexible layout system by
+** applying the gutter padding and max width to the container itself.
+** Containers can be nested as needed.
 ============================== */
 
 /* Setup containers */
@@ -68,56 +70,26 @@
   );
 }
 
-/* !SECTION Container System */
-/* ==============================
-/* SECTION Layout & Width System
-** Layouts provide a flexible layout system by applying the gutter padding and max width to all children of the layout container. Width classes allow specified children to have a different max width than the other children of the layout container. Layouts can be nested as needed.
-============================== */
-
-.layout--standard > *,
-.layout--wide > * {
-  margin-inline: auto;
-  padding-inline: var(--space_gutter);
-}
-
-.layout--standard > * {
-  max-width: min(var(--width_content), 100%);
-}
-
-.layout--wide > * {
-  max-width: min(var(--width_wide), 100%);
-}
-
-/* NOTE These must be listed separately from the Layouts section because of the cascade */
-
-.width--content {
-  max-width: min(var(--width_content), 100%);
-}
-
-.width--wide {
-  max-width: min(var(--width_wide), 100%);
-}
-
-.width--full {
-  max-width: 100vw;
-}
-
-/* Remove duplicate margins from nested layouts */
-
-.layout--standard > .layout--standard,
-.layout--standard > .layout--wide,
-.layout--wide > .layout--standard,
-.layout--wide > .layout--wide {
-  padding-inline: 0;
-}
-
-/* !SECTION Layout & Width System */
+/* !SECTION Containers */
 /* ==============================
 /* SECTION Flow Spacing
+** Flow spacing is the space between elements in a vertical flow.
+** The .section class is provided for larger gaps between sections.
+** Flow spacing can be applied to a individual container using the .layout--flow class. or to the entire document using the .global--flow class. The implementation is different for each method, so consider how you want the spacing to be applied.
 ============================== */
 
-.layout--flow > * + * {
+.layout--flow > * + *,
+blockquote > * + *,
+details > * + * {
   margin-block-start: var(--space_flow);
+}
+
+.layout--flow-double > * + * {
+  margin-block-start: calc(var(--space_flow) * 2);
+}
+
+.layout--flow-half > * + * {
+  margin-block-start: calc(var(--space_flow) / 2);
 }
 
 .layout--flow > * + h1,
@@ -125,7 +97,7 @@
 .layout--flow > * + h3,
 .layout--flow > * + h4,
 .layout--flow > * + h5,
-.layout--flow > * + h6{
+.layout--flow > * + h6 {
   margin-block-start: calc(var(--space_flow) * 2);
 }
 
@@ -135,6 +107,10 @@
 .layout--flow > h4 + h5,
 .layout--flow > h5 + h6 {
   margin-block-start: calc(var(--space_flow) / 2);
+}
+
+.section {
+  margin-block-start: var(--space_section);
 }
 
 /* !SECTION Flow Spacing */
@@ -155,6 +131,10 @@
 /* !SECTION Level */
 /* ==============================
 /* SECTION Grid
+** The grid layout creates a responsive grid with a fluid number of columns.
+** You can define the number of columns to allow as well as the minimum
+** width of each grid item. Just be aware that if you set the minimum width
+** too high, the grid may not fit on viewports smaller than the minimum width.
 ============================== */
 
 .layout--grid {
@@ -186,6 +166,8 @@
 /* !SECTION Grid */
 /* ==============================
 /* SECTION App
+** The app wrapper ensures the the site footer sticks to the
+** bottom of the viewport on short pages.
 ** Structure should be as follows:
 ** <div id="app">
 **   <header></header>
@@ -211,6 +193,8 @@
 /* !SECTION App */
 /* ==============================
 /* SECTION Page Layout
+** The page layout provides grid areas for a hero, content, and sidebar.
+** It arranges the grid areas responsively based on the presence of a sidebar.
 ** Inside the <main class="page"> tag, the structure should follow:
 ** <div class="page_header"> (optional, may use header element)
 ** <div class="page_content"> (may use article element)
@@ -237,33 +221,33 @@
 
 /* Page areas */
 
-.page_header {
+.page__header {
   grid-area: header;
 }
 
-.page_content {
+.page__content {
   grid-area: content;
   margin-block: var(--space_section);
 }
 
-.page_sidebar {
+.page__sidebar {
   grid-area: sidebar;
   margin-block-end: var(--space_section);
 }
 
 /* Layout fixes */
 
-.page:has(.page_sidebar) .container > .container--wide,
-.page:has(.page_sidebar) .container > .container--full,
-.page:has(.page_sidebar) .container--wide > .container,
-.page:has(.page_sidebar) .container--wide > .container--full,
-.page:has(.page_sidebar) .container--full > .container,
-.page:has(.page_sidebar) .container--full > .container--wide {
+.page:has(.page__sidebar) .container > .container--wide,
+.page:has(.page__sidebar) .container > .container--full,
+.page:has(.page__sidebar) .container--wide > .container,
+.page:has(.page__sidebar) .container--wide > .container--full,
+.page:has(.page__sidebar) .container--full > .container,
+.page:has(.page__sidebar) .container--full > .container--wide {
   margin-inline: calc(var(--space_gutter) * -1);
 }
 
-.page:not(:has(.page_sidebar)) .width--full,
-.page:not(:has(.page_sidebar)) .container--full {
+.page:not(:has(.page__sidebar)) .width--full,
+.page:not(:has(.page__sidebar)) .container--full {
   width: 100vw;
   max-width: 100vw;
   margin-inline: calc((100vw - 100%) / -2);
@@ -272,7 +256,7 @@
 /* Enable sidebar */
 
 @media (min-width: 60rem) {
-  .page:has(.page_sidebar) {
+  .page:has(.page__sidebar) {
     grid-template-areas:
       "header header"
       "sidebar content";
@@ -280,7 +264,7 @@
       minmax(calc(25% - (var(--space_layout-gap) / 2)), var(--width_sidebar))
       min(calc(75% - (var(--space_layout-gap) / 2)), var(--width_content));
   }
-  .page_sidebar {
+  .page__sidebar {
     margin-block-start: var(--space_section);
   }
 }

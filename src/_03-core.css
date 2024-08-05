@@ -70,11 +70,12 @@ body {
   line-height: var(--font_height--normal);
   color: var(--color_text--default);
   background: var(--color_background--surface);
+  accent-color: var(--color_accent);
 }
 
 /* Heading typography */
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5 {
   font-family: var(--font_head);
   font-weight: var(--font_weight--bold);
 }
@@ -113,9 +114,10 @@ small,
 
 /* Basic styles for inline semantics */
 
-strong { font-weight: bold; }
-em, cite { font-style: italic; }
-u { text-decoration: underline; font-style: normal;}
+strong, b { font-weight: bold; }
+em, cite, i, q { font-style: italic; }
+s { text-decoration: line-through; }
+u { text-decoration: underline; font-style: normal; }
 
 /* Basic style for subscript and superscript text */
 
@@ -128,36 +130,7 @@ sub, sup {
 sup { top: -0.5em; }
 sub { bottom: -0.25em; }
 
-/* REVIEW */
-
-/* del, ins, and s styles. Note that these are opinionated and may
- * need to be restyled to suit your use case. These pseudoelements
- * exist to announce the presence of these elements. Read more
- * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins#accessibility_concerns */
-
-/* del::before,
-del::after,
-ins::before,
-ins::after,
-s::before,
-s::after {
-  clip-path: inset(100%);
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-} */
-
-/* del::before { content: " [deletion start] "; }
-del::after { content: " [deletion end] "; }
-ins::before { content: " [insertion start] "; }
-ins::after { content: " [insertion end] "; }
-s::before { content: " [start of stricken text] "; }
-s::after { content: " [end of stricken text] "; } */
-
-/* del {
+del {
   background: var(--color_background--element);
   text-decoration: line-through;
   padding: 0.1em 0.3em;
@@ -165,20 +138,17 @@ s::after { content: " [end of stricken text] "; } */
 
 ins {
   background: var(--color_background--element);
-  text-decoration: none;
+  text-decoration: underline;
   padding: 0.1em 0.3em;
-} */
-
-/* See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s */
-
-/* s { text-decoration: line-through; } */
+}
 
 /* Mark styles - see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark */
 
-/* mark {
-  background: var(--mark-background);
+mark {
+  background: var(--color_text--accent);
+  color: var(--color_background--surface);
   padding: 0.1em 0.3em;
-} */
+}
 
 /* Basic styles for abbreviation. Only style differently when
  * a title is present. */
@@ -189,10 +159,6 @@ abbr[title] {
   text-decoration: underline;
   text-decoration-style: dotted;
 }
-
-/* Italicize q when it includes a cite */
-
-q[cite] { font-style: italic; }
 
 
 /* !SECTION Typography */
@@ -208,7 +174,7 @@ a:not([class]) {
   font-weight: bold;
 }
 
-/* VISITED STYLES GO HERE */
+/* a:not([class]):visited { } */
 
 a:not([class]):hover,
 a:not([class]):focus {
@@ -217,22 +183,30 @@ a:not([class]):focus {
   text-decoration-thickness: 2px;
 }
 
-/*
-OPTIONAL STYLES
-Add an icon for links that go to a PDF and/or links that open in a new tab
-*/
+/* OPTIONAL STYLES - Add an icon for special links */
 
 /* a:not([class])[target="_blank"]::after,
 a:not([class])[data-link-type="external"] {
-  content: ' \e91f';
-  font-size: 90%;
-}
+  content: '';
+  padding-inline-start: 0.1em;
+} */
 
-a:not([class])[href$='.pdf']::after,
+/* a:not([class])[href$='.pdf']::after,
 a:not([class])[data-link-type='document']::after {
-  content: '\e91d';
-  font-size: 90%;
-  padding-left: 0.1em;
+  content: '';
+  padding-inline-start: 0.1em;
+} */
+
+/* a:not([class])[href^="tel:"]::before,
+a:not([class])[data-link-type="telephone"]::before {
+  content: '';
+  padding-inline-end: 0.1em;
+} */
+
+/* a:not([class])[href^="mailto:"]::before,
+a:not([class])[data-link-type="email"]::before {
+  content: '';
+  padding-inline-end: 0.1em;
 } */
 
 /* !SECTION Links */
@@ -311,11 +285,9 @@ img,
 figure,
 video,
 .aspect-ratio,
-.video-wrapper,
-.embed-container {
+.embed-wrapper {
   display: block;
   width: 100%;
-  margin: auto;
 }
 
 img {
@@ -324,11 +296,16 @@ img {
   height: auto;
 }
 
+/* Add placeholder background for video */
+
+video:not(:has(source)) {
+  background: var(--color_background--element);
+}
+
 /* Basic style for figcaption */
 
 figcaption {
   display: block;
-  text-align: center;
   font-style: italic;
 }
 
@@ -337,6 +314,7 @@ figcaption {
 
 audio {
   display: block;
+  width: 100%;
   max-width: 100%;
   border-radius: 900px;
 }
@@ -344,8 +322,7 @@ audio {
 /* Setup media wrappers */
 
 .aspect-ratio,
-.video-wrapper,
-.embed-container {
+.embed-wrapper {
   --aspect-ratio: 16/9;
   width: 100%;
   padding-block-start: calc(100%/(var(--aspect-ratio)));
@@ -354,12 +331,9 @@ audio {
 
 /* Position inner elements in media wrappers */
 
-.embed-container > iframe,
-.embed-container > embed,
-.embed-container > object,
-.video-wrapper > iframe,
-.video-wrapper > embed,
-.video-wrapper > object
+.embed-wrapper > iframe,
+.embed-wrapper > embed,
+.embed-wrapper > object,
 .aspect-ratio > iframe,
 .aspect-ratio > embed,
 .aspect-ratio > object,
@@ -411,10 +385,10 @@ table {
 }
 
 caption {
-  padding: var(--space_2);
   font-size: inherit;
   line-height: inherit;
-  text-align: left;
+  text-align: start;
+  margin-block-end: var(--space_2);
 }
 
 thead {
@@ -426,7 +400,7 @@ th, td {
   font-size: var(--font_size--small);
   line-height: var(--font_height--small);
   padding: var(--space_2);
-  text-align: left;
+  text-align: start;
 }
 
 th { font-weight: bold; }
@@ -533,4 +507,96 @@ details {
 }
 
 /* !SECTION Details */
+/* ==============================
+/* SECTION Meter
+============================== */
+
+meter {
+  --meter-color_track: var(--color_background--element);
+  --meter-color_optimum: #15803d;
+  --meter-color_sub-optimum: #f59e0b;
+  --meter-color_sub-sub-optimum: #dc2626;
+
+  display: block;
+  width: 100%;
+  height: 1rem;
+
+  -webkit-appearance: none;
+  border-radius: 0;
+  background: none;
+  background-color: var(--meter-color_track);
+}
+
+/* Set the track color for webkit browsers */
+
+meter::-webkit-meter-bar {
+  background: var(--meter-color_track);
+}
+
+/* Set the optimum color */
+
+meter::-webkit-meter-optimum-value {
+  background: var(--meter-color_optimum);
+}
+
+meter:-moz-meter-optimum::-moz-meter-bar {
+  background: var(--meter-color_optimum);
+}
+
+/* Set the sub optimum color */
+
+meter:-moz-meter-sub-optimum::-moz-meter-bar {
+  background: var(--meter-color_sub-optimum);
+}
+
+meter::-webkit-meter-suboptimum-value {
+  background: var(--meter-color_sub-optimum);
+}
+
+/* Set the sub sub optimum color */
+
+meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+  background: var(--meter-color_sub-sub-optimum);
+}
+
+/* The red (even less good) bar in Chrome etc. */
+meter::-webkit-meter-even-less-good-value {
+  background: var(--meter-color_sub-sub-optimum);
+}
+
+/* !SECTION Meter */
+/* ==============================
+/* SECTION Progress
+============================== */
+
+progress[value] {
+  --progress-color_track: var(--color_background--element);
+  --progress-color_fill: var(--color_accent);
+
+  display: block;
+  width: 100%;
+  height: 0.25rem;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  border-radius: 0;
+
+  background: var(--progress-color_track);
+}
+
+progress[value]::-webkit-progress-bar {
+  background: var(--progress-color_track);
+}
+
+progress[value]::-webkit-progress-value {
+  background: var(--progress-color_fill);
+}
+
+progress[value]::-moz-progress-bar {
+  background: var(--progress-color_fill);
+}
+
+/* !SECTION Progress */
 /* !SECTION Core */

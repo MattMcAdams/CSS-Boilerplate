@@ -26,6 +26,11 @@
     text-align: center;
   }
 
+  .local_hero {
+    background-color: var(--color_text--subtle);
+    color: white;
+  }
+
   .local_element {
     background-color: var(--color_background--element);
   }
@@ -48,279 +53,118 @@
 </style>
 
 <body>
-  <div id="app">
-
-    <header class="local_top-header">
-      <p>This is the top header</p>
-    </header>
-
+  <div>
     <div class="layout--flow">
-      <h2>Standard page with Layout and Widths</h2>
-      <main id="main" class="page local_section">
-        <header class="page_header layout--wide local_element">
-          <p>This is a hero for a page using layout and widths (layout wide)</p>
-        </header>
-        <div class="page_content">
-          <div class="layout--standard">
-            <p>Layout standard</p>
-            <div class="layout--standard">
-              <p>Layout standard > Layout standard</p>
-            </div>
-            <div class="layout--wide">
-              <p>Layout standard > Layout wide</p>
-            </div>
-            <div class="width--wide">
-              <p>Layout standard > Width wide</p>
-            </div>
-            <div class="layout--standard width--wide">
-              <p>Layout standard > Width wide -- Layout standard</p>
-            </div>
-            <div class="layout--wide width--wide">
-              <p>Layout standard > Width wide -- Layout wide</p>
-            </div>
-            <div class="width--full">
-              <p>Layout standard > Width full</p>
-            </div>
-            <div class="layout--standard width--full">
-              <p>Layout standard > Width full -- Layout standard</p>
-            </div>
-            <div class="layout--wide width--full">
-              <p>Layout standard > Width full -- Layout wide</p>
-            </div>
-          </div>
-          <div class="layout--wide">
-            <p>Layout Wide</p>
-            <div class="layout--standard">
-              <p>Layout wide > Layout standard</p>
-            </div>
-            <div class="layout--wide">
-              <p>Layout wide > Layout wide</p>
-            </div>
-            <div class="width--wide">
-              <p>Layout wide > Width wide</p>
-            </div>
-            <div class="width--standard layout--standard">
-              <p>Layout wide > Width standard -- Layout standard</p>
-            </div>
-            <div class="layout--standard width--wide">
-              <p>Layout wide > Width wide -- Layout standard</p>
-            </div>
-            <div class="layout--wide width--wide">
-              <p>Layout wide > Width wide -- Layout wide</p>
-            </div>
-            <div class="width--full">
-              <p>Layout wide > Width full</p>
-            </div>
-            <div class="layout--standard width--full">
-              <p>Layout wide > Width full -- Layout standard</p>
-            </div>
-            <div class="layout--wide width--full">
-              <p>Layout wide > Width full -- Layout wide</p>
-            </div>
-          </div>
-        </div>
-        <aside class="page_sidebar layout--standard local_element">
-          <p>This is the sidebar</p>
-        </aside>
-      </main>
-
-      <hr class="local_divider">
-
-      <h2>Standard page with Containers</h2>
-
-      <main id="main" class="page local_section">
-        <header class="page_header">
-          <div class="container--wide local_element">
-            <p>This is a hero for a page using containers (container wide)</p>
+      <div class="page local_section">
+        <header class="page__header">
+          <div class="container--wide local_hero">
+            <h2>Sidebar page with Containers</h2>
           </div>
         </header>
-        <div class="page_content">
+        <div class="page__content layout--flow">
           <div class="container local_element">
             <p>Container</p>
-            <div class="container local_accent">
+            <div class="container local_chip">
               <p>Container > Container</p>
             </div>
-            <div class="container--wide local_chip">
+            <div class="container--wide local_accent">
               <p>Container > Container wide</p>
             </div>
             <div class="container--full local_accent-alt">
               Container > Container full
             </div>
           </div>
-          <div class="container--wide local_chip">
+          <div class="container--wide local_element">
             <p>Container Wide</p>
-            <div class="container">
+            <div class="container local_chip">
               <p>Container wide > container</p>
             </div>
-            <div class="container--wide">
+            <div class="container--wide local_accent">
               <p>Container wide > container wide</p>
             </div>
-            <div class="container--full">
+            <div class="container--full local_accent-alt">
               <p>Container wide > container full</p>
             </div>
           </div>
-          <div class="container--full local_accent">
+          <div class="container--full local_element">
             <p>Container full</p>
-            <div class="container">
+            <div class="container local_chip">
               <p>Container full > container</p>
             </div>
-            <div class="container--wide">
+            <div class="container--wide local_accent">
               <p>Container full > container wide</p>
             </div>
-            <div class="container--full">
+            <div class="container--full local_accent-alt">
               <p>Container full > container full</p>
             </div>
           </div>
         </div>
-        <aside class="page_sidebar local_element">
+        <aside class="page__sidebar local_element">
           <div class="container local_chip">
             <p>This is the sidebar</p>
           </div>
         </aside>
-      </main>
+      </div>
 
       <hr class="local_divider">
 
-      <h2>No Sidebar Page with Layouts and Widths</h2>
-
-      <main id="main" class="page local_section">
-        <header class="page_header layout--wide local_element">
-          <p>This is a hero for a page using layout and widths (layout wide)</p>
-        </header>
-        <div class="page_content">
-          <div class="layout--standard">
-            <p>Layout standard</p>
-            <div class="layout--standard">
-              <p>Layout standard > Layout standard</p>
-            </div>
-            <div class="layout--wide">
-              <p>Layout standard > Layout wide</p>
-            </div>
-            <div class="width--wide">
-              <p>Layout standard > Width wide</p>
-            </div>
-            <div class="layout--standard width--wide">
-              <p>Layout standard > Width wide -- Layout standard</p>
-            </div>
-            <div class="layout--wide width--wide">
-              <p>Layout standard > Width wide -- Layout wide</p>
-            </div>
-            <div class="width--full">
-              <p>Layout standard > Width full</p>
-            </div>
-            <div class="layout--standard width--full">
-              <p>Layout standard > Width full -- Layout standard</p>
-            </div>
-            <div class="layout--wide width--full">
-              <p>Layout standard > Width full -- Layout wide</p>
-            </div>
-          </div>
-          <div class="layout--wide">
-            <p>Layout Wide</p>
-            <div class="layout--standard">
-              <p>Layout wide > Layout standard</p>
-            </div>
-            <div class="layout--wide">
-              <p>Layout wide > Layout wide</p>
-            </div>
-            <div class="width--wide">
-              <p>Layout wide > Width wide</p>
-            </div>
-            <div class="width--standard layout--standard">
-              <p>Layout wide > Width standard -- Layout standard</p>
-            </div>
-            <div class="layout--standard width--wide">
-              <p>Layout wide > Width wide -- Layout standard</p>
-            </div>
-            <div class="layout--wide width--wide">
-              <p>Layout wide > Width wide -- Layout wide</p>
-            </div>
-            <div class="width--full">
-              <p>Layout wide > Width full</p>
-            </div>
-            <div class="layout--standard width--full">
-              <p>Layout wide > Width full -- Layout standard</p>
-            </div>
-            <div class="layout--wide width--full">
-              <p>Layout wide > Width full -- Layout wide</p>
-            </div>
-          </div>
-        </div>
-      </main>
-
-      <hr class="local_divider">
-
-      <h2>No Sidebar Page with Containers</h2>
-
-      <main id="main" class="page local_section">
-        <header class="page_header">
-          <div class="container--wide local_element">
-            <p>This is a hero for a page using containers (container wide)</p>
+      <div class="page local_section section">
+        <header class="page__header local_hero">
+          <div class="container--wide">
+            <h2>Standard page with containers</h2>
           </div>
         </header>
-        <div class="page_content">
+        <div class="page__content layout--flow">
           <div class="container local_element">
             <p>Container</p>
-            <div class="container local_accent">
+            <div class="container local_chip">
               <p>Container > Container</p>
             </div>
-            <div class="container--wide local_chip">
+            <div class="container--wide local_accent">
               <p>Container > Container wide</p>
             </div>
             <div class="container--full local_accent-alt">
               Container > Container full
             </div>
           </div>
-          <div class="container--wide local_chip">
+          <div class="container--wide local_element">
             <p>Container Wide</p>
-            <div class="container">
+            <div class="container local_chip">
               <p>Container wide > container</p>
             </div>
-            <div class="container--wide">
+            <div class="container--wide local_accent">
               <p>Container wide > container wide</p>
             </div>
-            <div class="container--full">
+            <div class="container--full local_accent-alt">
               <p>Container wide > container full</p>
             </div>
           </div>
-          <div class="container--full local_accent">
+          <div class="container--full local_element">
             <p>Container full</p>
-            <div class="container">
+            <div class="container local_chip">
               <p>Container full > container</p>
             </div>
-            <div class="container--wide">
+            <div class="container--wide local_accent">
               <p>Container full > container wide</p>
             </div>
-            <div class="container--full">
+            <div class="container--full local_accent-alt">
               <p>Container full > container full</p>
             </div>
           </div>
-        </div>
-      </main>
-
-      <hr class="local_divider">
-
-      <h2>Layouts</h2>
-
-      <div class="layout--wide local_element">
-        <p>Layout wide</p>
-        <div class="layout--standard width--wide local_chip">
-          <p>Layout standard -- width wide</p>
-        </div>
-        <div class="layout--wide width--full local_accent">
-          <p>Layout wide > Layout wide -- Width full</p>
-        </div>
-        <div class="layout--standard local_chip">
-          <p>Layout wide > Layout standard</p>
         </div>
       </div>
 
       <hr class="local_divider">
 
-      <h2>Containers</h2>
+      <div class="container--wide local_hero section">
+        <h2>Containers</h2>
+      </div>
 
       <div class="container local_element">
         <p>Container</p>
+        <div class="container local_chip">
+          <p>Container > Container</p>
+        </div>
         <div class="container--wide local_accent">
           <p>Container > Container wide</p>
         </div>
@@ -328,19 +172,32 @@
           Container > Container full
         </div>
       </div>
-
-    </div>
-
-    <footer class="local_footer">
-      <div class="layout--wide">
-        <p>
-          This is the bottom footer
-        </p>
+      <div class="container--wide local_element">
+        <p>Container Wide</p>
+        <div class="container local_chip">
+          <p>Container wide > container</p>
+        </div>
+        <div class="container--wide local_accent">
+          <p>Container wide > container wide</p>
+        </div>
+        <div class="container--full local_accent-alt">
+          <p>Container wide > container full</p>
+        </div>
       </div>
-    </footer>
-
+      <div class="container--full local_element">
+        <p>Container full</p>
+        <div class="container local_chip">
+          <p>Container full > container</p>
+        </div>
+        <div class="container--wide local_accent">
+          <p>Container full > container wide</p>
+        </div>
+        <div class="container--full local_accent-alt">
+          <p>Container full > container full</p>
+        </div>
+      </div>
+    </div>
   </div>
-
 </body>
 
 </html>

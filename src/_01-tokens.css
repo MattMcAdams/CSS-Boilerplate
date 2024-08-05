@@ -10,11 +10,12 @@
 :root {
   /* Spacing */
   --space_05: 0.25rem; /* 4px   - utility to substitute 0 margins */
-  --space_1: 0.5rem;  /* 8px   - utility for tight paddings etc */
-  --space_2: 1rem;    /* 16px  - 1/2 line height, for closely related elements */
-  --space_4: 2rem;    /* 32px  - 1 line height, for related elements */
-  --space_8: 4rem;    /* 64px  - 2 line heights, for loosely related elements */
-  --space_16: 8rem;   /* 128px - 4 line heights, for unrelated elements */
+  --space_1: 0.5rem;   /* 8px   - utility for tight paddings etc */
+  --space_2: 1rem;     /* 16px  - 1/2 line height, for closely related elements */
+  --space_4: 2rem;     /* 32px  - 1 line height, for related elements */
+  --space_8: 4rem;     /* 64px  - 2 line heights, for loosely related elements */
+  --space_16: 8rem;    /* 128px - 4 line heights, for unrelated elements */
+
   /* Semantic Space */
   --space_flow: var(--space_4);
   --space_gutter: var(--space_2);
@@ -22,6 +23,7 @@
   --space_grid-gap: var(--space_4);
   --space_flex-gap: var(--space_2);
   --space_layout-gap: var(--space_4);
+
   /* Layout Widths */
   --width_content: 60rem; /* 960px + gutters */
   --width_sidebar: 20rem; /* 320px + gutters */
@@ -31,20 +33,23 @@
     var(--space_layout-gap)
   );
   /* Total wide width: 60rem + 20rem + 2rem = 82rem */
+
   /* Colors */
   --color_text--default: #18181b;
-  --color_text--subtle: #52525b;
-  --color_text--link: #3b82f6;
-  --color_text--link-alt: #2563eb;
+  --color_text--subtle: #71717a;
+  --color_text--link: #6366f1;
+  --color_text--link-alt: #4f46e5;
   --color_text--accent: var(--color_text--link);
   --color_background--surface: white;
   --color_background--element: #f4f4f5;
   --color_background--chip: #e4e4e7;
   --color_accent: var(--color_text--link);
+
   /* Font Families */
-  --font_body: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font_body: system-ui, sans-serif;
   --font_head: inherit;
-  --font_mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  --font_mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+
   /* Font Weights */
   --font_weight--thin: 100;
   --font_weight--extralight: 200;
@@ -55,6 +60,7 @@
   --font_weight--bold: 700;
   --font_weight--extrabold: 800;
   --font_weight--black: 900;
+
   /* Font Sizes & Line Heights */
   --font_size--xsmall: 0.75rem;     /* 12px */
   --font_height--xsmall: 1rem;      /* 16px */
@@ -85,7 +91,7 @@
 
 @media (min-width: 60rem) {
   :root {
-    /* --space_section: var(--space_16); */
+    --space_section: var(--space_16);
     --font_size--large: 2.25rem;    /* 36px */
     --font_height--large: 2.75rem;  /* 44px */
     --font_size--xlarge: 3rem;      /* 48px */
@@ -95,4 +101,12 @@
   }
 }
 
-/* !SECTION Tokens 2.0 */
+del {
+  --color_background--element: #fdebeb;
+}
+
+ins {
+  --color_background--element: #e3fcec;
+}
+
+/* !SECTION Tokens */
