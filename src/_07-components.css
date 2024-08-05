@@ -4,30 +4,6 @@
   * opinionated, but left in so you can see how to implement it
 ------------------------------------------------------------------ */
 
-details.accordion summary {
-  display: block;
-  cursor: pointer;
-  padding: var(--sp_1);
-  padding-left: calc(var(--sp_2) + 1em);
-  background: var(--element-background);
-  /*border-radius: 5px;*/
-}
 
-details.accordion summary::before {
-  left: var(--sp_1);
-}
-
-/*details.accordion[open] > summary {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}*/
-
-details.accordion .details-content {
-  padding: var(--sp_1);
-  padding-left: calc(var(--sp_2) + 1rem);
-  border: 2px solid var(--element-background);
-  /*border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;*/
-}
 
 /* END !SECTION ACCORDION */
