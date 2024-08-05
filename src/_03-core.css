@@ -1,6 +1,6 @@
-/** -----------------------------------------------------------------
-  * SECTION CORE
------------------------------------------------------------------- */
+/* =================================================================
+/* SECTION Core
+================================================================= */
 
 /* Links that point to a location on the same page will scroll
  * smoothly down to that location. */
@@ -13,8 +13,7 @@
  * content. Note that for Accessibility guidelines, this content
  * must become visible if toggled over using a keyboard. */
 
-.visually-hidden:not(:focus):not(:active),
-.sr-only:not(:focus):not(:active) {
+.visually-hidden:not(:focus):not(:active) {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;
@@ -43,7 +42,7 @@
 /* Use primary color for focus styles */
 
 :focus-visible {
-  outline-color: var(--color-accent);
+  outline-color: var(--color_accent);
   outline-offset: 3px;
   outline-width: 2px;
 }
@@ -51,60 +50,66 @@
 /* Adds a margin above an element when it is the target of an ID link */
 
 * {
-  scroll-margin-top: var(--flow-space);
-  scroll-margin-bottom: var(--flow-space);
+  scroll-margin-top: var(--space_flow);
+  scroll-margin-bottom: var(--space_flow);
 }
 
 /* ::selection {
   background-color: var(--color-primary-100);
 } */
 
-/** -----------------------------------------------------------------
-  * SECTION TYPOGRAPHY
------------------------------------------------------------------- */
+/* ==============================
+/* SECTION Typography
+============================== */
 
 /* Set the document's default font, color, size, and line height */
 
 body {
-  font: var(--typeset_0);
-  color: var(--text-color);
-  background: var(--page-background);
-}
-
-/* Setup flow spacing for typography elements */
-
-h1, h2, h3, h4, h5, h6, p,
-label, legend, address {
-  margin-block-end: var(--flow-space);
-}
-
-/* Double flow spacing before headings & set heading color. */
-
-h1, h2, h3, h4, h5, h6 {
-  color: var(--heading-color);
-  margin-block-start: calc(var(--flow-space) * 2);
-}
-
-/* Decrease space between sequential headings */
-
-h2 + h3,
-h3 + h4,
-h4 + h5,
-h5 + h6 {
-  margin-block-start: 0;
+  font-family: var(--font_body);
+  font-size: var(--font_size--normal);
+  line-height: var(--font_height--normal);
+  color: var(--color_text--default);
+  background: var(--color_background--surface);
 }
 
 /* Heading typography */
 
-h1, .txt-h1 { font: var(--typeset_4); font-weight: 800; letter-spacing: -0.01em; margin-block-start: 0;}
-h2, .txt-h2 { font: var(--typeset_3); font-weight: 600; letter-spacing: -0.01em;}
-h3, .txt-h3 { font: var(--typeset_2); font-weight: 600; letter-spacing: -0.01em; }
-h4, .txt-h4 { font: var(--typeset_1); font-weight: 700; letter-spacing: -0.01em; }
-h5, .txt-h5, h6, .txt-h6, label, th, legend { font: var(--typeset_0); font-weight: bold; }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font_head);
+  font-weight: var(--font_weight--bold);
+}
+
+h1,
+.util_txt--h1 {
+  font-size: var(--font_size--xxlarge);
+  line-height: var(--font_height--xxlarge);
+}
+
+h2,
+.util_txt--h2 {
+  font-size: var(--font_size--xlarge);
+  line-height: var(--font_height--xlarge);
+}
+
+h3,
+.util_txt--h3 {
+  font-size: var(--font_size--large);
+  line-height: var(--font_height--large);
+}
+
+h4,
+.util_txt--h4 {
+  font-size: var(--font_size--medium);
+  line-height: var(--font_height--medium);
+}
 
 /* Set typography for small text */
 
-small, .txt-small { font: var(--typeset_-1); }
+small,
+.util_txt--small {
+  font-size: var(--font_size--small);
+  line-height: var(--font_height--small);
+}
 
 /* Basic styles for inline semantics */
 
@@ -119,8 +124,11 @@ sub, sup {
   line-height: 0;
   position: relative;
 }
+
 sup { top: -0.5em; }
 sub { bottom: -0.25em; }
+
+/* REVIEW */
 
 /* del, ins, and s styles. Note that these are opinionated and may
  * need to be restyled to suit your use case. These pseudoelements
@@ -149,28 +157,28 @@ ins::after { content: " [insertion end] "; }
 s::before { content: " [start of stricken text] "; }
 s::after { content: " [end of stricken text] "; } */
 
-del {
-  background: var(--del-background);
+/* del {
+  background: var(--color_background--element);
   text-decoration: line-through;
   padding: 0.1em 0.3em;
 }
 
 ins {
-  background: var(--ins-background);
+  background: var(--color_background--element);
   text-decoration: none;
   padding: 0.1em 0.3em;
-}
+} */
 
 /* See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s */
 
-s { text-decoration: line-through; }
+/* s { text-decoration: line-through; } */
 
 /* Mark styles - see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark */
 
-mark {
+/* mark {
   background: var(--mark-background);
   padding: 0.1em 0.3em;
-}
+} */
 
 /* Basic styles for abbreviation. Only style differently when
  * a title is present. */
@@ -182,20 +190,20 @@ abbr[title] {
   text-decoration-style: dotted;
 }
 
-/* Italisize q when it includes a cite */
+/* Italicize q when it includes a cite */
 
 q[cite] { font-style: italic; }
 
 
-/* !SECTION TYPOGRAPHY */
-/** -----------------------------------------------------------------
-  * SECTION LINKS
-  * :not([class]) is so that the styles won't need to be overridden
-  * in special use cases like navigation / buttons
------------------------------------------------------------------- */
+/* !SECTION Typography */
+/* ==============================
+/* SECTION Links
+** :not([class]) is so that the styles won't need to be overridden
+** in special use cases like navigation / buttons
+============================== */
 
 a:not([class]) {
-  color: var(--link-color);
+  color: var(--color_text--link);
   text-decoration: none;
   font-weight: bold;
 }
@@ -205,7 +213,7 @@ a:not([class]) {
 a:not([class]):hover,
 a:not([class]):focus {
   text-decoration: underline;
-  text-decoration-color: var(--link-color);
+  text-decoration-color: var(--color_text--link-alt);
   text-decoration-thickness: 2px;
 }
 
@@ -227,35 +235,41 @@ a:not([class])[data-link-type='document']::after {
   padding-left: 0.1em;
 } */
 
-/* !SECTION LINKS */
-/** -----------------------------------------------------------------
-  * SECTION BLOCKQUOTE
------------------------------------------------------------------- */
+/* !SECTION Links */
+/* ==============================
+/* SECTION Blockquote
+============================== */
 
-/* Add basic styling for blockquotes, and provide a utility class
- * to apply these styles outside of a quote context */
-
-blockquote,
-.callout {
-  border-left: 5px solid var(--accent-color);
-  padding: var(--sp_2) var(--sp_4);
-  margin-block-end: var(--flow-space);
+blockquote {
+  border-left: 5px solid var(--color_accent);
+  padding: var(--space_2) var(--space_4);
+  font-weight: var(--font_weight--semibold);
 }
 
-/* Remove the bottom margin from the last child in the blockquote */
-
-blockquote :last-child,
-.callout :last-child {
-  margin-block-end: 0;
+blockquote footer,
+blockquote cite {
+  font-size: var(--font_size--small);
+  line-height: var(--font_height--small);
+  font-weight: var(--font_weight--normal);
 }
 
-/* !SECTION BLOCKQUOTE */
-/** -----------------------------------------------------------------
-  * SECTION LISTS
-  * :not([class]) is so that the styles won't need to be overridden
-  * in special use cases. For example, when list markup might need
-  * to be paired with a grid layout
------------------------------------------------------------------- */
+blockquote cite {
+  font-style: italic;
+}
+
+blockquote > cite,
+blockquote > footer {
+  display: block;
+  margin-block-start: calc(var(--space_flow) / 2);
+}
+
+/* !SECTION Blockquote */
+/* ==============================
+/* SECTION Lists
+** :not([class]) is so that the styles won't need to be overridden
+** in special use cases. For example, when list markup might need
+** to be paired with a grid layout
+============================== */
 
 /* Set nested unordered list styles */
 
@@ -271,45 +285,25 @@ ol:not([class]) ol:not([class]) ol:not([class]) { list-style-type: lower-roman; 
 
 /* Set indention and flow spacing for lists */
 
-ul:not([class]), ol:not([class]) {
-  margin-inline-start: 1em;
-}
-
-/* Add flow spacing to list elements */
-
-ul, ol, dl {
-  margin-block-end: var(--flow-space);
-}
-
-/* Add spacing between list items */
-
-ul:not([class]) li,
-ul:not([class]) ol,
-ul:not([class]) ul,
 ol:not([class]) li,
+ul:not([class]) li,
 ol:not([class]) ol,
-ol:not([class]) ul {
-  margin-block-end: var(--sp_1);
-}
-
-/* Ensure nested lists have the correct spacing */
-
+ol:not([class]) ul,
 ul:not([class]) ol,
-ul:not([class]) ul,
-ol:not([class]) ol,
-ol:not([class]) ul {
-  margin-block-start: var(--sp_1);
+ul:not([class]) ul {
+  margin-block-end: var(--space_1);
+  margin-inline-start: var(--space_2);
 }
 
 /* Add basic styles for definition lists */
 
 dt { font-weight: bold; }
-dd { padding-inline-start: var(--flow-space); }
+dd { padding-inline-start: var(--space_2); }
 
-/* !SECTION LISTS */
-/** -----------------------------------------------------------------
-  * SECTION MEDIA
------------------------------------------------------------------- */
+/* !SECTION Lists */
+/* ==============================
+/* SECTION Media
+============================== */
 
 /* Allow media to sit correctly in content flow */
 
@@ -322,20 +316,12 @@ video,
   display: block;
   width: 100%;
   margin: auto;
-  margin-block-end: var(--flow-space);
 }
 
 img {
   max-width: 100%;
   width: auto;
   height: auto;
-}
-
-/* Let SVG scale without boundaries */
-img[src$=".svg"] {
-  width: 100%;
-  height: auto;
-  max-width: none;
 }
 
 /* Basic style for figcaption */
@@ -353,7 +339,6 @@ audio {
   display: block;
   max-width: 100%;
   border-radius: 900px;
-  margin-block-end: var(--flow-space);
 }
 
 /* Setup media wrappers */
@@ -361,20 +346,11 @@ audio {
 .aspect-ratio,
 .video-wrapper,
 .embed-container {
+  --aspect-ratio: 16/9;
   width: 100%;
   padding-block-start: calc(100%/(var(--aspect-ratio)));
   position: relative;
 }
-
-/* Define aspect ratios */
-
-.video-wrapper,
-.embed-container,
-.sixteen-by-nine { --aspect-ratio: 16/9; }
-.one-by-one { --aspect-ratio: 1/1; }
-.three-by-two { --aspect-ratio: 3/2; }
-.four-by-three { --aspect-ratio: 3/2; }
-.eight-by-five { --aspect-ratio: 8/5; }
 
 /* Position inner elements in media wrappers */
 
@@ -408,67 +384,77 @@ audio {
   overflow-x: auto;
 }
 
-/* !SECTION MEDIA */
-/** -----------------------------------------------------------------
-  * SECTION RULES
------------------------------------------------------------------- */
+/* !SECTION Media */
+/* ==============================
+/* SECTION Rules
+============================== */
 
 hr {
   border: none;
-  border-block-end: 0.5px solid var(--light-text-color);
+  border-block-end: 1px solid var(--color_text--subtle);
   width: 100%;
-  margin-block-end: var(--flow-space);
 }
 
 hr.spacer {
+  --spacer-height: calc(var(--space_flow) * 2);
   border: none;
-  margin: calc(var(--flow-space) * 2) 0;
+  margin-block-start: var(--spacer-height) 0;
 }
 
-/* !SECTION RULES */
-/** -----------------------------------------------------------------
-  * SECTION TABLES
------------------------------------------------------------------- */
+/* !SECTION Rules*/
+/* ==============================
+/* SECTION Tables
+============================== */
 
 table {
   width: 100%;
-  margin-block-end: var(--flow-space);
 }
 
 caption {
-  padding: var(--sp_1);
-  font: var(--typeset_1);
+  padding: var(--space_2);
+  font-size: inherit;
+  line-height: inherit;
   text-align: left;
 }
 
+thead {
+  background-color: var(--color_text--default);
+  color: var(--color_background--surface);
+}
+
 th, td {
-  font: var(--typeset_-1);
-  padding: var(--sp_1);
+  font-size: var(--font_size--small);
+  line-height: var(--font_height--small);
+  padding: var(--space_2);
   text-align: left;
 }
 
 th { font-weight: bold; }
 
 tr {
-  border-block-end: 0.5px solid var(--light-text-color);
+  border-block-end: 0.5px solid var(--color_text--subtle);
 }
 
-tr:hover {
-  background-color: var(--element-background);
+tbody tr:hover {
+  background-color: var(--color_background--element);
 }
 
-/* !SECTION TABLES */
-/** -----------------------------------------------------------------
-  * SECTION CODE
------------------------------------------------------------------- */
+tfoot {
+  background-color: var(--color_background--chip);
+}
+
+/* !SECTION Tables */
+/* ==============================
+/* SECTION Code
+============================== */
 
 code, samp, kbd, var {
-  font-family: var(--font-mono);
+  font-family: var(--font_mono);
   padding: 0.1em 0.3em;
 }
 
 code, samp {
-  background-color: var(--element-background);
+  background-color: var(--color_background--element);
 }
 
 var {
@@ -477,28 +463,25 @@ var {
 }
 
 kbd {
-  background-color: var(--text-color);
-  color: white;
+  background-color: var(--color_text--default);
+  color: var(--color_background--surface);
   border-radius: 5px;
-}
-
-pre {
-  margin-bottom: var(--flow-space);
 }
 
 pre code,
 pre samp {
   display: block;
-  padding: var(--sp_2);
+  padding: var(--space_2);
   overflow: auto;
-  font: var(--typeset_-1);
-  font-family: var(--font-mono);
+  font-family: var(--font_mono);
+  font-size: var(--font_size--small);
+  line-height: var(--font_height--small);
 }
 
-/* !SECTION CODE */
-/** -----------------------------------------------------------------
-  * SECTION DETAILS
------------------------------------------------------------------- */
+/* !SECTION Code */
+/* ==============================
+/* SECTION Details
+============================== */
 
 /* Display:block removes Firefox's marker
  * ::webkit-details-marker removed Chrome & Safair's marker */
@@ -506,7 +489,6 @@ pre samp {
 details {
   display: block;
   position: relative;
-  margin-block-end: var(--flow-space);
 }
 
 summary::-webkit-details-marker {
@@ -516,33 +498,39 @@ summary::-webkit-details-marker {
 summary {
   display: block;
   cursor: pointer;
-  padding-inline-start: 1.5em;
+  color: var(--color_text--default);
+  font-weight: var(--font_weight--bold);
   font-weight: bold;
 }
 
 summary::before {
-  position: absolute;
+  content: "+";
+  box-sizing: border-box;
+  text-align: center;
+  display: inline-block;
+  font-size: 1em;
+  width: 1em;
+  margin-inline-end: 0.5em;
   will-change: transform;
   transition: transform 300ms ease;
-  font-size: 1em;
-  content: "▸";
-  left: 0;
-  display: inline-block;
-  text-align: center;
-  width: 1em;
 }
 
 summary:focus::before {
-  color: var(--accent-color);
+  color: var(--color_accent);
+}
+
+summary + * {
+  margin-block-start: calc(var(--space_flow) / 2);
 }
 
 details[open] > summary::before {
-  transform: rotate(90deg);
+  transform: rotate(45deg);
 }
 
-details .details-content {
-  padding-inline-start: 1.5em;
+details {
+  background: var(--color_background--element);
+  padding: var(--space_2);
 }
 
-/* !SECTION DETAILS */
-/* !SECTION CORE */
+/* !SECTION Details */
+/* !SECTION Core */

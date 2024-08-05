@@ -3,109 +3,96 @@
   The Unlicense <https://unlicense.org>
   https://github.com/MattMcAdams/CSS-Boilerplate
 ================================================================== */
-
-/** -----------------------------------------------------------------
-  * SECTION TOKENS
-  * font: font-style font-variant font-weight font-size/line-height font-family; }
------------------------------------------------------------------- */
+/* =================================================================
+/* SECTION Tokens
+================================================================= */
 
 :root {
-  /* Fonts */
-  --font-body: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-head: inherit;
-  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  /* --font-icon: null; */
-
-  --text-color: #2D2F34;
-  --heading-color: inherit;
-  --light-text-color: #707682;
-  --link-color: #0074E0;
-  --link-color-alt: #0263BC;
-  --ins-background: #E6F7EB;
-  --del-background: #FFE6E6;
-  --mark-background: #FFF9E6;
-  --page-background: white;
-  --element-background: #F0F1F3;
-  --accent-color: var(--link-color);
-  --invalid-color: #DC2F2F;
-
-  /* Colors */
-  /* --color-gray-100: #F0F1F3; */
-  /* --color-gray-500: #707682; */
-  /* --color-gray-900: #2D2F34; */
-  /* https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/707682/112/118/130/white */
-  /* --color-red-100: #FFE6E6; */
-  /* --color-red-500: #DC2F2F; */
-  /* --color-red-900: #551616; */
-  /* https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/DC2F2F/220/47/47/white */
-  /* --color-yellow-100: #FFF9E6; */
-  /* --color-yellow-500: #D08200; */
-  /* --color-yellow-900: #4F3304; */
-  /* https://hihayk.github.io/scale/#4/4/60/90/0/-10/50/-10/D08200/208/130/0/white */
-  /* --color-green-100: #E6F7EB; */
-  /* --color-green-500: #00883E; */
-  /* --color-green-900: #033419; */
-  /* https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/00883E/0/136/62/white */
-  /* --color-primary-100: #E6F1FF; */
-  /* --color-primary-500: #0074E0; */
-  /* --color-primary-900: #052E55; */
-  /* https://hihayk.github.io/scale/#4/4/60/90/0/0/50/-10/0074E0/0/116/224/white */
-
   /* Spacing */
-  --content-width: 55rem; /* 880px */
-  --sidebar-width: 15rem; /* 240px */
-
-  /* --------------------------------------------------------------------------
-   * Size table using 8pt grid
-   * PX       REM         STEP
-   * :----    :-------    :-----
-   * 4px      0.25rem     0.5
-   * 8px      0.5rem      1
-   * 12px     0.75rem     1.5
-   * 16px     1rem        2
-   * 18px     1.25rem     2.5
-   * 24px     1.5rem      3
-   * 28px     1.75        3.5
-   * 32px     2rem        4
-   * 36px     2.25rem     4.5
-   * 44px     2.75rem     5.5
-   * 48px     3rem        6
-   * 64px     4rem        8
-   * 72px     4.5rem      9
-   * 80px     5rem        10
-   * 128px    8rem        16
-  -------------------------------------------------------------------------- */
-
-  --sp_0: 0.25rem;    /* 4px     utility to substitute 0 margins to add some polish */
-  --sp_1: 0.5rem;     /* 8px     utility for tight paddings etc */
-  --sp_2: 1rem;       /* 16px    1/2 line height, for closely related elements */
-  --sp_4: 2rem;       /* 32px    1 line height, for related elements */
-  --sp_8: 4rem;       /* 64px    2 line heights, for loosely related elements */
-  --sp_16: 8rem;      /* 128px   4 line heights, for unrelated elements */
-
-  --flow-space: var(--sp_4);
-  --gutter: var(--sp_2);
-  --section-space: var(--sp_16);
-
-  /* Modular Scale */
-  --typeset_-1: 1rem/1.5rem var(--font-body);       /* 16px/24px */
-  --typeset_0: 1.25rem/2rem var(--font-body);       /* 18px/32px */
-  --typeset_1: 1.5rem/2rem var(--font-body);        /* 24px/32px */
-  --typeset_2: 2rem/2.5rem var(--font-body);    /* 36px/44px */
-  --typeset_3: 2.5rem/3rem var(--font-body);        /* 48px/56px */
-  --typeset_4: 3rem/3rem var(--font-body);      /* 72px/72px */
-  --typeset_5: 5rem/5rem var(--font-body);          /* 80px/80px */
+  --space_05: 0.25rem; /* 4px   - utility to substitute 0 margins */
+  --space_1: 0.5rem;  /* 8px   - utility for tight paddings etc */
+  --space_2: 1rem;    /* 16px  - 1/2 line height, for closely related elements */
+  --space_4: 2rem;    /* 32px  - 1 line height, for related elements */
+  --space_8: 4rem;    /* 64px  - 2 line heights, for loosely related elements */
+  --space_16: 8rem;   /* 128px - 4 line heights, for unrelated elements */
+  /* Semantic Space */
+  --space_flow: var(--space_4);
+  --space_gutter: var(--space_2);
+  --space_section: var(--space_8);
+  --space_grid-gap: var(--space_4);
+  --space_flex-gap: var(--space_2);
+  --space_layout-gap: var(--space_4);
+  /* Layout Widths */
+  --width_content: 60rem; /* 960px + gutters */
+  --width_sidebar: 20rem; /* 320px + gutters */
+  --width_wide: calc(
+    var(--width_content) +
+    var(--width_sidebar) +
+    var(--space_layout-gap)
+  );
+  /* Total wide width: 60rem + 20rem + 2rem = 82rem */
+  /* Colors */
+  --color_text--default: #18181b;
+  --color_text--subtle: #52525b;
+  --color_text--link: #3b82f6;
+  --color_text--link-alt: #2563eb;
+  --color_text--accent: var(--color_text--link);
+  --color_background--surface: white;
+  --color_background--element: #f4f4f5;
+  --color_background--chip: #e4e4e7;
+  --color_accent: var(--color_text--link);
+  /* Font Families */
+  --font_body: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font_head: inherit;
+  --font_mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  /* Font Weights */
+  --font_weight--thin: 100;
+  --font_weight--extralight: 200;
+  --font_weight--light: 300;
+  --font_weight--normal: 400;
+  --font_weight--medium: 500;
+  --font_weight--semibold: 600;
+  --font_weight--bold: 700;
+  --font_weight--extrabold: 800;
+  --font_weight--black: 900;
+  /* Font Sizes & Line Heights */
+  --font_size--xsmall: 0.75rem;     /* 12px */
+  --font_height--xsmall: 1rem;      /* 16px */
+  --font_size--small: 1rem;         /* 16px */
+  --font_height--small: 1.5rem;     /* 24px */
+  --font_size--normal: 1.25rem;     /* 20px */
+  --font_height--normal: 1.75rem;   /* 28px */
+  --font_size--medium: 1.5rem;      /* 24px */
+  --font_height--medium: 2rem;      /* 32px */
+  --font_size--large: 1.75rem;      /* 28px */
+  --font_height--large: 2.25rem;    /* 36px */
+  --font_size--xlarge: 2rem;        /* 32px */
+  --font_height--xlarge: 2.5rem;    /* 40px */
+  --font_size--xxlarge: 2.5rem;     /* 40px */
+  --font_height--xxlarge: 2.5rem;   /* 40px */
 }
-@media (min-width: 55rem) {
+
+@media (min-width: 30rem) {
   :root {
-    --typeset_-1: 1rem/1.5rem var(--font-body);       /* 16px/24px */
-    --typeset_0: 1.25rem/2rem var(--font-body);       /* 18px/32px */
-    --typeset_1: 1.5rem/2rem var(--font-body);        /* 24px/32px */
-    --typeset_2: 2.25rem/2.75rem var(--font-body);    /* 36px/44px */
-    --typeset_3: 3rem/3.5rem var(--font-body);        /* 48px/56px */
-    --typeset_4: 4.5rem/4.5rem var(--font-body);      /* 72px/72px */
-    --typeset_5: 5rem/5rem var(--font-body);          /* 80px/80px */
+    --font_size--large: 2rem;       /* 32px */
+    --font_height--large: 2.5rem;   /* 40px */
+    --font_size--xlarge: 2.5rem;    /* 40px */
+    --font_height--xlarge: 3rem;    /* 48px */
+    --font_size--xxlarge: 3rem;     /* 48px */
+    --font_height--xxlarge: 3rem;   /* 48px */
   }
 }
 
-/* END !SECTION TOKENS */
+@media (min-width: 60rem) {
+  :root {
+    /* --space_section: var(--space_16); */
+    --font_size--large: 2.25rem;    /* 36px */
+    --font_height--large: 2.75rem;  /* 44px */
+    --font_size--xlarge: 3rem;      /* 48px */
+    --font_height--xlarge: 3.5rem;  /* 56px */
+    --font_size--xxlarge: 4.5rem;   /* 72px */
+    --font_height--xxlarge: 4.5rem; /* 72px */
+  }
+}
+
+/* !SECTION Tokens 2.0 */
