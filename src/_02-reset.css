@@ -2,11 +2,8 @@
 /* SECTION Reset
 ** http://meyerweb.com/eric/tools/css/reset/
 ** v2.0 | 20110126 * License: none (public domain)
+** Modified by Matt McAdams
 ================================================================= */
-
-
-
-/* !SECTION Reset */
 
 * {
   box-sizing: border-box;
