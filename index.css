@@ -1,5 +1,5 @@
 /* ==================================================================
-  CSS Boilerplate v2.0.1
+  CSS Boilerplate v2.0.2
   The Unlicense <https://unlicense.org>
   https://github.com/MattMcAdams/CSS-Boilerplate
 ================================================================== */
@@ -1032,21 +1032,18 @@ button[type="reset"][disabled] {
 .container {
   margin-inline: auto;
   padding-inline: var(--space_gutter);
-  width: 100%;
   max-width: var(--width_content);
 }
 
 .container--wide {
   margin-inline: auto;
   padding-inline: var(--space_gutter);
-  width: 100%;
   max-width: var(--width_wide);
 }
 
 .container--full {
   margin-inline: auto;
   padding-inline: var(--space_gutter);
-  width: 100%;
 }
 
 /* Allow nested containers wider than parent */

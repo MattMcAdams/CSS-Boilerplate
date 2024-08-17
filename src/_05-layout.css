@@ -13,21 +13,18 @@
 .container {
   margin-inline: auto;
   padding-inline: var(--space_gutter);
-  width: 100%;
   max-width: var(--width_content);
 }
 
 .container--wide {
   margin-inline: auto;
   padding-inline: var(--space_gutter);
-  width: 100%;
   max-width: var(--width_wide);
 }
 
 .container--full {
   margin-inline: auto;
   padding-inline: var(--space_gutter);
-  width: 100%;
 }
 
 /* Allow nested containers wider than parent */
