@@ -82,24 +82,29 @@ h1, h2, h3, h4, h5 {
 
 h1,
 .util_txt--h1 {
-  font-size: var(--font_size--xxlarge);
-  line-height: var(--font_height--xxlarge);
+  font-size: var(--font_size--xxxlarge);
+  line-height: var(--font_height--xxxlarge);
 }
 
 h2,
 .util_txt--h2 {
-  font-size: var(--font_size--xlarge);
-  line-height: var(--font_height--xlarge);
+  font-size: var(--font_size--xxlarge);
+  line-height: var(--font_height--xxlarge);
 }
 
 h3,
 .util_txt--h3 {
-  font-size: var(--font_size--large);
-  line-height: var(--font_height--large);
+  font-size: var(--font_size--xlarge);
+  line-height: var(--font_height--xlarge);
 }
 
 h4,
 .util_txt--h4 {
+  font-size: var(--font_size--large);
+  line-height: var(--font_height--large);
+}
+
+h5 {
   font-size: var(--font_size--medium);
   line-height: var(--font_height--medium);
 }
@@ -260,13 +265,9 @@ ol:not([class]) ol:not([class]) ol:not([class]) { list-style-type: lower-roman; 
 /* Set indention and flow spacing for lists */
 
 ol:not([class]) li,
-ul:not([class]) li,
-ol:not([class]) ol,
-ol:not([class]) ul,
-ul:not([class]) ol,
-ul:not([class]) ul {
+ul:not([class]) li {
   margin-block-end: var(--space_1);
-  margin-inline-start: var(--space_2);
+  margin-inline-start: var(--space_4);
 }
 
 /* Add basic styles for definition lists */
