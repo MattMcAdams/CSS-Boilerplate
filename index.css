@@ -1,5 +1,5 @@
 /* ==================================================================
-  CSS Boilerplate
+  CSS Boilerplate v2.0.1
   The Unlicense <https://unlicense.org>
   https://github.com/MattMcAdams/CSS-Boilerplate
 ================================================================== */
@@ -62,42 +62,49 @@
   --font_weight--black: 900;
 
   /* Font Sizes & Line Heights */
-  --font_size--xsmall: 0.75rem;     /* 12px */
-  --font_height--xsmall: 1rem;      /* 16px */
-  --font_size--small: 1rem;         /* 16px */
-  --font_height--small: 1.5rem;     /* 24px */
-  --font_size--normal: 1.25rem;     /* 20px */
-  --font_height--normal: 1.75rem;   /* 28px */
-  --font_size--medium: 1.5rem;      /* 24px */
-  --font_height--medium: 2rem;      /* 32px */
-  --font_size--large: 1.75rem;      /* 28px */
-  --font_height--large: 2.25rem;    /* 36px */
-  --font_size--xlarge: 2rem;        /* 32px */
-  --font_height--xlarge: 2.5rem;    /* 40px */
-  --font_size--xxlarge: 2.5rem;     /* 40px */
-  --font_height--xxlarge: 2.5rem;   /* 40px */
+  /* Based on a modular scale 1.125 by 1.2 */
+  /* Exact values have been refined to be a whole pixel value */
+  --font_size--small: 0.9375rem;    /* 15px */
+  --font_size--normal: 1.125rem;    /* 18px */
+  --font_size--medium: 1.375rem;    /* 22px */
+  --font_size--large: 1.625rem;     /* 26px */
+  --font_size--xlarge: 1.9375rem;   /* 31px */
+  --font_size--xxlarge: 2.3125rem;  /* 37px */
+  --font_size--xxxlarge: 2.8125rem; /* 45px */
+
+  /* Line heights */
+  --font_height--small: 1.2;
+  --font_height--normal: 1.8;
+  --font_height--medium: 1.5;
+  --font_height--large: 1.3;
+  --font_height--xlarge: 1.2;
+  --font_height--xxlarge: 1.1;
+  --font_height--xxxlarge: 1;
 }
 
+/* Medium font sizes */
+/* Based on a modular scale 1.125 by 1.25 */
+/* Exact values have been refined to be a whole pixel value */
 @media (min-width: 30rem) {
   :root {
-    --font_size--large: 2rem;       /* 32px */
-    --font_height--large: 2.5rem;   /* 40px */
-    --font_size--xlarge: 2.5rem;    /* 40px */
-    --font_height--xlarge: 3rem;    /* 48px */
-    --font_size--xxlarge: 3rem;     /* 48px */
-    --font_height--xxlarge: 3rem;   /* 48px */
+    --font_size--small: 0.875rem;     /* 14px */
+    --font_size--medium: 1.4375rem;   /* 23px */
+    --font_size--large: 1.75rem;      /* 28px */
+    --font_size--xlarge: 2.1875rem;   /* 35px */
+    --font_size--xxlarge: 2.75rem;    /* 44px */
+    --font_size--xxxlarge: 3.4375rem; /* 55px */
   }
 }
 
-@media (min-width: 60rem) {
+/* Large font sizes */
+/* Based on a modular scale 1.125 by 1.3 */
+/* Exact values have been refined to be a whole pixel value */
+@media (min-width: 60em) {
   :root {
-    --space_section: var(--space_16);
-    --font_size--large: 2.25rem;    /* 36px */
-    --font_height--large: 2.75rem;  /* 44px */
-    --font_size--xlarge: 3rem;      /* 48px */
-    --font_height--xlarge: 3.5rem;  /* 56px */
-    --font_size--xxlarge: 4.5rem;   /* 72px */
-    --font_height--xxlarge: 4.5rem; /* 72px */
+    --font_size--large: 1.875rem;     /* 30px */
+    --font_size--xlarge: 2.5rem;      /* 40px */
+    --font_size--xxlarge: 3.1875rem;  /* 51px */
+    --font_size--xxxlarge: 4.1875rem; /* 67px */
   }
 }
 
@@ -114,11 +121,8 @@ ins {
 /* SECTION Reset
 ** http://meyerweb.com/eric/tools/css/reset/
 ** v2.0 | 20110126 * License: none (public domain)
+** Modified by Matt McAdams
 ================================================================= */
-
-
-
-/* !SECTION Reset */
 
 * {
   box-sizing: border-box;
@@ -264,24 +268,29 @@ h1, h2, h3, h4, h5 {
 
 h1,
 .util_txt--h1 {
-  font-size: var(--font_size--xxlarge);
-  line-height: var(--font_height--xxlarge);
+  font-size: var(--font_size--xxxlarge);
+  line-height: var(--font_height--xxxlarge);
 }
 
 h2,
 .util_txt--h2 {
-  font-size: var(--font_size--xlarge);
-  line-height: var(--font_height--xlarge);
+  font-size: var(--font_size--xxlarge);
+  line-height: var(--font_height--xxlarge);
 }
 
 h3,
 .util_txt--h3 {
-  font-size: var(--font_size--large);
-  line-height: var(--font_height--large);
+  font-size: var(--font_size--xlarge);
+  line-height: var(--font_height--xlarge);
 }
 
 h4,
 .util_txt--h4 {
+  font-size: var(--font_size--large);
+  line-height: var(--font_height--large);
+}
+
+h5 {
   font-size: var(--font_size--medium);
   line-height: var(--font_height--medium);
 }
@@ -442,13 +451,9 @@ ol:not([class]) ol:not([class]) ol:not([class]) { list-style-type: lower-roman; 
 /* Set indention and flow spacing for lists */
 
 ol:not([class]) li,
-ul:not([class]) li,
-ol:not([class]) ol,
-ol:not([class]) ul,
-ul:not([class]) ol,
-ul:not([class]) ul {
+ul:not([class]) li {
   margin-block-end: var(--space_1);
-  margin-inline-start: var(--space_2);
+  margin-inline-start: var(--space_4);
 }
 
 /* Add basic styles for definition lists */
@@ -1027,18 +1032,21 @@ button[type="reset"][disabled] {
 .container {
   margin-inline: auto;
   padding-inline: var(--space_gutter);
+  width: 100%;
   max-width: var(--width_content);
 }
 
 .container--wide {
   margin-inline: auto;
   padding-inline: var(--space_gutter);
+  width: 100%;
   max-width: var(--width_wide);
 }
 
 .container--full {
   margin-inline: auto;
   padding-inline: var(--space_gutter);
+  width: 100%;
 }
 
 /* Allow nested containers wider than parent */
@@ -1154,13 +1162,14 @@ details > * + * {
 .layout--grid {
   --grid-column--count: 6;
   --grid-gap--width: var(--space_grid-gap);
-  --grid-gap--count: var(--grid-column--count) - 1;
+  --grid-gap--count: calc(var(--grid-column--count) - 1);
   --grid-gap--total: calc(var(--grid-gap--width) * var(--grid-gap--count));
-  --grid-item--min-width: 15rem;
+  --grid-item--min-width: 14rem;
   --grid-item--max-width: calc((100% - var(--grid-gap--total)) / var(--grid-column--count));
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr));
+  gap: var(--grid-gap--width);
 }
 
 /* Stabilize height of components that are side by side */
