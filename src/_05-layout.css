@@ -13,18 +13,21 @@
 .container {
   margin-inline: auto;
   padding-inline: var(--space_gutter);
+  width: 100%;
   max-width: var(--width_content);
 }
 
 .container--wide {
   margin-inline: auto;
   padding-inline: var(--space_gutter);
+  width: 100%;
   max-width: var(--width_wide);
 }
 
 .container--full {
   margin-inline: auto;
   padding-inline: var(--space_gutter);
+  width: 100%;
 }
 
 /* Allow nested containers wider than parent */
@@ -140,13 +143,14 @@ details > * + * {
 .layout--grid {
   --grid-column--count: 6;
   --grid-gap--width: var(--space_grid-gap);
-  --grid-gap--count: var(--grid-column--count) - 1;
+  --grid-gap--count: calc(var(--grid-column--count) - 1);
   --grid-gap--total: calc(var(--grid-gap--width) * var(--grid-gap--count));
-  --grid-item--min-width: 15rem;
+  --grid-item--min-width: 14rem;
   --grid-item--max-width: calc((100% - var(--grid-gap--total)) / var(--grid-column--count));
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr));
+  gap: var(--grid-gap--width);
 }
 
 /* Stabilize height of components that are side by side */
